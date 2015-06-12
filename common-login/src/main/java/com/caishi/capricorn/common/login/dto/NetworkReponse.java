@@ -1,9 +1,13 @@
 package com.caishi.capricorn.common.login.dto;
 
+import java.io.UnsupportedEncodingException;
+
 /**
  * 客户端访问请求返回结构
  */
 public class NetworkReponse<T> {
+	
+	private final String defaultMessage = "请求正常，让我们尽情的溜达吧";
 	
 	/**
 	 * 操作请求处置状态编码
@@ -52,13 +56,18 @@ public class NetworkReponse<T> {
 	 * 消息内容
 	 * @see 成功提示，错误信息
 	 */
-	private String message = "请求正常，让我们尽情的玩耍吧";
+	private String message;
 	
 	/**
 	 * 获取消息内容
 	 * @return 消息内容
+	 * @throws UnsupportedEncodingException 
 	 */
-	public String getMessage() {
+	public String getMessage() throws UnsupportedEncodingException {
+		if(message==null){
+			byte[] buffer = defaultMessage.getBytes("UTF-8");
+			message = new String(buffer,"UTF-8");
+		}
 		return message;
 	}
 

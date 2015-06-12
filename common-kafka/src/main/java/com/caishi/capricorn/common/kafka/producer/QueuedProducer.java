@@ -107,14 +107,14 @@ public class QueuedProducer {
                 messageQueue);
     }
 
-    protected void sendMessage(String topic, Serializable key, Serializable message) {
+    public void sendMessage(String topic, Serializable key, Serializable message) {
         ProducerRecord<Serializable,Serializable> producerRecord = new ProducerRecord<Serializable,Serializable>(topic, key, message);
 
         SendTask sendTask = new SendTask(producerRecord);
         threadPool.submit(sendTask);
     }
 
-    protected void sendMessage(String topic, Serializable message) {
+    public void sendMessage(String topic, Serializable message) {
         ProducerRecord<Serializable,Serializable> producerRecord = new ProducerRecord<Serializable,Serializable>(topic, message);
 
         SendTask sendTask = new SendTask(producerRecord);

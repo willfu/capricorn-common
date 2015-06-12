@@ -4,7 +4,6 @@ package com.caishi.capricorn.common.base;
 import com.alibaba.fastjson.JSON;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -16,6 +15,28 @@ import java.util.Map;
  * @since 0.0.1
  */
 public class FeedMessage implements Serializable {
+    public static String FEED_TITLE = "title";
+    public static String FEED_CONTENT = "content";
+    public static String FEED_SUMMARY = "summary";
+    public static String FEED_PUBTIME = "pubtime";
+
+    public static String FEED_SOURCE_META = "source_meta";
+    public static String FEED_SOURCE_META_NAME = "name";
+    public static String FEED_SOURCE_META_DIRECTLINKTO = "direct_linkto";
+    public static String FEED_SOURCE_META_PRIORITY = "priority";
+    public static String FEED_SOURCE_META_CATEGORIES = "categories";
+    public static String FEED_SOURCE_META_TAGS = "tags";
+
+    public static String FEED_SOURCE_LINK = "src_link";
+
+    public static String FEED_MEDIA = "media";
+    public static String FEED_MEDIA_IMAGES = "images";
+    public static String FEED_MEDIA_VIDEOS = "videos";
+
+    public static String FEED_EXTRA = "extra";
+    public static String FEED_EXTRA_COOKIES = "cookies";
+
+    public static String FEED_CREATE_TIME = "createtime";
 
     private String title;
 
@@ -33,7 +54,7 @@ public class FeedMessage implements Serializable {
 
     private long createTime;
 
-    private HashMap<String, Object> extra;
+    private Map<String, Object> extra;
 
     public String getTitle() {
         return title;
@@ -99,11 +120,11 @@ public class FeedMessage implements Serializable {
         this.createTime = createTime;
     }
 
-    public HashMap<String, Object> getExtra() {
+    public Map<String, Object> getExtra() {
         return extra;
     }
 
-    public void setExtra(HashMap<String, Object> extra) {
+    public void setExtra(Map<String, Object> extra) {
         this.extra = extra;
     }
 

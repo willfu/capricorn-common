@@ -17,5 +17,8 @@
   <build/>
   <modules>
     <module>common-login</module>
+    <module>common-kafka</module>
+    <module>common-utils</module>
+    <module>common-base</module>
   </modules>
 </project>

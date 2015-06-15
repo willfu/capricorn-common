@@ -14,6 +14,9 @@ public class MsgProcessorInfo {
 	private String groupId;
 	private int threadNum;
 
+	public MsgProcessorInfo() {
+	}
+
 	public MsgProcessorInfo(String topic, String groupId) {
 		this.topic = topic;
 		this.groupId = groupId;
@@ -52,6 +55,18 @@ public class MsgProcessorInfo {
 
 	public int getThreadNum() {
 		return threadNum;
+	}
+
+	public void setTopic(String topic) {
+		this.topic = topic;
+	}
+
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+	}
+
+	public void setThreadNum(int threadNum) {
+		this.threadNum = threadNum;
 	}
 
 	@Override

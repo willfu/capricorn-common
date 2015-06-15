@@ -10,6 +10,7 @@ public class MsgProcessorInfo {
 
 	public static final int DEFAULT_THREAD_NUM = 1;
 
+	private String zkConnect;
 	private String topic;
 	private String groupId;
 	private int threadNum;
@@ -29,7 +30,7 @@ public class MsgProcessorInfo {
 		this.threadNum = threadNum;
 	}
 
-	public void validate() {
+	public void validate(String defaultZkConnect) {
 		if (StringUtils.isBlank(topic)) {
 			throw new IllegalArgumentException("kafka topic is null.");
 		}
@@ -39,10 +40,20 @@ public class MsgProcessorInfo {
 		if (threadNum < 0) {
 			throw new IllegalArgumentException(String.format("kafka thread number for %s is less than 0.", topic));
 		}
+
+		if ( StringUtils.isBlank(defaultZkConnect) && StringUtils.isBlank(this.zkConnect)) {
+			throw new IllegalArgumentException(String.format("kafka zookeeper for %s is null.", topic));
+		}
+
+		this.zkConnect = StringUtils.defaultString(this.zkConnect, defaultZkConnect);
 	}
 
-	public static int getDefaultThreadNum() {
-		return DEFAULT_THREAD_NUM;
+	public String getZkConnect() {
+		return zkConnect;
+	}
+
+	public void setZkConnect(String zkConnect) {
+		this.zkConnect = zkConnect;
 	}
 
 	public String getTopic() {

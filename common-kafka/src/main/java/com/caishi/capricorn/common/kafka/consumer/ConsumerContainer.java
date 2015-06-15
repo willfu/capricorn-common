@@ -5,6 +5,7 @@ import com.caishi.capricorn.common.kafka.consumer.processor.MsgProcessor;
 import com.caishi.capricorn.common.kafka.consumer.processor.MsgProcessorInfo;
 import com.caishi.capricorn.common.kafka.consumer.processor.StringMsgProcessor;
 import com.caishi.capricorn.common.kafka.serialization.DefaultObjectDeserializer;
+import com.caishi.capricorn.common.utils.PropertiesUtil;
 import kafka.consumer.Consumer;
 import kafka.consumer.ConsumerConfig;
 import kafka.consumer.ConsumerIterator;
@@ -29,6 +30,10 @@ public class ConsumerContainer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ConsumerContainer.class);
 
+	public static final String DEFAULT_CONSUMER_CONFIG = "META-INF/com/caishi/capricorn/common/kafka/consumer/default-kafka-consumer-config.properties";
+
+	public static Properties DEFAULT_PROPERTIES;
+
 	public static final String ZK_CONNECT = "zookeeper.connect";
 	public static final String GROUP_ID = "group.id";
 	public static final String ZK_SESSION = "zookeeper.session.timeout.ms";
@@ -42,6 +47,7 @@ public class ConsumerContainer {
 	private static final Map<Class<? extends MsgProcessor>, Deserializer> CLASS_DESERIALIZER_MAP = new HashMap<Class<? extends MsgProcessor>, Deserializer>();
 
 	static {
+		DEFAULT_PROPERTIES = PropertiesUtil.loadProperties(DEFAULT_CONSUMER_CONFIG);
 		DESERIALIZER_PROCESSOR.add(JavaMsgProcessor.class);
 		DESERIALIZER_PROCESSOR.add(StringMsgProcessor.class);
 		CLASS_DESERIALIZER_MAP.put(JavaMsgProcessor.class, new DefaultObjectDeserializer());
@@ -121,8 +127,9 @@ public class ConsumerContainer {
 			MsgProcessorInfo key = entry.getKey();
 			/**
 			 * validate MsgProcessorInfo
+			 * 1. set zkconnect
 			 */
-			key.validate();
+			key.validate(this.zkConnect);
 
 			/**
 			 * validate MsgProcessor
@@ -178,7 +185,7 @@ public class ConsumerContainer {
 			return;
 		}
 
-		ConsumerConnector connector = Consumer.createJavaConsumerConnector(createConsumerConfig(msgProcessorInfo));
+		ConsumerConnector connector = Consumer.createJavaConsumerConnector(createConsumerConfig(this.zkConnect, msgProcessorInfo));
 		Map<String, Integer> topicCountMap = new HashMap<String, Integer>();
 		topicCountMap.put(msgProcessorInfo.getTopic(), msgProcessorInfo.getThreadNum());
 		Map<String, List<KafkaStream<byte[], byte[]>>> messageStreams = connector.createMessageStreams(topicCountMap);
@@ -221,13 +228,11 @@ public class ConsumerContainer {
 		}
 	}
 
-	private ConsumerConfig createConsumerConfig(MsgProcessorInfo msgProcessorInfo) {
+	private ConsumerConfig createConsumerConfig(String zkConnect, MsgProcessorInfo msgProcessorInfo) {
 		Properties props = new Properties();
 		props.put(ZK_CONNECT, zkConnect);
 		props.put(GROUP_ID, msgProcessorInfo.getGroupId());
-		props.put(ZK_SESSION, "4000");
-		props.put(ZK_SYNC, "2000");
-		props.put(COMMIT_TIME, "1000");
+		PropertiesUtil.mergeProperties(DEFAULT_PROPERTIES, props);
 		return new ConsumerConfig(props);
 	}
 

@@ -21,8 +21,8 @@ public class DataUtil {
 	 * @return ×Ö·û´®ÐòÁÐ×Ö·û´®
 	 */
 	public static String getRandomString(int len) {
-		StringBuffer buffer = new StringBuffer("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-		StringBuffer sb = new StringBuffer();
+		String buffer = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		StringBuilder sb = new StringBuilder();
 		Random random = new Random();
 		int range = buffer.length();
 		for (int i = 0; i < len; i++) {
@@ -37,8 +37,8 @@ public class DataUtil {
 	 * @return Êý×ÖÐòÁÐ×Ö·û´®
 	 */
 	public static String getRandomNumber(int len){
-		StringBuffer buffer = new StringBuffer("0123456789");
-		StringBuffer sb = new StringBuffer();
+		String buffer = "0123456789";
+		StringBuilder sb = new StringBuilder();
 		Random random = new Random();
 		int range = buffer.length();
 		for (int i = 0; i < len; i++) {
@@ -57,7 +57,7 @@ public class DataUtil {
 		source = source.trim();
 		if (source != null && source.length() > 0) {
 			sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
-			return new String(encoder.encodeBuffer(source.getBytes()));
+			return encoder.encodeBuffer(source.getBytes());
 		}
 		return null;
 	}

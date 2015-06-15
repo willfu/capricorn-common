@@ -67,7 +67,7 @@ public class QueuedProducer {
     public static final String VALUE_SERIALIZER_CLASS = "value.serializer";
     public static final String KEY_SERIALIZER_CLASS = "key.serializer";
 
-    public static final String DEFAULT_KAFKA_CONFIG = "kafka.properties";
+    public static final String DEFAULT_KAFKA_CONFIG = "META-INF/com/caishi/capricorn/common/kafka/producer/default-kafka-produce-config.properties";
 
         public QueuedProducer(String brokerList) {
             this(brokerList, 5, false);

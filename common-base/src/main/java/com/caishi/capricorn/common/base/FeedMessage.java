@@ -38,6 +38,8 @@ public class FeedMessage implements Serializable {
 
 	public static String FEED_CREATE_TIME = "createtime";
 
+	private String id;
+
 	private String title;
 
 	private String content;
@@ -57,6 +59,14 @@ public class FeedMessage implements Serializable {
 	private Map<String, Object> extra;
 
 	private ResourceFetcherType fetcherType;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public ResourceFetcherType getFetcherType() {
 		return fetcherType;

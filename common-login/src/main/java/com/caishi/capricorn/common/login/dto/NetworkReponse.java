@@ -64,11 +64,7 @@ public class NetworkReponse<T> {
 	 * @throws UnsupportedEncodingException 
 	 */
 	public String getMessage() throws UnsupportedEncodingException {
-		if(message==null){
-			byte[] buffer = defaultMessage.getBytes("ISO-8859-1");
-			message = new String(buffer,"UTF-8");
-		}
-		return message;
+		return this.message!=null&&this.message.length()>0?this.message:defaultMessage;
 	}
 
 	/**

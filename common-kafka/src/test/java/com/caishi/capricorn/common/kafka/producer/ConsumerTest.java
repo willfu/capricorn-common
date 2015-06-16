@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ConsumerTest {
 
-	public static void main(String[] args) throws Exception {
+	public static void test(String[] args) throws Exception {
 		ConsumerContainer consumerContainer = new ConsumerContainer();
 		consumerContainer.setZkConnect("10.10.1.54:2181");
 		ConcurrentMap<MsgProcessorInfo, MsgProcessor> msgProcessors = new ConcurrentHashMap<MsgProcessorInfo, MsgProcessor>();

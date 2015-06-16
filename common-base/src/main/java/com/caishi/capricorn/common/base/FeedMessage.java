@@ -15,127 +15,148 @@ import java.util.Map;
  * @since 0.0.1
  */
 public class FeedMessage implements Serializable {
-    public static String FEED_TITLE = "title";
-    public static String FEED_CONTENT = "content";
-    public static String FEED_SUMMARY = "summary";
-    public static String FEED_PUBTIME = "pubtime";
+	public static String FEED_TITLE = "title";
+	public static String FEED_CONTENT = "content";
+	public static String FEED_SUMMARY = "summary";
+	public static String FEED_PUBTIME = "pubtime";
 
-    public static String FEED_SOURCE_META = "source_meta";
-    public static String FEED_SOURCE_META_NAME = "name";
-    public static String FEED_SOURCE_META_DIRECTLINKTO = "direct_linkto";
-    public static String FEED_SOURCE_META_PRIORITY = "priority";
-    public static String FEED_SOURCE_META_CATEGORIES = "categories";
-    public static String FEED_SOURCE_META_TAGS = "tags";
-    public static String FEED_SOURCE_META_MODE = "mode";
+	public static String FEED_SOURCE_META = "source_meta";
+	public static String FEED_SOURCE_META_NAME = "name";
+	public static String FEED_SOURCE_META_DIRECTLINKTO = "direct_linkto";
+	public static String FEED_SOURCE_META_PRIORITY = "priority";
+	public static String FEED_SOURCE_META_CATEGORIES = "categories";
+	public static String FEED_SOURCE_META_TAGS = "tags";
+	public static String FEED_SOURCE_META_MODE = "mode";
+	public static String FEED_SOURCE_RESOURCE_FETCHER = "resource_fetcher";
 
-    public static String FEED_SOURCE_LINK = "src_link";
+	public static String FEED_SOURCE_LINK = "src_link";
 
-    public static String FEED_MEDIA = "media";
-    public static String FEED_MEDIA_IMAGES = "images";
-    public static String FEED_MEDIA_VIDEOS = "videos";
+	public static String FEED_MEDIA = "media";
+	public static String FEED_MEDIA_IMAGES = "images";
+	public static String FEED_MEDIA_VIDEOS = "videos";
 
-    public static String FEED_EXTRA = "extra";
-    public static String FEED_EXTRA_COOKIES = "cookies";
+	public static String FEED_EXTRA = "extra";
+	public static String FEED_EXTRA_COOKIES = "cookies";
 
-    public static String FEED_CREATE_TIME = "createtime";
+	public static String FEED_CREATE_TIME = "createtime";
 
-    private String title;
+	private String id;
 
-    private String content;
+	private String title;
 
-    private String summary;
+	private String content;
 
-    private String pubtime;
+	private String summary;
 
-    private Map<String, Object> media;
+	private String pubtime;
 
-    private String sourceLink;
+	private Map<String, Object> media;
 
-    private Map<String, Object> sourceMeta;
+	private String srcLink;
 
-    private long createTime;
+	private Map<String, Object> sourceMeta;
 
-    private Map<String, Object> extra;
+	private long createtime;
 
-    public String getTitle() {
-        return title;
-    }
+	private Map<String, Object> extra;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	private ResourceFetcherType fetcherType;
 
-    public String getContent() {
-        return content;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getSummary() {
-        return summary;
-    }
+	public ResourceFetcherType getFetcherType() {
+		return fetcherType;
+	}
 
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
+	public void setFetcherType(ResourceFetcherType fetcherType) {
+		this.fetcherType = fetcherType;
+	}
 
-    public String getPubtime() {
-        return pubtime;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setPubtime(String pubtime) {
-        this.pubtime = pubtime;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public Map<String, Object> getMedia() {
-        return media;
-    }
+	public String getContent() {
+		return content;
+	}
 
-    public void setMedia(Map<String, Object> media) {
-        this.media = media;
-    }
+	public void setContent(String content) {
+		this.content = content;
+	}
 
-    public String getSourceLink() {
-        return sourceLink;
-    }
+	public String getSummary() {
+		return summary;
+	}
 
-    public void setSourceLink(String sourceLink) {
-        this.sourceLink = sourceLink;
-    }
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
 
-    public Map<String, Object> getSourceMeta() {
-        return sourceMeta;
-    }
+	public String getPubtime() {
+		return pubtime;
+	}
 
-    public void setSourceMeta(Map<String, Object> sourceMeta) {
-        this.sourceMeta = sourceMeta;
-    }
+	public void setPubtime(String pubtime) {
+		this.pubtime = pubtime;
+	}
 
-    public long getCreateTime() {
-        return createTime;
-    }
+	public Map<String, Object> getMedia() {
+		return media;
+	}
 
-    public void setCreateTime(long createTime) {
-        this.createTime = createTime;
-    }
+	public void setMedia(Map<String, Object> media) {
+		this.media = media;
+	}
 
-    public Map<String, Object> getExtra() {
-        return extra;
-    }
+	public String getSrcLink() {
+		return srcLink;
+	}
 
-    public void setExtra(Map<String, Object> extra) {
-        this.extra = extra;
-    }
+	public void setSrcLink(String srcLink) {
+		this.srcLink = srcLink;
+	}
 
-    @Override
-    public String toString() {
-        return "FeedMessage:\n{\n" +
-                "title:" + title + "\n" +
-                "content:" + content + "\n" +
-                "pubtime:" + pubtime + "\n" +
-                "createtime:" + createTime + "\n" +
-                "extra:" + JSON.toJSONString(extra) + "\n}\n";
-    }
+	public Map<String, Object> getSourceMeta() {
+		return sourceMeta;
+	}
+
+	public void setSourceMeta(Map<String, Object> sourceMeta) {
+		this.sourceMeta = sourceMeta;
+	}
+
+	public long getCreatetime() {
+		return createtime;
+	}
+
+	public void setCreatetime(long createtime) {
+		this.createtime = createtime;
+	}
+
+	public Map<String, Object> getExtra() {
+		return extra;
+	}
+
+	public void setExtra(Map<String, Object> extra) {
+		this.extra = extra;
+	}
+
+	@Override
+	public String toString() {
+		return "FeedMessage:\n{\n" +
+				"title:" + title + "\n" +
+				"content:" + content + "\n" +
+				"pubtime:" + pubtime + "\n" +
+				"createtime:" + createtime + "\n" +
+				"extra:" + JSON.toJSONString(extra) + "\n}\n";
+	}
 }

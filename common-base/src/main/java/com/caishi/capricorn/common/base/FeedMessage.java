@@ -26,6 +26,7 @@ public class FeedMessage implements Serializable {
     public static String FEED_SOURCE_META_PRIORITY = "priority";
     public static String FEED_SOURCE_META_CATEGORIES = "categories";
     public static String FEED_SOURCE_META_TAGS = "tags";
+    public static String FEED_SOURCE_META_MODE = "mode";
 
     public static String FEED_SOURCE_LINK = "src_link";
 

@@ -230,7 +230,7 @@ public class ConsumerContainer {
 
 	private ConsumerConfig createConsumerConfig(String zkConnect, MsgProcessorInfo msgProcessorInfo) {
 		Properties props = new Properties();
-		props.put(ZK_CONNECT, zkConnect);
+		props.put(ZK_CONNECT, msgProcessorInfo.getZkConnect());
 		props.put(GROUP_ID, msgProcessorInfo.getGroupId());
 		PropertiesUtil.mergeProperties(DEFAULT_PROPERTIES, props);
 		return new ConsumerConfig(props);

@@ -45,7 +45,7 @@ public class RequestUtil {
 			HttpURLConnection URLConn = (HttpURLConnection)url.openConnection();
 			URLConn.setDoOutput(true);
 			URLConn.setDoInput(true);
-			((HttpURLConnection) URLConn).setRequestMethod("POST");
+			URLConn.setRequestMethod("POST");
 			URLConn.setUseCaches(false);
 			URLConn.setAllowUserInteraction(true);
 			HttpURLConnection.setFollowRedirects(true);

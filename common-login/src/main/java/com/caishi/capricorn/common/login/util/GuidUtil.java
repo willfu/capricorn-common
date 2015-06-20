@@ -1,6 +1,8 @@
 package com.caishi.capricorn.common.login.util;
 import java.io.IOException;
 
+import org.apache.commons.codec.binary.Base64;
+
 import com.caishi.capricorn.common.login.dto.Guid;
 import com.caishi.capricorn.common.login.data.PartnerType;
 import com.caishi.capricorn.common.login.data.OsType;
@@ -17,7 +19,7 @@ public class GuidUtil {
 	 * @return ¼ÓÃÜºóµÄGUID×Ö·û´®
 	 */
 	public String Generator(Guid model){
-		return new String(DataUtil.encorderByBase64(model.toString()));
+		return new String(Base64.encodeBase64(model.toString().getBytes()));
 	}
 	
 	/**
@@ -41,7 +43,7 @@ public class GuidUtil {
 	 * @throws IOException 
 	 */
 	public static Guid parserGuid(String guid,Boolean isCipherText) throws Exception{
-		guid = isCipherText?DataUtil.decorderByBase64(guid):guid;
+		guid = isCipherText?new String(Base64.decodeBase64(guid)):guid;
 		return Parser(guid);
 	}
 	

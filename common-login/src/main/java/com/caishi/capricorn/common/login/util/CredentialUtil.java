@@ -2,6 +2,10 @@ package com.caishi.capricorn.common.login.util;
 
 import java.io.IOException;
 import java.util.Date;
+
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.digest.DigestUtils;
+
 import com.caishi.capricorn.common.login.dto.Guid;
 import com.caishi.capricorn.common.login.data.PartnerType;
 
@@ -18,7 +22,7 @@ public class CredentialUtil {
      * @throws IOException
      */
     public final static boolean check(String credential) throws Exception {
-        credential = DataUtil.decorderByBase64(credential);
+    	credential = new String(Base64.decodeBase64(credential));
         String[] dataSource = credential.split("@");
         long timeStamp = Long.parseLong(dataSource[1]);
         Date expire = new Date(timeStamp);
@@ -33,7 +37,7 @@ public class CredentialUtil {
      * @throws IOException
      */
     public final static String getGuid(String credential) throws Exception {
-        credential = DataUtil.decorderByBase64(credential);
+    	credential = new String(Base64.decodeBase64(credential));
         String[] dataSource = credential.split("@");
         return dataSource[0];
     }
@@ -46,7 +50,7 @@ public class CredentialUtil {
      * @throws Exception
      */
     public final static String getPartnerUId(String credential) throws Exception {
-        credential = DataUtil.decorderByBase64(credential);
+    	credential = new String(Base64.decodeBase64(credential));
         String[] dataSource = credential.split("@");
         return dataSource.length == 3 ? dataSource[2] : null;
     }
@@ -60,7 +64,7 @@ public class CredentialUtil {
      */
     public final static String getCurrentUId(String credential) throws Exception {
         String guid = getGuid(credential);
-        return DataUtil.encorderByMd5(guid);
+        return DigestUtils.md5Hex(guid);
     }
 
     /**
@@ -93,7 +97,7 @@ public class CredentialUtil {
             stringBuilder.append("@");
             stringBuilder.append(partnerUId);
         }
-        return DataUtil.encorderByBase64(stringBuilder.toString());
+        return new String(Base64.encodeBase64(stringBuilder.toString().getBytes()));
     }
 
     /**

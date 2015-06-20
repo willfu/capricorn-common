@@ -56,7 +56,7 @@ public enum Agent {
      * @return 通道枚举对象
      */
     public static final Agent getEnum(String val) {
-        val = val.trim();
+        val = val.trim().toUpperCase();
         if (val.equalsIgnoreCase("B")) {
             return Browse;
         } else if (val.equalsIgnoreCase("S")) {

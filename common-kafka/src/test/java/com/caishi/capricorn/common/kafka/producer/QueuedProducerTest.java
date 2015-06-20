@@ -17,7 +17,7 @@ public class QueuedProducerTest {
 	public void testSend() {
 		Properties props = new Properties();
 
-		QueuedProducer queuedProducer = new QueuedProducer("10.10.1.64:9092", 5, true);
+		QueuedProducer queuedProducer = new QueuedProducer("10.10.1.54:9092", 5, true);
 
 		FeedMessage message = new FeedMessage();
 		message.setContent("this is content");

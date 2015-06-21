@@ -163,7 +163,7 @@ public class ConsumerContainer {
 			private AtomicInteger count = new AtomicInteger(0);
 
 			public Thread newThread(Runnable r) {
-				return new Thread(r, "kafka consumer thread#" + count.get());
+				return new Thread(r, "kafka consumer thread#" + count.getAndIncrement());
 			}
 		});
 
@@ -173,7 +173,8 @@ public class ConsumerContainer {
 	}
 
 	/**
-	 * 1.连接kafka
+	 * 1.初始化消息处理器
+	 * 2.连接kafka
 	 * 2.处理消息
 	 *
 	 * @param msgProcessorInfo
@@ -184,6 +185,8 @@ public class ConsumerContainer {
 			LOGGER.info(String.format("Kafka connection for %s is already existed.", msgProcessorInfo));
 			return;
 		}
+
+		msgProcessor.init();
 
 		ConsumerConnector connector = Consumer.createJavaConsumerConnector(createConsumerConfig(this.zkConnect, msgProcessorInfo));
 		Map<String, Integer> topicCountMap = new HashMap<String, Integer>();
@@ -221,9 +224,14 @@ public class ConsumerContainer {
 		public void run() {
 			ConsumerIterator<byte[], byte[]> iterator = msgStream.iterator();
 			while (iterator.hasNext()) {
-				byte[] bytes = iterator.next().message();
-				Object message = deserializer.deserialize(topic, bytes);
-				msgProcessor.process(message);
+				try {
+					byte[] bytes = iterator.next().message();
+					Object message = deserializer.deserialize(topic, bytes);
+//					LOGGER.info("receive : " + message.toString());
+					msgProcessor.process(message);
+				} catch (Throwable throwable) {
+					LOGGER.error(throwable.getMessage(), throwable);
+				}
 			}
 		}
 	}
@@ -232,7 +240,7 @@ public class ConsumerContainer {
 		Properties props = new Properties();
 		props.put(ZK_CONNECT, msgProcessorInfo.getZkConnect());
 		props.put(GROUP_ID, msgProcessorInfo.getGroupId());
-		PropertiesUtil.mergeProperties(DEFAULT_PROPERTIES, props);
+		props = PropertiesUtil.mergeProperties(DEFAULT_PROPERTIES, props);
 		return new ConsumerConfig(props);
 	}
 
@@ -255,6 +263,7 @@ public class ConsumerContainer {
 		if (topicConsumers != null && !topicConsumers.isEmpty()) {
 			for (Map.Entry<MsgProcessorInfo, ConsumerConnector> entry : topicConsumers.entrySet()) {
 				entry.getValue().shutdown();
+				msgProcessorMap.get(entry.getKey()).destroy();
 			}
 		}
 		if (executorService != null) {

@@ -3,21 +3,10 @@ import java.util.Random;
 import com.caishi.capricorn.common.login.dto.CustomMessage;
 import com.caishi.capricorn.common.login.dto.UserAgentInfo;
 
-/**
- * 常用工具类
- */
 public class DataUtil {
 
-	/**
-	 * 隐藏构造函数
-	 */
 	private DataUtil() {}
 
-	/**
-	 * 随机生成固定长度字符串序列字符串
-	 * @param len 固定长度
-	 * @return 字符串序列字符串
-	 */
 	public static String getRandomString(int len) {
 		String buffer = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		StringBuilder sb = new StringBuilder();
@@ -29,11 +18,6 @@ public class DataUtil {
 		return sb.toString().trim();
 	}
 	
-	/**
-	 * 随机生成固定长度数字序列字符串
-	 * @param len 固定长度
-	 * @return 数字序列字符串
-	 */
 	public static String getRandomNumber(int len){
 		String buffer = "0123456789";
 		StringBuilder sb = new StringBuilder();

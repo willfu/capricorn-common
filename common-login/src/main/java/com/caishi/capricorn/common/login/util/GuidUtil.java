@@ -10,23 +10,11 @@ import com.caishi.capricorn.common.login.data.Agent;
 import com.caishi.capricorn.common.login.data.CreateMode;
 import com.caishi.capricorn.common.login.data.DeviceType;
 
-/**
- * 用户全局唯一标识码工具类
- */
 public class GuidUtil {
-	/**
-	 * GUID生成函数
-	 * @return 加密后的GUID字符串
-	 */
 	public String Generator(Guid model){
 		return new String(Base64.encodeBase64(model.toString().getBytes()));
 	}
 	
-	/**
-	 * 将GUID字符串进行验证并拆解分析
-	 * @param guid GUID字符串（明文）
-	 * @return GuidModel的实例对象
-	 */
 	private static Guid Parser(String guid){
 		Guid model = new Guid();;
 		if(Validation(guid,model)){
@@ -35,24 +23,11 @@ public class GuidUtil {
 		return null;
 	}
 	
-	/**
-	 * 将GUID字符串进行验证并拆解分析
-	 * @param guid GUID字符串（明文或者密文）
-	 * @param isCipherText 标识GUID字符串是否为密文
-	 * @return GuidModel的实例对象
-	 * @throws IOException 
-	 */
 	public static Guid parserGuid(String guid,Boolean isCipherText) throws Exception{
 		guid = isCipherText?new String(Base64.decodeBase64(guid)):guid;
 		return Parser(guid);
 	}
 	
-	/**
-	 * 针对明文的的GUID字符串进行验证
-	 * @see 其中验证内容：长度验证，结构验证，词义验证
-	 * @param guid GUID字符串（明文）
-	 * @return 验证结果
-	 */
 	protected static boolean Validation(String guid,Guid model){
 		guid = guid.trim();
 		int len = Guid.DeviceIdMaxLength+Guid.TimeStampMaxLength+Guid.SequenceMaxLength+18;

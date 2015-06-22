@@ -1,35 +1,12 @@
 package com.caishi.capricorn.common.login.data;
 
-/**
- * 账户生成类型枚举类
- *
- * @see 账户生成类型包括：系统自动创建(Automatic)，用户自动创建(Human)，第三方账户(Partner)及未知方式(UnKnown)
- */
 public enum CreateMode {
 
-    /**
-     * 系统自动创建
-     */
     Automatic,
-    /**
-     * 用户自动创建
-     */
     Human,
-    /**
-     * 第三方账户
-     */
     Partner,
-    /**
-     * 未知方式
-     */
     Unknown;
 
-    /**
-     * 获取创建方式标识码
-     *
-     * @param obj 创建方式标枚举类
-     * @return 创建方式标识码
-     */
     public static final String getValue(CreateMode obj) {
         String val;
         switch (obj) {
@@ -57,12 +34,6 @@ public enum CreateMode {
         return val;
     }
 
-    /**
-     * 根据创建方式标识码获取创建方式枚举类
-     *
-     * @param val 创建方式标识码
-     * @return 创建方式枚举类
-     */
     public static final CreateMode getEnum(String val) {
         val = val.trim();
         if (val.equalsIgnoreCase("00")) {
@@ -78,12 +49,6 @@ public enum CreateMode {
         }
     }
 
-    /**
-     * 验证创建方式标识码的合法性
-     *
-     * @param val 创建方式标识码
-     * @return 验证通过(true)，验证失败(false)
-     */
     public static boolean validation(String val) {
         return getEnum(val) != null;
     }

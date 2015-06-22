@@ -1,8 +1,5 @@
 package com.caishi.capricorn.common.login.dto;
 
-/**
- * 业务逻辑异常
- */
 public class CustomMessage extends Exception {
 
     private static final long serialVersionUID = 1L;
@@ -19,9 +16,6 @@ public class CustomMessage extends Exception {
         this.code = code;
     }
 
-    /**
-     * 异常编码
-     */
     private String code;
 
     public String getCode() {

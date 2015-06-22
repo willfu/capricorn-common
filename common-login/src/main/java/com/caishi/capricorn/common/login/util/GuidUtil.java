@@ -1,5 +1,4 @@
 package com.caishi.capricorn.common.login.util;
-import java.io.IOException;
 
 import org.apache.commons.codec.binary.Base64;
 

@@ -1,6 +1,5 @@
 package com.caishi.capricorn.common.login.util;
 
-import java.io.IOException;
 import java.util.Date;
 
 import org.apache.commons.codec.binary.Base64;

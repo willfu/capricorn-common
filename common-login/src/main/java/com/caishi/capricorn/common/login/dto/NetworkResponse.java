@@ -2,7 +2,7 @@ package com.caishi.capricorn.common.login.dto;
 
 import java.io.UnsupportedEncodingException;
 
-public class NetworkReponse<T> {
+public class NetworkResponse<T> {
 
     private final String defaultMessage = "ok";
 
@@ -26,6 +26,26 @@ public class NetworkReponse<T> {
         this.data = data;
     }
 
+    public String SystemId;
+
+    public String getSystemId() {
+        return SystemId;
+    }
+
+    public void setSystemId(String systemId) {
+        SystemId = systemId;
+    }
+
+    private  String moduleId;
+
+    public String getModuleId() {
+        return moduleId;
+    }
+
+    public void setModuleId(String moduleId) {
+        this.moduleId = moduleId;
+    }
+
     private String message;
 
     public String getMessage() throws UnsupportedEncodingException {
@@ -42,7 +62,8 @@ public class NetworkReponse<T> {
         return attached;
     }
 
-    public void setAttached(Object attached) {
+    public void setAttached(Object attached)
+    {
         this.attached = attached;
     }
 }

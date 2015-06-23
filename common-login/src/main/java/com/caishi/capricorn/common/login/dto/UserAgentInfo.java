@@ -1,9 +1,9 @@
 package com.caishi.capricorn.common.login.dto;
 
 public class UserAgentInfo {
-	
+
 	/**
-	 * 软件版本
+	 * 杞欢鐗堟湰
 	 */
 	private String version;
 
@@ -14,9 +14,9 @@ public class UserAgentInfo {
 	public void setVersion(String version) {
 		this.version = version;
 	}
-	
+
 	/**
-	 * 请求代理对象
+	 * 浠ｇ悊骞冲彴
 	 */
 	private String agent;
 
@@ -27,9 +27,9 @@ public class UserAgentInfo {
 	public void setAgent(String agent) {
 		this.agent = agent;
 	}
-	
+
 	/**
-	 * 用户凭证
+	 * 鍑瘉淇℃伅
 	 */
 	private String credential;
 
@@ -40,9 +40,9 @@ public class UserAgentInfo {
 	public void setCredential(String credential) {
 		this.credential = credential;
 	}
-	
+
 	/**
-	 * 下载渠道
+	 * 涓嬭浇娓犻亾
 	 */
 	private String channel;
 
@@ -53,9 +53,9 @@ public class UserAgentInfo {
 	public void setChannel(String channel) {
 		this.channel = channel;
 	}
-	
+
 	/**
-	 * 终端设备
+	 * 璁惧淇℃伅
 	 */
 	private DeviceInfo deviceInfo = new DeviceInfo();
 

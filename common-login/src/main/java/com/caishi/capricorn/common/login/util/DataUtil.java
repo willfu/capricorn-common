@@ -163,7 +163,7 @@ public class DataUtil {
         return consName.toUpperCase();
 	}
 
-    public String encodeConverter(String data, String sourceEncode,String targetEncode) throws Exception {
+    public final static String encodeConverter(String data, String sourceEncode,String targetEncode) throws Exception {
         return new String(data.getBytes(sourceEncode),targetEncode);
     }
 }

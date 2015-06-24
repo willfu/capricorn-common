@@ -107,4 +107,63 @@ public class DataUtil {
 		}
 		throw new CustomMessage("10015");
 	}
+
+	public final static String getConsName(int consId){
+		String consName = null;
+		switch (consId){
+			case 1:{
+                consName="%e6%b0%b4%e7%93%b6%e5%ba%a7";
+				break;
+			}
+			case 2:{
+                consName="%e5%8f%8c%e9%b1%bc%e5%ba%a7";
+				break;
+			}
+			case 3:{
+                consName="%e7%99%bd%e7%be%8a%e5%ba%a7";
+				break;
+			}
+			case 4:{
+                consName="%e9%87%91%e7%89%9b%e5%ba%a7";
+				break;
+			}
+			case 5:{
+                consName="%e5%8f%8c%e5%ad%90%e5%ba%a7";
+				break;
+			}
+			case 6:{
+                consName="%e5%b7%a8%e8%9f%b9%e5%ba%a7";
+				break;
+			}
+			case 7:{
+                consName="%e7%8b%ae%e5%ad%90%e5%ba%a7";
+				break;
+			}
+			case 8:{
+                consName="%e5%a4%84%e5%a5%b3%e5%ba%a7";
+				break;
+			}
+			case 9:{
+                consName="%e5%a4%a9%e7%a7%a4%e5%ba%a7";
+				break;
+			}
+			case 10:{
+				consName="%e5%a4%a9%e8%9d%8e%e5%ba%a7";
+				break;
+			}
+			case 11:{
+                consName="%e5%b0%84%e6%89%8b%e5%ba%a7";
+				break;
+			}
+			case 12:{
+                consName="%e9%ad%94%e7%be%af%e5%ba%a7";
+				break;
+			}
+		}
+        return consName.toUpperCase();
+	}
+
+    public String encodeConverter(String data, String sourceEncode,String targetEncode) throws Exception {
+        return new String(data.getBytes(sourceEncode),targetEncode);
+    }
 }

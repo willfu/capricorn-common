@@ -1,4 +1,7 @@
 package com.caishi.capricorn.common.login.util;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import com.caishi.capricorn.common.login.dto.CustomMessage;
 import com.caishi.capricorn.common.login.dto.UserAgentInfo;
@@ -165,5 +168,37 @@ public class DataUtil {
 
     public final static String encodeConverter(String data, String sourceEncode,String targetEncode) throws Exception {
         return new String(data.getBytes(sourceEncode),targetEncode);
+
     }
+
+	public final static byte[] serialize(Object object) throws Exception {
+		byte[] bytes = null;
+		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+		try{
+			ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+			objectOutputStream.writeObject(object);
+			objectOutputStream.flush();
+			bytes = byteArrayOutputStream.toByteArray ();
+			objectOutputStream.close();
+			byteArrayOutputStream.close();
+		}catch (Exception ex){
+			throw  ex;
+		}
+		return bytes;
+	}
+
+
+	public final static Object deserialize(byte[] bytes) throws Exception {
+		Object obj = null;
+		try{
+			ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
+			ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+			obj = objectInputStream.readObject();
+			objectInputStream.close();
+			byteArrayInputStream.close();
+		}catch (Exception ex){
+			throw  ex;
+		}
+		return obj;
+	}
 }

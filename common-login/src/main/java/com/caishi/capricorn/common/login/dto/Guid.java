@@ -2,6 +2,8 @@ package com.caishi.capricorn.common.login.dto;
 
 import com.caishi.capricorn.common.login.data.*;
 
+import java.io.Serializable;
+
 public class Guid {
 
     private boolean _isValidate = false;

@@ -8,7 +8,6 @@
         <artifactId>capricorn-common</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>com.caishi.capricorn.common.spring</groupId>
     <artifactId>common-spring</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>common-spring</name>

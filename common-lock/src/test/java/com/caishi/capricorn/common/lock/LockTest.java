@@ -30,8 +30,8 @@ public class LockTest {
 
 
 	public static void main(String[] args) throws InterruptedException, IOException {
-//		LockTest.testRedisLocker();
-//		LockTest.testShardedRedisLocker();
+		LockTest.testRedisLocker();
+		LockTest.testShardedRedisLocker();
 		LockTest.testMemLocker();
 	}
 
@@ -66,7 +66,7 @@ public class LockTest {
 		testDistributedLock(distributedLock);
 
 		System.out.printf("%n%n");
-//		client.shutdown();
+		client.shutdown();
 	}
 
 
@@ -93,7 +93,7 @@ public class LockTest {
 							}
 							return null;
 						}
-					}, "lock123",2);
+					}, "lock123",3);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

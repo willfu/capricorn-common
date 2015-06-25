@@ -21,6 +21,8 @@ public class MemcachedLocker implements Locker {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(MemcachedLocker.class);
 
+	private static final int DEFAULT_LOCK_TIME = 1;// second for memcached
+
 	static class MemClient {
 
 		private MemcachedClient client;
@@ -70,7 +72,7 @@ public class MemcachedLocker implements Locker {
 		//得到锁后设置的过期时间，未得到锁返回0
 		long expireTime = 0;
 		expireTime = System.currentTimeMillis() + lockTimeOut + 1;
-		int timeOut = (int) Math.round(lockTimeOut / 1000.0);
+		int timeOut = (int) Math.max(1, Math.round(lockTimeOut / 1000.0));
 		if (cache.add(key, timeOut, String.valueOf(expireTime)) == true) {
 			//得到了锁返回
 			return expireTime;

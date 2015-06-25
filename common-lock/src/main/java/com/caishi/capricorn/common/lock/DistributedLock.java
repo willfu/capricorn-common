@@ -47,7 +47,7 @@ public class DistributedLock {
     }
 
     public <E> E execute(Task<E> task, String id, int retryCount) throws InterruptedException, NotFetchLockException {
-        return execute(task, id, retryCount, DELAY_TIME, RETRY_COUNT);
+        return execute(task, id, retryCount, DELAY_TIME, EXPIRE_TIME);
     }
 
     public <E> E execute(Task<E> task, String id, int retryCount, long expiredTime) throws InterruptedException, NotFetchLockException {
@@ -67,7 +67,6 @@ public class DistributedLock {
                     locker.unLock(key, getLock);
                 }
             }
-            System.out.printf(Thread.currentThread().getId() + " retry lock : %s %n",key);
             Thread.sleep(delayTime);
         }
         throw new NotFetchLockException(format("not fetch lock for id=%s retryCount=%s delayTime(ms)=%s",//

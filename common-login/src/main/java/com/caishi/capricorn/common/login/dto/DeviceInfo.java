@@ -4,9 +4,6 @@ import java.sql.Timestamp;
 
 public class DeviceInfo {
 	
-	/**
-	 * 终端设备唯一编号
-	 */
 	private String deviceId;
 
 	public String getDeviceId() {
@@ -17,9 +14,6 @@ public class DeviceInfo {
 		this.deviceId = deviceId;
 	}
 	
-	/**
-	 * 终端设备搭载的操作系统类型
-	 */
 	public String osTypeId;
 
 	public String getOsTypeId() {
@@ -30,9 +24,6 @@ public class DeviceInfo {
 		this.osTypeId = osTypeId;
 	}
 	
-	/**
-	 * 操作系统版本
-	 */
 	private String osVersion;
 
 	public String getOsVersion() {
@@ -43,9 +34,6 @@ public class DeviceInfo {
 		this.osVersion = osVersion;
 	}
 	
-	/**
-	 * 网络运营商标识码
-	 */
 	private String simTypeId;
 	
 	public String getSimTypeId() {
@@ -56,9 +44,6 @@ public class DeviceInfo {
 		this.simTypeId = simTypeId;
 	}
 	
-	/**
-	 * 广告标识符
-	 */
 	private String idfa;
 	
 	public String getIdfa() {
@@ -69,9 +54,6 @@ public class DeviceInfo {
 		this.idfa = idfa;
 	}
 	
-	/**
-	 * 网络类型标识码
-	 */
 	private String netTypeId;
 	
 	public String getNetTypeId() {
@@ -82,9 +64,6 @@ public class DeviceInfo {
 		this.netTypeId = netTypeId;
 	}
 	
-	/**
-	 * 设备详情信息
-	 */
 	private String detailInfo;
 	
 	public String getDetailInfo() {
@@ -95,9 +74,6 @@ public class DeviceInfo {
 		this.detailInfo = detailInfo;
 	}
 
-	/**
-	 * 终端设备类型
-	 */
 	private String deviceTypeId;
 
 	public String getDeviceTypeId() {
@@ -108,9 +84,6 @@ public class DeviceInfo {
 		this.deviceTypeId = deviceTypeId;
 	}
 	
-	/**
-	 * 创建时间
-	 */
 	private Timestamp createTime;
 
 	public Timestamp getCreateTime() {
@@ -121,9 +94,6 @@ public class DeviceInfo {
 		this.createTime = createTime;
 	}
 	
-	/**
-	 * 是否可用识别码
-	 */
 	private short enable;
 
 	public short getEnable() {

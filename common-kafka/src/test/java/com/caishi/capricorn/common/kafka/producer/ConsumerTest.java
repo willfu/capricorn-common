@@ -1,7 +1,6 @@
 package com.caishi.capricorn.common.kafka.producer;
 
 import com.caishi.capricorn.common.kafka.consumer.ConsumerContainer;
-import com.caishi.capricorn.common.kafka.consumer.processor.JavaMsgProcessor;
 import com.caishi.capricorn.common.kafka.consumer.processor.MsgProcessor;
 import com.caishi.capricorn.common.kafka.consumer.processor.MsgProcessorInfo;
 import com.caishi.capricorn.common.kafka.consumer.processor.StringMsgProcessor;
@@ -24,14 +23,29 @@ import java.util.concurrent.TimeUnit;
  */
 public class ConsumerTest {
 
+	public static void main(String[] args) throws Exception {
+		test(args);
+	}
+
 	public static void test(String[] args) throws Exception {
 		ConsumerContainer consumerContainer = new ConsumerContainer();
 		consumerContainer.setZkConnect("10.10.1.54:2181");
 		ConcurrentMap<MsgProcessorInfo, MsgProcessor> msgProcessors = new ConcurrentHashMap<MsgProcessorInfo, MsgProcessor>();
 		msgProcessors.put(new MsgProcessorInfo("test", "hello1"), new StringMsgProcessor() {
-			private final Logger LOGGER = LoggerFactory.getLogger(JavaMsgProcessor.class);
+			private final Logger LOGGER = LoggerFactory.getLogger(StringMsgProcessor.class);
+
+			@Override
+			public void init() {
+
+			}
+
 			public void process(String element) {
 				LOGGER.error("****************" + element);
+			}
+
+			@Override
+			public void destroy() {
+
 			}
 		});
 

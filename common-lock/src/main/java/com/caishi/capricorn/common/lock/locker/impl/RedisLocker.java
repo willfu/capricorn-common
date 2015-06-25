@@ -20,11 +20,11 @@ public class RedisLocker extends AbstractRedisLocker<Jedis> {
 
 	@Override
 	protected Jedis getRedis() {
-		return null;
+		return jedisPool.getResource();
 	}
 
 	@Override
 	protected void returnRedis(Jedis jedis) {
-
+		jedisPool.returnResourceObject(jedis);
 	}
 }

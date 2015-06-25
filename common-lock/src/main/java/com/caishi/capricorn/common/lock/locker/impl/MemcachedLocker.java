@@ -7,14 +7,19 @@ package com.caishi.capricorn.common.lock.locker.impl;
 import com.caishi.capricorn.common.lock.locker.Locker;
 import net.spy.memcached.MemcachedClient;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.Future;
 
 /**
  * 基于Memcached的分布式锁
+ *
  * @author yeyanchao
  */
 public class MemcachedLocker implements Locker {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(MemcachedLocker.class);
 
 	static class MemClient {
 
@@ -30,11 +35,13 @@ public class MemcachedLocker implements Locker {
 
 		public boolean add(String key, int exp, Object value) {
 			boolean result = false;
-			try{
+			try {
 				Future<Boolean> future = client.add(key, exp, value);
 				result = future.get().booleanValue();
-			}catch (Exception e){
-				//TODO
+			} catch (Exception e) {
+				LOGGER.error(e.getMessage(), e);
+				System.out.println(e.getMessage());
+				System.out.println(e.getCause());
 			}
 			return result;
 		}

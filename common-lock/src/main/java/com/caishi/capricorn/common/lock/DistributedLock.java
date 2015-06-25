@@ -18,6 +18,10 @@ public class DistributedLock {
 
     private static Logger log = LoggerFactory.getLogger(DistributedLock.class);
 
+    private static final int RETRY_COUNT = 1;  //times  重试获取锁次数
+    private static final long EXPIRE_TIME = 1000; // millisecond  所获取过期时间
+    private static final long DELAY_TIME = 100; // millisecond : 未获取锁时，间隔等待所时间
+
     public Locker locker;
 
     public DistributedLock(Locker locker) {
@@ -39,18 +43,18 @@ public class DistributedLock {
     }
 
     public <E> E execute(Task<E> task, String id) throws InterruptedException, NotFetchLockException {
-        return execute(task, id, 10, 50L, 1);
+        return execute(task, id, RETRY_COUNT, DELAY_TIME, EXPIRE_TIME);
     }
 
     public <E> E execute(Task<E> task, String id, int retryCount) throws InterruptedException, NotFetchLockException {
-        return execute(task, id, retryCount, 50L, 1);
+        return execute(task, id, retryCount, DELAY_TIME, RETRY_COUNT);
     }
 
-    public <E> E execute(Task<E> task, String id, int retryCount, int expiredTime) throws InterruptedException, NotFetchLockException {
-        return execute(task, id, retryCount, 50L, expiredTime);
+    public <E> E execute(Task<E> task, String id, int retryCount, long expiredTime) throws InterruptedException, NotFetchLockException {
+        return execute(task, id, retryCount, DELAY_TIME, expiredTime);
     }
 
-    public <E> E execute(Task<E> task, String id, final int retryCount, long delayTime, int expiredTime) throws InterruptedException, NotFetchLockException {
+    public <E> E execute(Task<E> task, String id, final int retryCount, long delayTime, long expiredTime) throws InterruptedException, NotFetchLockException {
         final String key = "lock:" + id;
         long getLock = 0;
         int cnt = retryCount;
@@ -63,6 +67,7 @@ public class DistributedLock {
                     locker.unLock(key, getLock);
                 }
             }
+            System.out.printf(Thread.currentThread().getId() + " retry lock : %s %n",key);
             Thread.sleep(delayTime);
         }
         throw new NotFetchLockException(format("not fetch lock for id=%s retryCount=%s delayTime(ms)=%s",//

@@ -4,6 +4,7 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.Properties;
 
@@ -73,5 +74,37 @@ public class PropertiesUtil {
             }
         }
         return merged;
+    }
+
+    /**
+     * Build absolute path
+     *
+     * @param path Relative or absolute path for searched file
+     * @param homePath Home path
+     * @param homeEnvVarName Environment variable name for homePath
+     * @return
+     */
+    static public String getValidPropertyPath(String path, String homePath, String homeEnvVarName) {
+
+        if (path==null || "".equals(path)) return "";
+        File f = new File(path);
+        if (f.isAbsolute()) return path;
+
+        if (homePath!=null && !"".equals(homePath)) {
+            String tempPath = homePath;
+            tempPath = tempPath + "/" + path;
+            f = new File(tempPath);
+            if (f.isAbsolute()) return tempPath;
+        }
+        if (homeEnvVarName!=null && !"".equals(homeEnvVarName)) {
+            String homeEnvEnvValue = System.getenv(homeEnvVarName);
+            if (homeEnvEnvValue!=null && !"".equals(homeEnvEnvValue)) {
+                String tempPath = homeEnvEnvValue;
+                tempPath = tempPath + "/" + path;
+                f = new File(tempPath);
+                if (f.isAbsolute()) return tempPath;
+            }
+        }
+        return "";
     }
 }

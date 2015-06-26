@@ -10,7 +10,7 @@ import java.util.List;
  * @author humphrey.han@9icaishi.net
  * @since 0.0.1
  */
-public class Utils {
+public class CommonUtils {
 
     /**
      * Get current process PID

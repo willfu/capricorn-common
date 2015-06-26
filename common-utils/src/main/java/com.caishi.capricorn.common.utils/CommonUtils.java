@@ -34,7 +34,7 @@ public class CommonUtils {
      * @param hostPortList
      * @return
      */
-    public List<String[]> convert2HostPortPairs(List<String> hostPortList) {
+    public static List<String[]> convert2HostPortPairs(List<String> hostPortList) {
         List<String[]> hostPortPairList = new ArrayList<String[]>();
 
         for (String hostPort : hostPortList) {

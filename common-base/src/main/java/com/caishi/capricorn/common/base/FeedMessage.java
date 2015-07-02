@@ -20,6 +20,10 @@ public class FeedMessage implements Serializable {
 	public static String FEED_SUMMARY = "summary";
 	public static String FEED_PUBTIME = "pubtime";
 
+	public static String FEED_ORIGIN = "origin";
+	public static String FEED_ORIGIN_NAME = "origin_name";
+	public static String FEED_ORIGIN_URL = "origin_url";
+
 	public static String FEED_SOURCE_META = "source_meta";
 	public static String FEED_SOURCE_META_NAME = "name";
 	public static String FEED_SOURCE_META_DIRECTLINKTO = "direct_linkto";
@@ -55,6 +59,8 @@ public class FeedMessage implements Serializable {
 	private String srcLink;
 
 	private Map<String, Object> sourceMeta;
+
+	private Map<String, Object> origin;
 
 	private long createtime;
 
@@ -124,6 +130,14 @@ public class FeedMessage implements Serializable {
 
 	public void setSrcLink(String srcLink) {
 		this.srcLink = srcLink;
+	}
+
+	public void setOrigin(Map<String, Object> origin) {
+		this.origin = origin;
+	}
+
+	public Map<String, Object> getOrigin() {
+		return this.origin;
 	}
 
 	public Map<String, Object> getSourceMeta() {

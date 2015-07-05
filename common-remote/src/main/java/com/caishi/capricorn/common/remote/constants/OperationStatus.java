@@ -1,4 +1,4 @@
-package com.caishi.capricorn.remote.constants;
+package com.caishi.capricorn.common.remote.constants;
 
 /**
  * Created by apple on 15/7/1.

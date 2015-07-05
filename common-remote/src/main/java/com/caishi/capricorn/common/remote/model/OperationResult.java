@@ -1,7 +1,7 @@
-package com.caishi.capricorn.remote.model;
+package com.caishi.capricorn.common.remote.model;
 
 
-import com.caishi.capricorn.remote.constants.OperationStatus;
+import com.caishi.capricorn.common.remote.constants.OperationStatus;
 
 /**
  * Created by apple on 15/7/1.

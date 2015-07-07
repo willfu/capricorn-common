@@ -27,17 +27,4 @@ public class News_Interact extends News {
     public void setInteractName(String interactName) {
         this.interactName = interactName;
     }
-
-    /**
-     * 发生时间
-     */
-    private long createTime;
-
-    public long getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(long createTime) {
-        this.createTime = createTime;
-    }
 }

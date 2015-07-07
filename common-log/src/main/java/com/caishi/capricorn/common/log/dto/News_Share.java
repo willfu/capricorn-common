@@ -53,17 +53,4 @@ public class News_Share extends News {
     public void setPartnerScopeId(String partnerScopeId) {
         this.partnerScopeId = partnerScopeId;
     }
-
-    /**
-     * 发生时间
-     */
-    private long createTime;
-
-    public long getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(long createTime) {
-        this.createTime = createTime;
-    }
 }

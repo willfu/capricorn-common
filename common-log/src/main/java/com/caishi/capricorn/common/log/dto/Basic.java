@@ -53,4 +53,17 @@ public class Basic {
     public void setDeviceTypeId(String deviceTypeId) {
         this.deviceTypeId = deviceTypeId;
     }
+
+    /**
+     * 发生时间
+     */
+    private String createTime;
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
 }

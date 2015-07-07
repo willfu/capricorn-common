@@ -1,7 +1,6 @@
-package com.caishi.capricorn.common.log.data;
+package com.caishi.capricorn.common.log;
 
 public enum LogType {
-
     /**
      * 新闻收藏
      */
@@ -10,7 +9,17 @@ public enum LogType {
     /**
      * 新闻分享
      */
-    NEWS_SHARE;
+    NEWS_SHARE,
+
+    /**
+     * 新闻交互
+     */
+    NEWS_INTERACT,
+
+    /**
+     * 进入场景
+     */
+    SCENE_OPEN;
 
     /**
      * 校验日志类型是否存在
@@ -36,5 +45,14 @@ public enum LogType {
      */
     public final static LogType getByName(String name){
         return LogType.getByName(name);
+    }
+
+    /**
+     * 校验日志类型名称是否存在
+     * @param name 日志类型名称
+     * @return 存在标识
+     */
+    public final static boolean validation(String name){
+        return LogType.getByName(name)!=null;
     }
 }

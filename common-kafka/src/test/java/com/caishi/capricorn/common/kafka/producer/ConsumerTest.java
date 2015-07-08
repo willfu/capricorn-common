@@ -1,6 +1,8 @@
 package com.caishi.capricorn.common.kafka.producer;
 
+import com.caishi.capricorn.common.base.FeedMessage;
 import com.caishi.capricorn.common.kafka.consumer.ConsumerContainer;
+import com.caishi.capricorn.common.kafka.consumer.processor.JavaMsgProcessor;
 import com.caishi.capricorn.common.kafka.consumer.processor.MsgProcessor;
 import com.caishi.capricorn.common.kafka.consumer.processor.MsgProcessorInfo;
 import com.caishi.capricorn.common.kafka.consumer.processor.StringMsgProcessor;
@@ -40,6 +42,38 @@ public class ConsumerTest {
 			}
 
 			public void process(String element) {
+				LOGGER.error("****************" + element);
+			}
+
+			@Override
+			public void destroy() {
+
+			}
+		});
+
+		consumerContainer.setMsgProcessorMap(msgProcessors);
+
+		consumerContainer.start();
+
+		TimeUnit.SECONDS.sleep(10000);
+
+		consumerContainer.stop();
+	}
+
+	public static final void testJavaSeDes() throws InterruptedException {
+		ConsumerContainer consumerContainer = new ConsumerContainer();
+		consumerContainer.setZkConnect("10.10.1.54:2181");
+		ConcurrentMap<MsgProcessorInfo, MsgProcessor> msgProcessors = new ConcurrentHashMap<MsgProcessorInfo, MsgProcessor>();
+		msgProcessors.put(new MsgProcessorInfo("test", "hello1"), new JavaMsgProcessor<FeedMessage>() {
+			private final Logger LOGGER = LoggerFactory.getLogger(StringMsgProcessor.class);
+
+			@Override
+			public void init() {
+
+			}
+
+			@Override
+			public void process(FeedMessage element) {
 				LOGGER.error("****************" + element);
 			}
 

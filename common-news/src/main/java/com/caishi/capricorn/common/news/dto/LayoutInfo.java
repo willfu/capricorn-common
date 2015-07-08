@@ -23,13 +23,13 @@ public class LayoutInfo {
     /**
      * 新闻列表
      */
-    private List<NewsSummeryInfo> newsSummeryInfoList = new ArrayList<NewsSummeryInfo>();
+    private List<NewsSummaryInfo> newsSummaryInfoList = new ArrayList<NewsSummaryInfo>();
 
-    public List<NewsSummeryInfo> getNewsSummeryInfoList() {
-        return newsSummeryInfoList;
+    public List<NewsSummaryInfo> getNewsSummaryInfoList() {
+        return newsSummaryInfoList;
     }
 
-    public void setNewsSummeryInfoList(List<NewsSummeryInfo> newsSummeryInfoList) {
-        this.newsSummeryInfoList = newsSummeryInfoList;
+    public void setNewsSummaryInfoList(List<NewsSummaryInfo> newsSummaryInfoList) {
+        this.newsSummaryInfoList = newsSummaryInfoList;
     }
 }

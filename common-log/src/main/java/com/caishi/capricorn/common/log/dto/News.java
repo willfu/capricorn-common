@@ -1,5 +1,7 @@
 package com.caishi.capricorn.common.log.dto;
 
+import com.caishi.capricorn.common.news.meta.ParentType;
+
 public class News extends Basic {
 
     /**
@@ -16,41 +18,28 @@ public class News extends Basic {
     }
 
     /**
-     * 新闻来源：1:频道，2:场景
+     * 父本类型
      */
-    private int sourceId;
+    public ParentType parentType;
 
-    public int getSourceId() {
-        return sourceId;
+    public ParentType getParentType() {
+        return parentType;
     }
 
-    public void setSourceId(int sourceId) {
-        this.sourceId = sourceId;
+    public void setParentType(ParentType parentType) {
+        this.parentType = parentType;
     }
 
     /**
-     * 频道ID
+     * 父本ID
      */
-    private int channelId;
+    private int parentId;
 
-    public int getChannelId() {
-        return channelId;
+    public int getParentId() {
+        return parentId;
     }
 
-    public void setChannelId(int channelId) {
-        this.channelId = channelId;
-    }
-
-    /**
-     * 场景ID
-     */
-    private int sceneId;
-
-    public int getSceneId() {
-        return sceneId;
-    }
-
-    public void setSceneId(int sceneId) {
-        this.sceneId = sceneId;
+    public void setParentId(int parentId) {
+        this.parentId = parentId;
     }
 }

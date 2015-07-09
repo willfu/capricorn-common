@@ -11,6 +11,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
+        <!--common-news-->
+        <dependency>
+            <groupId>com.caishi.capricorn</groupId>
+            <artifactId>common-news</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <!--junit-->
         <dependency>
             <groupId>junit</groupId>

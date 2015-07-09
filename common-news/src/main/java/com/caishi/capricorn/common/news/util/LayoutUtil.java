@@ -206,7 +206,7 @@ public class LayoutUtil {
                 layoutTypeStringMap.remove(layoutType);
             }else{
                 newsSummaryInfo = newsSummaryInfoList.get(Integer.parseInt(array[0]));
-                val = val.substring(2);
+                val = val.substring(val.indexOf(",")+1);
                 layoutTypeStringMap.put(layoutType,val);
             }
             result.add(newsSummaryInfo);

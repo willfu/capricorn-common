@@ -15,7 +15,12 @@ public enum NewsType {
     /**
      * 广告
      */
-    ADVERTISE;
+    ADVERTISE,
+
+    /**
+     * 段子
+     */
+    JOKES;
 
     /**
      * 新闻类型校验

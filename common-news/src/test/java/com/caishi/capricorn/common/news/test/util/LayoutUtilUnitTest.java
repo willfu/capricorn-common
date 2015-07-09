@@ -21,7 +21,7 @@ public class LayoutUtilUnitTest {
         newsSummaryInfoList = new ArrayList<NewsSummaryInfo>();
         NewsSummaryInfo newsSummaryInfo;
         NewsImageInfo newsImageInfo;
-        for (int i=0;i<2;i++){
+        for (int i=0;i<150;i++){
             newsSummaryInfo = new NewsSummaryInfo();
             newsSummaryInfo.setNewsId(DataUtil.getRandomNumber(10));
             newsSummaryInfo.setTitle("世界十大预警机排行出炉：中国预警机排名让人意外！");
@@ -31,7 +31,7 @@ public class LayoutUtilUnitTest {
             newsSummaryInfo.setPublishTime(new Date().getTime());
             newsSummaryInfo.setPageView(((int) (Math.random() * 1000)) * 1000);
             boolean isGif = (i%2)==0;
-            if(i!=2){
+            if(i%3==0){
                 newsImageInfo = new NewsImageInfo();
                 newsImageInfo.setIsGif(isGif);
                 newsImageInfo.setWidth(549);
@@ -52,7 +52,7 @@ public class LayoutUtilUnitTest {
                 newsSummaryInfo.getNewsImageInfoList().add(newsImageInfo);
             }
 
-            if(i!=4&i!=2){
+            if(i%3>0){
                 newsImageInfo = new NewsImageInfo();
                 newsImageInfo.setIsGif(isGif);
                 newsImageInfo.setWidth(548);

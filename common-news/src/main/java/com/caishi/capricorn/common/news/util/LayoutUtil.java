@@ -68,7 +68,9 @@ public class LayoutUtil {
                 layoutInfo.setLayoutType(LayoutType.SINGLE);
             }
             layoutInfo.getNewsSummaryInfoList().add(newsSummaryInfo);
-            layoutInfoList.add(layoutInfo);
+            if(layoutInfo!=null){
+                layoutInfoList.add(layoutInfo);
+            }
         }
         return layoutInfoList;
     }
@@ -134,6 +136,16 @@ public class LayoutUtil {
 
         }
 
+        if(layoutTypeIntegerMap.containsKey(LayoutType.DOUBLE)&&layoutTypeIntegerMap.get(LayoutType.DOUBLE).split(",").length==1){
+            if (layoutTypeIntegerMap.containsKey(LayoutType.SINGLE)) {
+                val = MessageFormat.format("{0},{1}", layoutTypeIntegerMap.get(LayoutType.SINGLE), layoutTypeIntegerMap.get(LayoutType.DOUBLE));
+            } else {
+                val = String.valueOf(layoutTypeIntegerMap.get(LayoutType.DOUBLE));
+            }
+            layoutTypeIntegerMap.put(LayoutType.SINGLE,val);
+            layoutTypeIntegerMap.remove(LayoutType.DOUBLE);
+        }
+
         int advanceCount = getAdvanceCount(layoutTypeIntegerMap);
         int commonCount = getCommonCount(layoutTypeIntegerMap);
         if(layoutTypeIntegerMap.containsKey(LayoutType.BIG)){
@@ -142,7 +154,9 @@ public class LayoutUtil {
                 layoutInfoList.add(layoutInfo);
             }
             layoutInfo = makeDesign(LayoutType.BIG,newsSummaryInfoList,layoutTypeIntegerMap);
-            layoutInfoList.add(layoutInfo);
+            if(layoutInfo!=null){
+                layoutInfoList.add(layoutInfo);
+            }
         }
 
         if(layoutTypeIntegerMap.containsKey(LayoutType.THREE)){
@@ -151,7 +165,9 @@ public class LayoutUtil {
                 layoutInfoList.add(layoutInfo);
             }
             layoutInfo = makeDesign(LayoutType.THREE,newsSummaryInfoList,layoutTypeIntegerMap);
-            layoutInfoList.add(layoutInfo);
+            if(layoutInfo!=null){
+                layoutInfoList.add(layoutInfo);
+            }
         }
 
         if(layoutTypeIntegerMap.containsKey(LayoutType.DOUBLE)){
@@ -160,7 +176,9 @@ public class LayoutUtil {
                 layoutInfoList.add(layoutInfo);
             }
             layoutInfo = makeDesign(LayoutType.DOUBLE,newsSummaryInfoList,layoutTypeIntegerMap);
-            layoutInfoList.add(layoutInfo);
+            if(layoutInfo!=null){
+                layoutInfoList.add(layoutInfo);
+            }
         }
 
         int random;
@@ -168,10 +186,12 @@ public class LayoutUtil {
         while (!layoutTypeIntegerMap.isEmpty()){
             random = ((int)(Math.random()*100000));
             layoutInfo = makeDesign(newsSummaryInfoList,layoutTypeIntegerMap);
-            if(layoutInfoList.size()==0){
-                layoutInfoList.add(layoutInfo);
-            }else{
-                layoutInfoList.add(random%layoutInfoList.size(),layoutInfo);
+            if(layoutInfo!=null){
+                if(layoutInfoList.size()==0){
+                    layoutInfoList.add(layoutInfo);
+                }else{
+                    layoutInfoList.add(random%layoutInfoList.size(),layoutInfo);
+                }
             }
         }
 
@@ -222,9 +242,8 @@ public class LayoutUtil {
             if(layoutTypeStringMap.containsKey(LayoutType.SINGLE)){
                 layoutInfo = new LayoutInfo();
                 layoutInfo.setLayoutType(LayoutType.SINGLE);
-                newsSummaryInfo = getNewsSummaryInfo(newsSummaryInfoList,layoutTypeStringMap,LayoutType.SINGLE).get(0);
+                newsSummaryInfo = getNewsSummaryInfo(newsSummaryInfoList, layoutTypeStringMap, LayoutType.SINGLE).get(0);
                 layoutInfo.getNewsSummaryInfoList().add(newsSummaryInfo);
-                layoutInfo.getNewsImageInfoList().add(newsSummaryInfo.getNewsImageInfoList().get(0));
             }
         }else{
             if(layoutTypeStringMap.containsKey(LayoutType.BLANK)){
@@ -234,7 +253,7 @@ public class LayoutUtil {
                 layoutInfo.getNewsSummaryInfoList().add(newsSummaryInfo);
             }
         }
-        return layoutInfo;
+        return doValidation(layoutInfo);
     }
 
     private final static LayoutInfo makeDesign(LayoutType layoutType,List<NewsSummaryInfo> newsSummaryInfoList,Map<LayoutType,String> layoutTypeStringMap) {
@@ -242,11 +261,8 @@ public class LayoutUtil {
         layoutInfo.setLayoutType(layoutType);
         for(NewsSummaryInfo newsSummaryInfo : getNewsSummaryInfo(newsSummaryInfoList,layoutTypeStringMap,layoutType)){
             layoutInfo.getNewsSummaryInfoList().add(newsSummaryInfo);
-            if(newsSummaryInfo.getNewsImageInfoList().size()>0){
-                layoutInfo.getNewsImageInfoList().add(newsSummaryInfo.getNewsImageInfoList().get(0));
-            }
         }
-        return layoutInfo;
+        return doValidation(layoutInfo);
     }
 
     private final static int getCommonCount(Map<LayoutType,String> layoutTypeStringMap){
@@ -293,4 +309,41 @@ public class LayoutUtil {
         return count;
     }
 
+    private final static LayoutInfo doValidation(LayoutInfo layoutInfo){
+        if(layoutInfo!=null){
+            switch (layoutInfo.getLayoutType()){
+                case BIG:{
+                    int index = newsImageInfoListDetection(layoutInfo.getNewsSummaryInfoList().get(0).getNewsImageInfoList(),LAYOUT_BIG_IMAGE_WIDTH);
+                    NewsImageInfo newsImageInfo = layoutInfo.getNewsSummaryInfoList().get(0).getNewsImageInfoList().get(index);
+                    layoutInfo.getNewsSummaryInfoList().get(0).getNewsImageInfoList().clear();
+                    layoutInfo.getNewsSummaryInfoList().get(0).getNewsImageInfoList().add(newsImageInfo);
+                    break;
+                }
+                case THREE:{
+                    NewsImageInfo newsImageInfo1 = layoutInfo.getNewsSummaryInfoList().get(0).getNewsImageInfoList().get(0);
+                    NewsImageInfo newsImageInfo2 = layoutInfo.getNewsSummaryInfoList().get(0).getNewsImageInfoList().get(0);
+                    NewsImageInfo newsImageInfo3 = layoutInfo.getNewsSummaryInfoList().get(0).getNewsImageInfoList().get(0);
+                    layoutInfo.getNewsSummaryInfoList().get(0).getNewsImageInfoList().clear();
+                    layoutInfo.getNewsSummaryInfoList().get(0).getNewsImageInfoList().add(newsImageInfo1);
+                    layoutInfo.getNewsSummaryInfoList().get(0).getNewsImageInfoList().add(newsImageInfo2);
+                    layoutInfo.getNewsSummaryInfoList().get(0).getNewsImageInfoList().add(newsImageInfo3);
+                    break;
+                }
+                case DOUBLE:{
+                    for (NewsSummaryInfo newsSummaryInfo : layoutInfo.getNewsSummaryInfoList()){
+                        NewsImageInfo newsImageInfo = newsSummaryInfo.getNewsImageInfoList().get(0);
+                        newsSummaryInfo.getNewsImageInfoList().clear();
+                        newsSummaryInfo.getNewsImageInfoList().add(newsImageInfo);
+                    }
+                    break;
+                }
+                case SINGLE:{
+                    NewsImageInfo newsImageInfo = layoutInfo.getNewsSummaryInfoList().get(0).getNewsImageInfoList().get(0);
+                    layoutInfo.getNewsSummaryInfoList().get(0).getNewsImageInfoList().clear();
+                    layoutInfo.getNewsSummaryInfoList().get(0).getNewsImageInfoList().add(newsImageInfo);
+                }
+            }
+        }
+        return layoutInfo;
+    }
 }

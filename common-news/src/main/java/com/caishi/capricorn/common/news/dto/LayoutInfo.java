@@ -32,17 +32,4 @@ public class LayoutInfo {
     public void setNewsSummaryInfoList(List<NewsSummaryInfo> newsSummaryInfoList) {
         this.newsSummaryInfoList = newsSummaryInfoList;
     }
-
-    /**
-     * 默认图片
-     */
-    private List<NewsImageInfo> newsImageInfoList = new ArrayList<NewsImageInfo>();
-
-    public List<NewsImageInfo> getNewsImageInfoList() {
-        return newsImageInfoList;
-    }
-
-    public void setNewsImageInfoList(List<NewsImageInfo> newsImageInfoList) {
-        this.newsImageInfoList = newsImageInfoList;
-    }
 }

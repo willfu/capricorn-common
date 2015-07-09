@@ -17,6 +17,11 @@ public enum LogType {
     NEWS_INTERACT,
 
     /**
+     * 新闻阅览
+     */
+    NEWS_VIEW,
+
+    /**
      * 进入场景
      */
     SCENE_OPEN;
@@ -39,20 +44,11 @@ public enum LogType {
     }
 
     /**
-     * 获取日志类型枚举类
-     * @param name 枚举名称
-     * @return 日志类型枚举类
-     */
-    public final static LogType getByName(String name){
-        return LogType.getByName(name);
-    }
-
-    /**
      * 校验日志类型名称是否存在
      * @param name 日志类型名称
      * @return 存在标识
      */
     public final static boolean validation(String name){
-        return LogType.getByName(name)!=null;
+        return LogType.valueOf(name)!=null;
     }
 }

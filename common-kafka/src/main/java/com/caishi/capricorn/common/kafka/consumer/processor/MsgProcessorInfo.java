@@ -1,6 +1,10 @@
 package com.caishi.capricorn.common.kafka.consumer.processor;
 
+import com.caishi.capricorn.common.kafka.utils.IDUtils;
 import org.apache.commons.lang3.StringUtils;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 /**
  * Created by apple on 15/6/15.
@@ -13,6 +17,7 @@ public class MsgProcessorInfo {
 	private String zkConnect;
 	private String topic;
 	private String groupId;
+	private boolean isMulticast = false; // 是否多播模式：给个消费者单独消费每一条消息
 	private int threadNum;
 
 	public MsgProcessorInfo() {
@@ -41,7 +46,7 @@ public class MsgProcessorInfo {
 			throw new IllegalArgumentException(String.format("kafka thread number for %s is less than 0.", topic));
 		}
 
-		if ( StringUtils.isBlank(defaultZkConnect) && StringUtils.isBlank(this.zkConnect)) {
+		if (StringUtils.isBlank(defaultZkConnect) && StringUtils.isBlank(this.zkConnect)) {
 			throw new IllegalArgumentException(String.format("kafka zookeeper for %s is null.", topic));
 		}
 
@@ -60,31 +65,48 @@ public class MsgProcessorInfo {
 		return topic;
 	}
 
-	public String getGroupId() {
-		return groupId;
-	}
-
-	public int getThreadNum() {
-		return threadNum;
-	}
-
 	public void setTopic(String topic) {
 		this.topic = topic;
+	}
+
+	public String getGroupId() {
+		if (isMulticast) {
+			try {
+				return groupId + IDUtils.hostPortID(InetAddress.getLocalHost());
+			} catch (UnknownHostException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		return groupId;
 	}
 
 	public void setGroupId(String groupId) {
 		this.groupId = groupId;
 	}
 
+	public int getThreadNum() {
+		return threadNum;
+	}
+
 	public void setThreadNum(int threadNum) {
 		this.threadNum = threadNum;
+	}
+
+	public boolean isMulticast() {
+		return isMulticast;
+	}
+
+	public void setIsMulticast(boolean isMulticast) {
+		this.isMulticast = isMulticast;
 	}
 
 	@Override
 	public String toString() {
 		return "MsgProcessorInfo{" +
-				"topic='" + topic + '\'' +
+				"zkConnect='" + zkConnect + '\'' +
+				", topic='" + topic + '\'' +
 				", groupId='" + groupId + '\'' +
+				", isMulticast=" + isMulticast +
 				", threadNum=" + threadNum +
 				'}';
 	}

@@ -1,6 +1,6 @@
 package com.caishi.capricorn;
 
-import com.caishi.capricorn.cache.core.ClientCacheManager;
+import com.caishi.capricorn.cache.core.AbstractCacheManager;
 import com.caishi.capricorn.cache.core.ICache;
 
 /**
@@ -13,7 +13,7 @@ public class CacheTest {
 	 * cache size:
 	 * cache expire time:
 	 */
-	private static final ICache<Integer, String> testCache = ClientCacheManager.getInstance().getCache("classifyChannelInfo", 50000, Long.MAX_VALUE);
+	private static final ICache<Integer, String> testCache = AbstractCacheManager.getInstance().getCache("classifyChannelInfo", 50000, Long.MAX_VALUE);
 
 	public static ICache<Integer, String> getTestCache() {
 		return testCache;

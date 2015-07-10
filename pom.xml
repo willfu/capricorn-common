@@ -34,5 +34,6 @@
         <module>common-notify</module>
         <module>common-news</module>
     <module>common-cache</module>
-  </modules>
+        <module>common-social</module>
+    </modules>
 </project>

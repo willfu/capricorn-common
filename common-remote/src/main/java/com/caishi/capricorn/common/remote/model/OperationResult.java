@@ -3,12 +3,14 @@ package com.caishi.capricorn.common.remote.model;
 
 import com.caishi.capricorn.common.remote.constants.OperationStatus;
 
+import java.io.Serializable;
+
 /**
  * Created by apple on 15/7/1.
  * <p/>
  * 操作结果信息
  */
-public class OperationResult {
+public class OperationResult implements Serializable{
 
 	/**
 	 * 操作结果状态

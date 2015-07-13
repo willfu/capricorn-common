@@ -16,7 +16,7 @@ public class NewsImageInfo {
     }
 
     /**
-     * 网络访问地址
+     * 预览地址
      */
     private String url;
 
@@ -26,6 +26,19 @@ public class NewsImageInfo {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    /**
+     * 原始地址
+     */
+    private String src;
+
+    public String getSrc() {
+        return src;
+    }
+
+    public void setSrc(String src) {
+        this.src = src;
     }
 
     /**

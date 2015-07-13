@@ -1,5 +1,6 @@
 package com.caishi.capricorn.common.news.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NewsDetailInfo {
@@ -46,7 +47,7 @@ public class NewsDetailInfo {
     /**
      * 图片列表
      */
-    private List<NewsImageInfo> newsImageInfoList;
+    private List<NewsImageInfo> newsImageInfoList = new ArrayList<NewsImageInfo>();
 
     public List<NewsImageInfo> getNewsImageInfoList() {
         return newsImageInfoList;
@@ -83,7 +84,20 @@ public class NewsDetailInfo {
     }
 
     /**
-     * 创建时间
+     *  发布时间
+     */
+    private long publishTime;
+
+    public long getPublishTime() {
+        return publishTime;
+    }
+
+    public void setPublishTime(long publishTime) {
+        this.publishTime = publishTime;
+    }
+
+    /**
+     * 入库时间
      */
     private long createTime;
 

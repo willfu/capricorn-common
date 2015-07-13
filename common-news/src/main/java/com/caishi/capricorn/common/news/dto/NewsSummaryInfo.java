@@ -90,6 +90,19 @@ public class NewsSummaryInfo {
     }
 
     /**
+     * 新闻引擎类型
+     */
+    private String newsSourceType;
+
+    public String getNewsSourceType() {
+        return newsSourceType;
+    }
+
+    public void setNewsSourceType(String newsSourceType) {
+        this.newsSourceType = newsSourceType;
+    }
+
+    /**
      * 容器类型
      */
     private LayoutType layoutType;

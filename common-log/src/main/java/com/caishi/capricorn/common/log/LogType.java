@@ -22,6 +22,11 @@ public enum LogType {
     NEWS_VIEW,
 
     /**
+     * 新闻刷屏
+     */
+    NEWS_REQUEST,
+
+    /**
      * 进入场景
      */
     SCENE_OPEN;

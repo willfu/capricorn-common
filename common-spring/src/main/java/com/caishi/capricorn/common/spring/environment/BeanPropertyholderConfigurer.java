@@ -8,6 +8,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.core.io.support.ResourcePatternResolver;
 
 import java.io.IOException;
@@ -18,16 +19,25 @@ import java.util.*;
  */
 public class BeanPropertyholderConfigurer extends PropertyPlaceholderConfigurer implements InitializingBean {
 
+	private static final Logger logger = LoggerFactory.getLogger(BeanPropertyholderConfigurer.class);
 	public static final String ONLINE = "ONLINE";
 	public static final String TEST = "TEST";
+
 	public static final String DEV = "DEV";
 
 	public static final Set<String> support_modes = Sets.newHashSet(ONLINE, TEST, DEV);
 
 	public static final String SEPARATOR = "_";
-
 	private static final String PRODUCTION_MODE = "production.mode";
-	private static final Logger logger = LoggerFactory.getLogger(BeanPropertyholderConfigurer.class);
+	/**
+	 * working directory config : production mode
+	 */
+	private static final String WORK_DIR_CONFIG = System.getProperty("user.dir") + "/config/production.properties";
+	/**
+	 * classpath directory config : production mode
+	 */
+	private static final String CLASSPATH_DIR_CONFIG = "config/production.properties";
+
 	//设置运行程序的模式，默认是开发模式，当进入测试或者发布上线就修改为其他模式
 	private String mode = DEV;
 	//缓存所有的属性配置
@@ -65,15 +75,8 @@ public class BeanPropertyholderConfigurer extends PropertyPlaceholderConfigurer 
 	public void afterPropertiesSet() throws Exception {
 		PathMatchingResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
 		try {
-			//系统属性优先
-			mode = System.getProperty(PRODUCTION_MODE);
-			if (StringUtils.isBlank(mode)) {
-				mode = DEV;
-			}
 
-			if (!support_modes.contains(mode)) {
-				mode = DEV;
-			}
+			mode = detectMode();
 
 			pathPattern = generatePath(pathPattern, mode);
 			Resource[] userResources = resourcePatternResolver.getResources(pathPattern);
@@ -95,6 +98,36 @@ public class BeanPropertyholderConfigurer extends PropertyPlaceholderConfigurer 
 			throw new RuntimeException(e);
 		}
 	}
+
+	private String detectMode() throws IOException {
+		//系统属性优先
+		String mode = System.getProperty(PRODUCTION_MODE);
+
+		if (StringUtils.isNotBlank(mode) && support_modes.contains(mode)) {
+			logger.debug("loading production config for ");
+			return mode;
+		}
+
+		//work directory config
+		Properties workConfigProperties = PropertiesLoaderUtils.loadAllProperties(WORK_DIR_CONFIG);
+		mode = workConfigProperties.getProperty(PRODUCTION_MODE);
+		if (StringUtils.isNotBlank(mode) && support_modes.contains(mode)) {
+			return mode;
+		}
+
+		// class path config
+		Properties classpathProperties = PropertiesLoaderUtils.loadAllProperties(CLASSPATH_DIR_CONFIG);
+		mode = classpathProperties.getProperty(PRODUCTION_MODE);
+		if (StringUtils.isNotBlank(mode) && support_modes.contains(mode)) {
+			return mode;
+		}
+
+		if (!support_modes.contains(mode)) {
+			mode = DEV;
+		}
+		return mode;
+	}
+
 
 	private String generatePath(String pathPattern, String mode) {
 		if (StringUtils.equals(mode, ONLINE)) {

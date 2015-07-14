@@ -1,5 +1,6 @@
 package com.caishi.capricorn.common.log.dto;
 
+import com.caishi.capricorn.common.news.meta.NewsType;
 import com.caishi.capricorn.common.news.meta.ParentType;
 
 public class News extends Basic {
@@ -41,5 +42,18 @@ public class News extends Basic {
 
     public void setParentId(int parentId) {
         this.parentId = parentId;
+    }
+
+    /**
+     * 新闻类型
+     */
+    public NewsType newsType;
+
+    public NewsType getNewsType() {
+        return newsType;
+    }
+
+    public void setNewsType(NewsType newsType) {
+        this.newsType = newsType;
     }
 }

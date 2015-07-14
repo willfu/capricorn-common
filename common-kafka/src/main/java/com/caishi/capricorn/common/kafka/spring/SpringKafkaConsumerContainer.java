@@ -58,6 +58,9 @@ public class SpringKafkaConsumerContainer implements SmartLifecycle {
 
 	@Override
 	public boolean isRunning() {
+		if (consumerContainer == null) {
+			return false;
+		}
 		return consumerContainer.isRunning();
 	}
 

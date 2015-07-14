@@ -16,8 +16,7 @@ import java.util.Map;
  */
 public class FeedMessage implements Serializable {
 
-	public static Long serialVersionUID = 1L;
-
+	private static final long serialVersionUID = 4919062422286104614L;
 	public static String FEED_TITLE = "title";
 	public static String FEED_CONTENT = "content";
 	public static String FEED_SUMMARY = "summary";

@@ -15,6 +15,9 @@ import java.util.Map;
  * @since 0.0.1
  */
 public class FeedMessage implements Serializable {
+
+	public static Long serialVersionUID = 1L;
+
 	public static String FEED_TITLE = "title";
 	public static String FEED_CONTENT = "content";
 	public static String FEED_SUMMARY = "summary";
@@ -41,6 +44,7 @@ public class FeedMessage implements Serializable {
 
 	public static String FEED_EXTRA = "extra";
 	public static String FEED_EXTRA_COOKIES = "cookies";
+	public static String FEED_EXTRA_DEBUG_INFO = "DEBUG_INFO";
 
 	public static String FEED_CREATE_TIME = "createtime";
 
@@ -132,12 +136,12 @@ public class FeedMessage implements Serializable {
 		this.srcLink = srcLink;
 	}
 
-	public void setOrigin(Map<String, Object> origin) {
-		this.origin = origin;
-	}
-
 	public Map<String, Object> getOrigin() {
 		return this.origin;
+	}
+
+	public void setOrigin(Map<String, Object> origin) {
+		this.origin = origin;
 	}
 
 	public Map<String, Object> getSourceMeta() {

@@ -20,7 +20,42 @@ public enum NewsType {
     /**
      * 段子
      */
-    JOKES;
+    JOKES,
+
+    /**
+     * 场景
+     */
+    SCENE,
+
+    /**
+     * 游戏
+     */
+    GAME,
+
+    /**
+     * 图标
+     */
+    CHART,
+
+    /**
+     * 视频
+     */
+    VIDEO,
+
+    /**
+     * 音频
+     */
+    RADIO,
+
+    /**
+     * 测试
+     */
+    QUIZ,
+
+    /**
+     * 投票
+     */
+    VOTE;
 
     /**
      * 新闻类型校验

@@ -1,7 +1,6 @@
 package com.caishi.capricorn.common.news.dto;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class NewsDetailInfo {
 
@@ -107,5 +106,18 @@ public class NewsDetailInfo {
 
     public void setCreateTime(long createTime) {
         this.createTime = createTime;
+    }
+
+    /**
+     * 调试信息
+     */
+    private Map<String,Object> debugInfo = new HashMap<String,Object>();
+
+    public Map<String, Object> getDebugInfo() {
+        return debugInfo;
+    }
+
+    public void setDebugInfo(Map<String, Object> debugInfo) {
+        this.debugInfo = debugInfo;
     }
 }

@@ -3,6 +3,19 @@ package com.caishi.capricorn.common.news.dto;
 public class NewsImageInfo {
 
     /**
+     * 图片索引关键字
+     */
+    private String key;
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    /**
      * 是否为GIF图片
      */
     private boolean isGif;

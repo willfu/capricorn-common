@@ -4,6 +4,7 @@ package com.caishi.capricorn.common.base;
 import com.alibaba.fastjson.JSON;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -45,6 +46,8 @@ public class FeedMessage implements Serializable {
 	public static String FEED_EXTRA_COOKIES = "cookies";
 	public static String FEED_EXTRA_DEBUG_INFO = "DEBUG_INFO";
 
+	public static String FEED_SCENES = "scene";
+
 	public static String FEED_CREATE_TIME = "createtime";
 
 	private String id;
@@ -70,6 +73,8 @@ public class FeedMessage implements Serializable {
 	private Map<String, Object> extra;
 
 	private ResourceFetcherType fetcherType;
+
+	private List<Integer> scenes;
 
 	public String getId() {
 		return id;
@@ -167,6 +172,14 @@ public class FeedMessage implements Serializable {
 		this.extra = extra;
 	}
 
+	public void setScenes(List<Integer> scenes) {
+		this.scenes = scenes;
+	}
+
+	public List<Integer> getScenes() {
+		return this.scenes;
+	}
+
 	@Override
 	public String toString() {
 		return "FeedMessage:\n{\n" +
@@ -174,6 +187,7 @@ public class FeedMessage implements Serializable {
 				"content:" + content + "\n" +
 				"pubtime:" + pubtime + "\n" +
 				"createtime:" + createtime + "\n" +
+				"scenes:" + scenes + "\n" +
 				"extra:" + JSON.toJSONString(extra) + "\n}\n";
 	}
 }

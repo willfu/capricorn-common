@@ -31,7 +31,7 @@ public class ConsumerTest {
 
 	public static void test(String[] args) throws Exception {
 		ConsumerContainer consumerContainer = new ConsumerContainer();
-		consumerContainer.setZkConnect("10.10.1.54:2181");
+		consumerContainer.setZkConnect("10.10.42.93:2181");
 		ConcurrentMap<MsgProcessorInfo, MsgProcessor> msgProcessors = new ConcurrentHashMap<MsgProcessorInfo, MsgProcessor>();
 		msgProcessors.put(new MsgProcessorInfo("test", "hello1"), new StringMsgProcessor() {
 			private final Logger LOGGER = LoggerFactory.getLogger(StringMsgProcessor.class);
@@ -62,7 +62,7 @@ public class ConsumerTest {
 
 	public static final void testJavaSeDes() throws InterruptedException {
 		ConsumerContainer consumerContainer = new ConsumerContainer();
-		consumerContainer.setZkConnect("10.10.1.54:2181");
+		consumerContainer.setZkConnect("10.10.42.93:2181");
 		ConcurrentMap<MsgProcessorInfo, MsgProcessor> msgProcessors = new ConcurrentHashMap<MsgProcessorInfo, MsgProcessor>();
 		msgProcessors.put(new MsgProcessorInfo("test", "hello1"), new JavaMsgProcessor<FeedMessage>() {
 			private final Logger LOGGER = LoggerFactory.getLogger(StringMsgProcessor.class);

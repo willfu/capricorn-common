@@ -124,7 +124,7 @@ public class NewsDetailInfo {
     /**
      * 分类信息ID集合
      */
-    public String categoryIds;
+    private String categoryIds;
 
     public String getCategoryIds() {
         return categoryIds;

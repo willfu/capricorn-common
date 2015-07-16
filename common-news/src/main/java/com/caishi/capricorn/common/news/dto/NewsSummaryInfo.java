@@ -142,6 +142,19 @@ public class NewsSummaryInfo {
     }
 
     /**
+     * 分类信息ID集合
+     */
+    private String categoryIds;
+
+    public String getCategoryIds() {
+        return categoryIds;
+    }
+
+    public void setCategoryIds(String categoryIds) {
+        this.categoryIds = categoryIds;
+    }
+
+    /**
      * 附加参数
      */
     public Map<String,String> paraMap = new HashMap<String,String>();

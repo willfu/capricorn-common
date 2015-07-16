@@ -120,4 +120,17 @@ public class NewsDetailInfo {
     public void setDebugInfo(Map<String, Object> debugInfo) {
         this.debugInfo = debugInfo;
     }
+
+    /**
+     * 分类信息ID集合
+     */
+    public String categoryIds;
+
+    public String getCategoryIds() {
+        return categoryIds;
+    }
+
+    public void setCategoryIds(String categoryIds) {
+        this.categoryIds = categoryIds;
+    }
 }

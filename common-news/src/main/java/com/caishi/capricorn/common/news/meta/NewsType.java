@@ -33,7 +33,7 @@ public enum NewsType {
     GAME,
 
     /**
-     * 图标
+     * 图表
      */
     CHART,
 

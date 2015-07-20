@@ -72,7 +72,7 @@ public class MsgProcessorInfo {
 	public String getGroupId() {
 		if (isMulticast) {
 			try {
-				return groupId + IDUtils.hostPortID(InetAddress.getLocalHost());
+				return groupId + "_" + IDUtils.hostPortID(InetAddress.getLocalHost());
 			} catch (UnknownHostException e) {
 				throw new RuntimeException(e);
 			}

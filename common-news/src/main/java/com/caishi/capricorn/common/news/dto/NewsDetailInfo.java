@@ -1,5 +1,7 @@
 package com.caishi.capricorn.common.news.dto;
 
+import com.caishi.capricorn.common.social.meta.InteractType;
+
 import java.util.*;
 
 public class NewsDetailInfo {
@@ -108,6 +110,20 @@ public class NewsDetailInfo {
         this.createTime = createTime;
     }
 
+
+    /**
+     * 新闻收藏状态
+     */
+    private int collectStatus;
+
+    public int getCollectStatus() {
+        return collectStatus;
+    }
+
+    public void setCollectStatus(int collectStatus) {
+        this.collectStatus = collectStatus;
+    }
+
     /**
      * 调试信息
      */
@@ -132,5 +148,18 @@ public class NewsDetailInfo {
 
     public void setCategoryIds(String categoryIds) {
         this.categoryIds = categoryIds;
+    }
+
+    /**
+     * 新闻交互信息
+     */
+    private Map<InteractType,Long> interactInfo;
+
+    public Map<InteractType, Long> getInteractInfo() {
+        return interactInfo;
+    }
+
+    public void setInteractInfo(Map<InteractType, Long> interactInfo) {
+        this.interactInfo = interactInfo;
     }
 }

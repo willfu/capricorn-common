@@ -25,6 +25,12 @@
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
+        <!--common-social-->
+        <dependency>
+            <groupId>com.caishi.capricorn</groupId>
+            <artifactId>common-social</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <!--junit-->
         <dependency>
             <groupId>junit</groupId>

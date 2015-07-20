@@ -30,7 +30,17 @@ public enum LayoutType {
     /**
      * 段子模式
      */
-    PIECE;
+    PIECE,
+
+    /**
+     * 场景：大图显示
+     */
+    SCENE_BIG,
+
+    /**
+     * 场景：并列显示
+     */
+    SCENE_DOUBLE;
 
     /**
      * 版式类型校验

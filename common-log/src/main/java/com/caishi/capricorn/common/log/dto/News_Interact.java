@@ -1,30 +1,19 @@
 package com.caishi.capricorn.common.log.dto;
 
+import com.caishi.capricorn.common.social.meta.InteractType;
+
 public class News_Interact extends News {
 
     /**
-     * 交互选项ID
+     * 交互类型
      */
-    private int interactId;
+    private InteractType interactType;
 
-    public int getInteractId() {
-        return interactId;
+    public InteractType getInteractType() {
+        return interactType;
     }
 
-    public void setInteractId(int interactId) {
-        this.interactId = interactId;
-    }
-
-    /**
-     * 交互选项名称
-     */
-    private String interactName;
-
-    public String getInteractName() {
-        return interactName;
-    }
-
-    public void setInteractName(String interactName) {
-        this.interactName = interactName;
+    public void setInteractType(InteractType interactType) {
+        this.interactType = interactType;
     }
 }

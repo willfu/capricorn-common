@@ -7,6 +7,11 @@ public enum LogType {
     NEWS_COLLECT,
 
     /**
+     * 取消收藏
+     */
+    NEWS_DIS_COLLECT,
+
+    /**
      * 新闻分享
      */
     NEWS_SHARE,

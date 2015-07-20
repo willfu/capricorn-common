@@ -3,6 +3,7 @@ package com.caishi.capricorn.common.kafka.utils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Random;
 
 /**
@@ -31,5 +32,9 @@ public class IDUtils {
 
 
 		return random.nextLong() + "";
+	}
+
+	public static void main(String[] args) throws UnknownHostException {
+		System.out.println(IDUtils.hostPortID(InetAddress.getLocalHost()));
 	}
 }

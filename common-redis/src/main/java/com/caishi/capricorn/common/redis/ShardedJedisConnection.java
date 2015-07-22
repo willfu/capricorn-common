@@ -3,6 +3,7 @@ package com.caishi.capricorn.common.redis;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.RedisSystemException;
 import org.springframework.data.redis.connection.*;
+import org.springframework.data.redis.connection.jedis.JedisConverters;
 import org.springframework.data.redis.connection.jedis.JedisUtils;
 import org.springframework.data.redis.connection.jedis.JedisVersionUtil;
 import org.springframework.data.redis.core.Cursor;
@@ -16,7 +17,7 @@ import java.util.*;
 
 /**
  * redis分区连接类，不知道选择dbIndex，不支持keys操作，不支持无key的方法
- *
+ * <p/>
  * Created by apple on 15/7/6.
  */
 public class ShardedJedisConnection implements RedisConnection {
@@ -31,6 +32,17 @@ public class ShardedJedisConnection implements RedisConnection {
 	protected volatile boolean broken = false;
 
 	/**
+	 * Constructs a new <code>ShardJedisConnection</code> instance backed by a ShardRedis pool.
+	 *
+	 * @param shardedJedis
+	 * @param pool         can be null, if no pool is used
+	 */
+	public ShardedJedisConnection(ShardedJedis shardedJedis, redis.clients.util.Pool<ShardedJedis> pool) {
+		this.shardedJedis = shardedJedis;
+		this.shardedPool = pool;
+	}
+
+	/**
 	 * @return the broken
 	 */
 	public boolean isBroken() {
@@ -42,18 +54,6 @@ public class ShardedJedisConnection implements RedisConnection {
 	 */
 	public void setBroken(boolean broken) {
 		this.broken = broken;
-	}
-
-
-	/**
-	 * Constructs a new <code>ShardJedisConnection</code> instance backed by a ShardRedis pool.
-	 *
-	 * @param shardedJedis
-	 * @param pool         can be null, if no pool is used
-	 */
-	public ShardedJedisConnection(ShardedJedis shardedJedis, redis.clients.util.Pool<ShardedJedis> pool) {
-		this.shardedJedis = shardedJedis;
-		this.shardedPool = pool;
 	}
 
 	protected DataAccessException convertJedisAccessException(Exception ex) {
@@ -136,7 +136,7 @@ public class ShardedJedisConnection implements RedisConnection {
 	@Override
 	public Boolean pExpire(byte[] key, long millis) {
 		try {
-			return (shardedJedis.expire(key, (int)millis/1000) == 1);
+			return (shardedJedis.expire(key, (int) millis / 1000) == 1);
 		} catch (Exception ex) {
 			throw convertJedisAccessException(ex);
 		}
@@ -163,7 +163,7 @@ public class ShardedJedisConnection implements RedisConnection {
 	@Override
 	public Boolean pExpireAt(byte[] key, long unixTimeInMillis) {
 		try {
-			return (shardedJedis.expireAt(key, unixTimeInMillis/1000) == 1);
+			return (shardedJedis.expireAt(key, unixTimeInMillis / 1000) == 1);
 		} catch (Exception ex) {
 			throw convertJedisAccessException(ex);
 		}
@@ -739,7 +739,7 @@ public class ShardedJedisConnection implements RedisConnection {
 			if (isPipelined()) {
 				throw new UnsupportedOperationException();
 			}
-			throw new UnsupportedOperationException();
+			return this.shardedJedis.zrevrangeByScore(key, min, max, (int) offset, (int) count);
 		} catch (Exception ex) {
 			throw convertJedisAccessException(ex);
 		}
@@ -754,7 +754,7 @@ public class ShardedJedisConnection implements RedisConnection {
 			if (isPipelined()) {
 				throw new UnsupportedOperationException();
 			}
-			throw new UnsupportedOperationException();
+			return this.shardedJedis.zrevrangeByScore(key, min, max);
 		} catch (Exception ex) {
 			throw convertJedisAccessException(ex);
 		}
@@ -769,7 +769,7 @@ public class ShardedJedisConnection implements RedisConnection {
 			if (isPipelined()) {
 				throw new UnsupportedOperationException();
 			}
-			throw new UnsupportedOperationException();
+			return JedisConverters.toTupleSet(this.shardedJedis.zrevrangeByScoreWithScores(key, min, max, (int) offset, (int) count));
 		} catch (Exception ex) {
 			throw convertJedisAccessException(ex);
 		}
@@ -784,7 +784,7 @@ public class ShardedJedisConnection implements RedisConnection {
 			if (isPipelined()) {
 				throw new UnsupportedOperationException();
 			}
-			throw new UnsupportedOperationException();
+			return JedisConverters.toTupleSet(this.shardedJedis.zrevrangeByScoreWithScores(key, min, max));
 		} catch (Exception ex) {
 			throw convertJedisAccessException(ex);
 		}
@@ -1163,23 +1163,6 @@ public class ShardedJedisConnection implements RedisConnection {
 	public <T> T evalSha(byte[] scriptSha, ReturnType returnType, int numKeys, byte[]... keysAndArgs) {
 		throw new UnsupportedOperationException();
 	}
-
-
-	protected static final class MyJedisUtils {
-		static Set<Tuple> convertJedisTuple(Set<redis.clients.jedis.Tuple> tuples) {
-			Set<Tuple> value = new LinkedHashSet<Tuple>(tuples.size());
-			for (redis.clients.jedis.Tuple tuple : tuples) {
-				value.add(new DefaultTuple(tuple.getBinaryElement(), tuple.getScore()));
-			}
-
-			return value;
-		}
-
-		static Boolean convertCodeReply(Number code) {
-			return (code != null ? code.intValue() == 1 : null);
-		}
-	}
-
 
 	/*****
 	 * 以下操作在分布式redis不支持
@@ -1744,17 +1727,6 @@ public class ShardedJedisConnection implements RedisConnection {
 	}
 
 	/**
-	 * Assign given name to current connection.
-	 *
-	 * @param name
-	 * @since 1.3
-	 */
-	@Override
-	public void setClientName(byte[] name) {
-		throw new UnsupportedOperationException();
-	}
-
-	/**
 	 * Returns the name of the current connection.
 	 * <p/>
 	 * See http://redis.io/commands/client-getname
@@ -1764,6 +1736,17 @@ public class ShardedJedisConnection implements RedisConnection {
 	 */
 	@Override
 	public String getClientName() {
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * Assign given name to current connection.
+	 *
+	 * @param name
+	 * @since 1.3
+	 */
+	@Override
+	public void setClientName(byte[] name) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -1852,6 +1835,21 @@ public class ShardedJedisConnection implements RedisConnection {
 	@Override
 	public Object execute(String command, byte[]... args) {
 		throw new UnsupportedOperationException();
+	}
+
+	protected static final class MyJedisUtils {
+		static Set<Tuple> convertJedisTuple(Set<redis.clients.jedis.Tuple> tuples) {
+			Set<Tuple> value = new LinkedHashSet<Tuple>(tuples.size());
+			for (redis.clients.jedis.Tuple tuple : tuples) {
+				value.add(new DefaultTuple(tuple.getBinaryElement(), tuple.getScore()));
+			}
+
+			return value;
+		}
+
+		static Boolean convertCodeReply(Number code) {
+			return (code != null ? code.intValue() == 1 : null);
+		}
 	}
 
 

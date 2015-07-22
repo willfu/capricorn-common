@@ -1,6 +1,6 @@
 package com.caishi.capricorn.common.news.dto;
 
-public class NewsImageInfo {
+public class NewsImageInfo implements Cloneable {
 
     /**
      * 图片索引关键字
@@ -78,5 +78,14 @@ public class NewsImageInfo {
 
     public void setHeight(double height) {
         this.height = height;
+    }
+
+    /**
+     * 克隆
+     * @return 克隆结果
+     */
+    public NewsImageInfo clone() throws CloneNotSupportedException {
+        NewsImageInfo newsImageInfo = (NewsImageInfo)(super.clone());
+        return newsImageInfo;
     }
 }

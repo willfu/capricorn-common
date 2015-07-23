@@ -1345,7 +1345,11 @@ public class ShardedJedisConnection implements RedisConnection {
 	 */
 	@Override
 	public Long rPush(byte[] key, byte[]... values) {
-		return null;
+		try {
+			return shardedJedis.rpush(key, values);
+		} catch (Exception ex) {
+			throw convertJedisAccessException(ex);
+		}
 	}
 
 	/**
@@ -1359,7 +1363,11 @@ public class ShardedJedisConnection implements RedisConnection {
 	 */
 	@Override
 	public Long lPush(byte[] key, byte[]... values) {
-		return null;
+		try {
+			return shardedJedis.lpush(key, values);
+		} catch (Exception ex) {
+			throw convertJedisAccessException(ex);
+		}
 	}
 
 	@Deprecated

@@ -170,13 +170,13 @@ public class NewsSummaryInfo {
     /**
      * 附加参数
      */
-    public Map<String,String> paraMap = new HashMap<String,String>();
+    public Map<String,Object> paraMap = new HashMap<String,Object>();
 
-    public Map<String, String> getParaMap() {
+    public Map<String, Object> getParaMap() {
         return paraMap;
     }
 
-    public void setParaMap(Map<String, String> paraMap) {
+    public void setParaMap(Map<String, Object> paraMap) {
         this.paraMap = paraMap;
     }
 }

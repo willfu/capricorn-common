@@ -40,7 +40,12 @@ public enum LayoutType {
     /**
      * 场景：并列显示
      */
-    SCENE_DOUBLE;
+    SCENE_DOUBLE,
+
+    /**
+     * 场景：晨读
+     */
+    SCENE_CHENDU;
 
     /**
      * 版式类型校验

@@ -12,6 +12,11 @@ public enum SceneType {
     PIT,
 
     /**
+     * 奔波
+     */
+    RUNNING,
+
+    /**
      * 窝着
      */
     HIDE,

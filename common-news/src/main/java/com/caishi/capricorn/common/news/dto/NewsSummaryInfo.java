@@ -155,6 +155,19 @@ public class NewsSummaryInfo {
     }
 
     /**
+     * 新闻简述
+     */
+    private String summary;
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    /**
      * 附加参数
      */
     public Map<String,String> paraMap = new HashMap<String,String>();

@@ -1,4 +1,4 @@
-package com.caishi.capricorn;
+package com.caishi.capricorn.common.scene;
 
 /**
  * Hello world!

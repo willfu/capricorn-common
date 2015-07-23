@@ -40,5 +40,6 @@
         <module>common-data</module>
         <module>common-data</module>
         <module>common-scene</module>
+        <module>common-data</module>
     </modules>
 </project>

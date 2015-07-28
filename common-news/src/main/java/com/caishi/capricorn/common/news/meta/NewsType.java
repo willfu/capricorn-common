@@ -55,7 +55,12 @@ public enum NewsType {
     /**
      * 投票
      */
-    VOTE;
+    VOTE,
+
+    /**
+     * 影视
+     */
+    MOVIE;
 
     /**
      * 新闻类型校验

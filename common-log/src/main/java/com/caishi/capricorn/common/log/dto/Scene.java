@@ -18,19 +18,6 @@ public class Scene extends Basic {
     }
 
     /**
-     * 场景类型
-     */
-    private SceneType sceneType;
-
-    public SceneType getSceneType() {
-        return sceneType;
-    }
-
-    public void setSceneType(SceneType sceneType) {
-        this.sceneType = sceneType;
-    }
-
-    /**
      * 父本类型
      */
     private ParentType parentType;
@@ -52,10 +39,7 @@ public class Scene extends Basic {
         if (status) {
             status = sceneId > 0;
             if (status) {
-                status = sceneType != null;
-                if(status){
-                    status = parentType!=null;
-                }
+                status = parentType != null;
             }
         }
         return status;

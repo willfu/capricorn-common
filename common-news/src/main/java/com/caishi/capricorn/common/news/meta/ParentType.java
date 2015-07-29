@@ -13,9 +13,9 @@ public enum  ParentType {
     SCENE,
 
     /**
-     * 足迹
+     *
      */
-    MARK,
+    COLLECT,
 
     /**
      * H5

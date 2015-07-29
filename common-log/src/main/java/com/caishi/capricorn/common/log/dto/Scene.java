@@ -20,14 +20,14 @@ public class Scene extends Basic {
     /**
      * 父本类型
      */
-    private ParentType parentType;
+    private ParentType referentType;
 
-    public ParentType getParentType() {
-        return parentType;
+    public ParentType getReferentType() {
+        return referentType;
     }
 
-    public void setParentType(ParentType parentType) {
-        this.parentType = parentType;
+    public void setReferentType(ParentType referentType) {
+        this.referentType = referentType;
     }
 
     /**
@@ -39,7 +39,7 @@ public class Scene extends Basic {
         if (status) {
             status = sceneId > 0;
             if (status) {
-                status = parentType != null;
+                status = referentType != null;
             }
         }
         return status;

@@ -1,7 +1,6 @@
 package com.caishi.capricorn.common.log.dto;
 
-import com.caishi.capricorn.common.news.meta.ParentType;
-import com.caishi.capricorn.common.scene.MetaData.SceneType;
+import com.caishi.capricorn.common.scene.MetaData.ReferentType;
 
 public class Scene extends Basic {
     /**
@@ -18,15 +17,15 @@ public class Scene extends Basic {
     }
 
     /**
-     * 父本类型
+     * 来源类型
      */
-    private ParentType referentType;
+    private ReferentType referentType;
 
-    public ParentType getReferentType() {
+    public ReferentType getReferentType() {
         return referentType;
     }
 
-    public void setReferentType(ParentType referentType) {
+    public void setReferentType(ReferentType referentType) {
         this.referentType = referentType;
     }
 

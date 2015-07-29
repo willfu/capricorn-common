@@ -14,4 +14,13 @@ public class News_Collect extends News {
     public void setIsCollect(boolean isCollect) {
         this.isCollect = isCollect;
     }
+
+    /**
+     * 数据校验
+     * @return 数据校验结果
+     */
+    public boolean makeValidation(){
+        boolean status = super.makeValidation();
+        return status;
+    }
 }

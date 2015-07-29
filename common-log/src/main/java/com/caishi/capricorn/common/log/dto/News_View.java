@@ -17,4 +17,16 @@ public class News_View extends News {
     public void setCategoryIdList(List<Integer> categoryIdList) {
         this.categoryIdList = categoryIdList;
     }
+
+    /**
+     * 数据校验
+     * @return
+     */
+    public boolean makeValidation(){
+        boolean status = super.makeValidation();
+        if(status){
+            status = categoryIdList.size()>0;
+        }
+        return status;
+    }
 }

@@ -1,6 +1,7 @@
 package com.caishi.capricorn.common.log.dto;
 
-public class Scene_View extends Scene {
+public class News_Dislike extends News {
+
     /**
      * 数据校验
      * @return 数据校验结果

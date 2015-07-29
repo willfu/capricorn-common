@@ -1,5 +1,8 @@
 package com.caishi.capricorn.common.log.dto;
 
+import com.caishi.capricorn.common.login.data.PartnerType;
+import com.caishi.capricorn.common.news.meta.ParentType;
+
 public class News_Share extends News {
 
     /**
@@ -29,19 +32,6 @@ public class News_Share extends News {
     }
 
     /**
-     * 第三方账户类型名称
-     */
-    private String partnerTypeName;
-
-    public String getPartnerTypeName() {
-        return partnerTypeName;
-    }
-
-    public void setPartnerTypeName(String partnerTypeName) {
-        this.partnerTypeName = partnerTypeName;
-    }
-
-    /**
      * 第三方账户分享范围
      */
     private String partnerScopeId;
@@ -52,5 +42,20 @@ public class News_Share extends News {
 
     public void setPartnerScopeId(String partnerScopeId) {
         this.partnerScopeId = partnerScopeId;
+    }
+
+    /**
+     * 数据校验
+     * @return 数据校验结果
+     */
+    public boolean makeValidation(){
+        boolean status = super.makeValidation();
+        if (status){
+            status = shareLink!=null&&shareLink.length()>0;
+            if(status){
+                status = PartnerType.validation(partnerTypeId);
+            }
+        }
+        return status;
     }
 }

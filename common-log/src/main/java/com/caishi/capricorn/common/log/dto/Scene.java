@@ -29,4 +29,19 @@ public class Scene extends Basic {
     public void setSceneType(SceneType sceneType) {
         this.sceneType = sceneType;
     }
+
+    /**
+     * 数据校验
+     * @return 数据校验结果
+     */
+    public boolean makeValidation() {
+        boolean status = super.makeValidation();
+        if (status) {
+            status = sceneId > 0;
+            if (status) {
+                status = sceneType != null;
+            }
+        }
+        return status;
+    }
 }

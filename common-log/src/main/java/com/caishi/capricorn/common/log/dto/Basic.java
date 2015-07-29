@@ -1,5 +1,7 @@
 package com.caishi.capricorn.common.log.dto;
 
+import com.caishi.capricorn.common.login.data.DeviceType;
+
 public class Basic {
 
     /**
@@ -65,5 +67,23 @@ public class Basic {
 
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
+    }
+
+    /**
+     * 数据校验
+     * @return 数据校验结果
+     */
+    public boolean makeValidation(){
+        boolean status = userId!=null&&userId.length()>0;
+        if(status){
+            status = deviceId!=null&&deviceId.length()>0;
+            if(status){
+                status = DeviceType.validation(deviceTypeId);
+                if(status){
+                    status = createTime!=null&&createTime.length()==12;
+                }
+            }
+        }
+        return status;
     }
 }

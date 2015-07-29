@@ -149,17 +149,4 @@ public class NewsDetailInfo {
     public void setCategoryIds(String categoryIds) {
         this.categoryIds = categoryIds;
     }
-
-    /**
-     * 新闻交互信息
-     */
-    private Map<InteractType,Long> interactInfo;
-
-    public Map<InteractType, Long> getInteractInfo() {
-        return interactInfo;
-    }
-
-    public void setInteractInfo(Map<InteractType, Long> interactInfo) {
-        this.interactInfo = interactInfo;
-    }
 }

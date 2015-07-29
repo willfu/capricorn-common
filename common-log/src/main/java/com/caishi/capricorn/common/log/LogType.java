@@ -27,9 +27,14 @@ public enum LogType {
     NEWS_VIEW,
 
     /**
+     * 新闻不喜欢
+     */
+    NEWS_DISLIKE,
+
+    /**
      * 进入场景
      */
-    SCENE_OPEN;
+    SCENE_VIEW;
 
     /**
      * 校验日志类型是否存在

@@ -9,6 +9,6 @@ public class LogTypeUnitTest {
     @Test
     public void testValueOf(){
         LogType logType = LogType.valueOf("SCENE_OPEN");
-        assertTrue(logType==LogType.SCENE_OPEN);
+        assertTrue(logType==LogType.SCENE_VIEW);
     }
 }

@@ -15,5 +15,10 @@ public enum  ParentType {
     /**
      * 足迹
      */
-    MARK;
+    MARK,
+
+    /**
+     * H5
+     */
+    HTML5;
 }

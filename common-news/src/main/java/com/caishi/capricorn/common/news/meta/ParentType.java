@@ -10,14 +10,10 @@ public enum  ParentType {
     /**
      * 场景
      */
-    SCENE;
+    SCENE,
 
     /**
-     * 父本类型校验
-     * @param name 父本类型名称
-     * @return 校验结果
+     * 足迹
      */
-    public final static boolean doValidation(String name){
-        return ParentType.valueOf(name)!=null;
-    }
+    MARK;
 }

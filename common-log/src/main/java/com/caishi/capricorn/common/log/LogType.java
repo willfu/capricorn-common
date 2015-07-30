@@ -32,6 +32,11 @@ public enum LogType {
     NEWS_DISLIKE,
 
     /**
+     * 新闻举报
+     */
+    NEWS_REPORT,
+
+    /**
      * 进入场景
      */
     SCENE_VIEW;

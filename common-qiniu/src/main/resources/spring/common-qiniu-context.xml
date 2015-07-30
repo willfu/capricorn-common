@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- 配置文件 -->
+    <bean id="propertyConfigurer" class="com.caishi.capricorn.common.spring.environment.BeanPropertyholderConfigurer">
+        <property name="pathPattern" value="classpath*:/config/common-qiniu/%s/*.properties"/>
+    </bean>
+
+    <bean id="qiniuAuthService" class="com.caishi.capricorn.qiniu.auth.service.impl.QiniuAuthServiceImpl">
+        <constructor-arg index="0" name="accessKey" value="${qiniu.auth.accesskey}"/>
+        <constructor-arg index="1" name="secretKey" value="${qiniu.auth.secretkey}"/>
+    </bean>
+
+</beans>

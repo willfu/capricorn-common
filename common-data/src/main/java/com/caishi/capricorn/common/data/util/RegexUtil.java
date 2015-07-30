@@ -10,7 +10,7 @@ public class RegexUtil {
      * @param ip ip地址
      * @return 判断结果
      */
-    public boolean checkInnerIP(String ip){
+    public static boolean checkInnerIP(String ip){
         String reg = "(10|172|192)\\.([0-1][0-9]{0,2}|[2][0-5]{0,2}|[3-9][0-9]{0,1})\\.([0-1][0-9]{0,2}|[2][0-5]{0,2}|[3-9][0-9]{0,1})\\.([0-1][0-9]{0,2}|[2][0-5]{0,2}|[3-9][0-9]{0,1})";//正则表达式=。 =、懒得做文字处理了、
         Pattern p = Pattern.compile(reg);
         Matcher matcher = p.matcher(ip);

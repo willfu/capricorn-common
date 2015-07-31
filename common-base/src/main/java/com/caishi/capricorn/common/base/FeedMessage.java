@@ -182,12 +182,20 @@ public class FeedMessage implements Serializable {
 
 	@Override
 	public String toString() {
-		return "FeedMessage:\n{\n" +
-				"title:" + title + "\n" +
-				"content:" + content + "\n" +
-				"pubtime:" + pubtime + "\n" +
-				"createtime:" + createtime + "\n" +
-				"scenes:" + scenes + "\n" +
-				"extra:" + JSON.toJSONString(extra) + "\n}\n";
+		return "FeedMessage{" +
+				"id='" + id + '\'' +
+				", title='" + title + '\'' +
+				", content='" + content + '\'' +
+				", summary='" + summary + '\'' +
+				", pubtime='" + pubtime + '\'' +
+				", media=" + JSON.toJSONString(media) +
+				", srcLink='" + srcLink + '\'' +
+				", sourceMeta=" + JSON.toJSONString(sourceMeta) +
+				", origin=" + origin +
+				", createtime=" + createtime +
+				", extra=" + JSON.toJSONString(extra) +
+				", fetcherType=" + fetcherType +
+				", scenes=" + scenes +
+				'}';
 	}
 }

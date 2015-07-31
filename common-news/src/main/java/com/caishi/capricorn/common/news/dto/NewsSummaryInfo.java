@@ -179,4 +179,17 @@ public class NewsSummaryInfo {
     public void setParaMap(Map<String, Object> paraMap) {
         this.paraMap = paraMap;
     }
+
+    /**
+     * 封面图片索引
+     */
+    private int imageIndex=-1;
+
+    public int getImageIndex() {
+        return imageIndex;
+    }
+
+    public void setImageIndex(int imageIndex) {
+        this.imageIndex = imageIndex;
+    }
 }

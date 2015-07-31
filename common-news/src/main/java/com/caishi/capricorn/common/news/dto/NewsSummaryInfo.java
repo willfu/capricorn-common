@@ -181,15 +181,15 @@ public class NewsSummaryInfo {
     }
 
     /**
-     * 封面图片索引
+     * 封面图片索引列表
      */
-    private int imageIndex=-1;
+    private List<Integer> imageIndexCollection = new ArrayList<Integer>();
 
-    public int getImageIndex() {
-        return imageIndex;
+    public List<Integer> getImageIndexCollection() {
+        return imageIndexCollection;
     }
 
-    public void setImageIndex(int imageIndex) {
-        this.imageIndex = imageIndex;
+    public void setImageIndexCollection(List<Integer> imageIndexCollection) {
+        this.imageIndexCollection = imageIndexCollection;
     }
 }

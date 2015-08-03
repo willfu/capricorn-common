@@ -192,4 +192,17 @@ public class NewsSummaryInfo {
     public void setImageIndexCollection(List<Integer> imageIndexCollection) {
         this.imageIndexCollection = imageIndexCollection;
     }
+
+    /**
+     * 新闻详情链接
+     */
+    private String detailLink;
+
+    public String getDetailLink() {
+        return detailLink;
+    }
+
+    public void setDetailLink(String detailLink) {
+        this.detailLink = detailLink;
+    }
 }

@@ -19,16 +19,13 @@ import java.util.*;
  */
 public class BeanPropertyholderConfigurer extends PropertyPlaceholderConfigurer implements InitializingBean {
 
-	private static final Logger logger = LoggerFactory.getLogger(BeanPropertyholderConfigurer.class);
 	public static final String ONLINE = "ONLINE";
 	public static final String TEST = "TEST";
-
 	public static final String DEV = "DEV";
-
 	public static final Set<String> support_modes = Sets.newHashSet(ONLINE, TEST, DEV);
-
 	public static final String SEPARATOR = "_";
-	private static final String PRODUCTION_MODE = "production.mode";
+	public static final String PRODUCTION_MODE = "production.mode";
+	private static final Logger logger = LoggerFactory.getLogger(BeanPropertyholderConfigurer.class);
 	/**
 	 * working directory config : production mode
 	 */

@@ -31,6 +31,12 @@
             <artifactId>common-social</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <!--common-base-->
+        <dependency>
+            <groupId>com.caishi.capricorn</groupId>
+            <artifactId>common-base</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <!--junit-->
         <dependency>
             <groupId>junit</groupId>

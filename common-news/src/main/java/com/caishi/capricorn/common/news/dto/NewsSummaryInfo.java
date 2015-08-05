@@ -1,7 +1,7 @@
 package com.caishi.capricorn.common.news.dto;
 
+import com.caishi.capricorn.common.base.MessageType;
 import com.caishi.capricorn.common.news.meta.LayoutType;
-import com.caishi.capricorn.common.news.meta.NewsType;
 import com.caishi.capricorn.common.news.meta.ParentType;
 
 import java.util.ArrayList;
@@ -79,13 +79,13 @@ public class NewsSummaryInfo {
     /**
      * 类型编号
      */
-    private NewsType newsType;
+    private MessageType newsType;
 
-    public NewsType getNewsType() {
+    public MessageType getNewsType() {
         return newsType;
     }
 
-    public void setNewsType(NewsType newsType) {
+    public void setNewsType(MessageType newsType) {
         this.newsType = newsType;
     }
 

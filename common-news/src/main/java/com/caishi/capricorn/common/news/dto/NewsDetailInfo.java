@@ -149,4 +149,17 @@ public class NewsDetailInfo {
     public void setCategoryIds(String categoryIds) {
         this.categoryIds = categoryIds;
     }
+
+    /**
+     * 原文链接
+     */
+    private String srcLink;
+
+    public String getSrcLink() {
+        return srcLink;
+    }
+
+    public void setSrcLink(String srcLink) {
+        this.srcLink = srcLink;
+    }
 }

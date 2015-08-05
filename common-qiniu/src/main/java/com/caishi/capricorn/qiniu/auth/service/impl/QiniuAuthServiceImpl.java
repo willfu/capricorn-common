@@ -22,10 +22,13 @@ public class QiniuAuthServiceImpl implements QiniuAuthService {
 
 	private Auth auth;
 
-	public QiniuAuthServiceImpl(String accessKey, String secretKey) {
+	private Map<BucketEnum, String> bucketMap;
+
+	public QiniuAuthServiceImpl(String accessKey, String secretKey, Map<BucketEnum, String> bucketMap) {
 		this.accessKey = accessKey;
 		this.secretKey = secretKey;
 		this.auth = Auth.create(accessKey, secretKey);
+		this.bucketMap = bucketMap;
 	}
 
 	@Override
@@ -33,6 +36,12 @@ public class QiniuAuthServiceImpl implements QiniuAuthService {
 		if (bucket == null) {
 			LOGGER.warn("Bucket is null.");
 			throw new RuntimeException("Bucket is null.");
+		}
+		String bucketName = bucketMap.get(bucket);
+		if (StringUtils.isBlank(bucketName)) {
+			String msg = String.format("There is no bucket for %s", bucket);
+			LOGGER.warn(msg);
+			throw new RuntimeException(msg);
 		}
 		if (StringUtils.isBlank(key)) {
 			LOGGER.warn("source key  is null.");
@@ -42,6 +51,6 @@ public class QiniuAuthServiceImpl implements QiniuAuthService {
 		if (policyMap != null) {
 			policy.putAll(policyMap);
 		}
-		return auth.uploadToken(bucket.getBucket(), key, ttl, policy, strict);
+		return auth.uploadToken(bucketName, key, ttl, policy, strict);
 	}
 }

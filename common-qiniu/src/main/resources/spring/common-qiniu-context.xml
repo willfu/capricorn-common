@@ -16,6 +16,11 @@
     <bean id="qiniuAuthService" class="com.caishi.capricorn.qiniu.auth.service.impl.QiniuAuthServiceImpl">
         <constructor-arg index="0" name="accessKey" value="${qiniu.auth.accesskey}"/>
         <constructor-arg index="1" name="secretKey" value="${qiniu.auth.secretkey}"/>
+        <constructor-arg index="2" name="bucketMap">
+            <util:map key-type="com.caishi.capricorn.qiniu.auth.service.constants.BucketEnum">
+                <entry key="share" value="${news.share.bucket.name}"/>
+            </util:map>
+        </constructor-arg>
     </bean>
 
 </beans>

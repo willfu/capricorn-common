@@ -12,6 +12,8 @@
     5.info asyn appender config : -DerrorQueueSize=integer -DinfoMixLevel=[TRACE|DEBUG|INFO|WARN|ERROR] -DinfoMaxLevel=[TRACE|DEBUG|INFO|WARN|ERROR] -DinfoQueueSize=integer
     6.info rolling appender config : -DinfoHistory=integer
 
+    com.caishi.capricon logger additivity for production config:
+    7.-DcaishiAdditivity=false 生产环境配置，减少业务日志被写入系统
     -->
 
     <variable scope="context" name="logLayout"
@@ -87,7 +89,7 @@
     <shutdownHook/>
 
     <!-- loggger for caishi  -->
-    <logger name="com.caishi.capricorn" level="${caishiLevel:-DEBUG}">
+    <logger name="com.caishi.capricorn" level="${caishiLevel:-DEBUG}" additivity="${caishiAdditivity:-true}">
     </logger>
 
     <!-- logger for third lib code -->

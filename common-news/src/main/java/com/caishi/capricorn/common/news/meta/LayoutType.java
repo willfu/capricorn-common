@@ -45,7 +45,12 @@ public enum LayoutType {
     /**
      * 场景：晨读
      */
-    SCENE_CHENDU;
+    SCENE_CHENDU,
+
+    /**
+     * 电影：但图
+     */
+    MOVIE_SINGLE;
 
     /**
      * 版式类型校验

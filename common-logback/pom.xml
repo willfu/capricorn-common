@@ -10,6 +10,7 @@
     </parent>
     <groupId>com.caishi.capricorn</groupId>
     <artifactId>common-logback</artifactId>
+
     <version>1.0-SNAPSHOT</version>
     <name>common-logback</name>
     <url>http://maven.apache.org</url>

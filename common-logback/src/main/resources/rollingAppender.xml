@@ -4,9 +4,9 @@
     1.log file location config : -Dserver_log_home=xxx -Dserver_name=yyy
 
     optional config:
-    3.error asyn appender config : -DerrorMixLevel=[TRACE|DEBUG|INFO|WARN|ERROR] -DerrorMaxLevel=[TRACE|DEBUG|INFO|WARN|ERROR]
+    3.error asyn appender config : -DerrorQueueSize=integer -DerrorMixLevel=[TRACE|DEBUG|INFO|WARN|ERROR] -DerrorMaxLevel=[TRACE|DEBUG|INFO|WARN|ERROR]
     4.error rolling appender config : -DerrorHistory=integer
-    5.info asyn appender config : -DerrorQueueSize=integer -DinfoMixLevel=[TRACE|DEBUG|INFO|WARN|ERROR] -DinfoMaxLevel=[TRACE|DEBUG|INFO|WARN|ERROR] -DinfoQueueSize=integer
+    5.info asyn appender config : -DinfoMixLevel=[TRACE|DEBUG|INFO|WARN|ERROR] -DinfoMaxLevel=[TRACE|DEBUG|INFO|WARN|ERROR] -DinfoQueueSize=integer
     6.info rolling appender config : -DinfoHistory=integer
 
 -->

@@ -1,0 +1,14 @@
+<!-- standard out appender -->
+<included>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <append>true</append>
+        <Encoding>UTF-8</Encoding>
+        <target>System.out</target>
+        <encoder>
+            <pattern>${logLayout}</pattern>
+        </encoder>
+    </appender>
+    <root>
+        <appender-ref ref="stdout"/>
+    </root>
+</included>

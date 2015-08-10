@@ -1,98 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration>
+<configuration debug="${logDebug:-false}">
 
     <!--
     logconfig system properties config :
-    mandatory config:
-    1.log file location config : -Dserver_log_home=xxx -Dserver_name=yyy
-    optional config:
-    2.com.caishi.capricorn logger config : -DcaishiLevel=[TRACE|DEBUG|INFO|WARN|ERROR]
-    3.error asyn appender config : -DerrorMixLevel=[TRACE|DEBUG|INFO|WARN|ERROR] -DerrorMaxLevel=[TRACE|DEBUG|INFO|WARN|ERROR]
-    4.error rolling appender config : -DerrorHistory=integer
-    5.info asyn appender config : -DerrorQueueSize=integer -DinfoMixLevel=[TRACE|DEBUG|INFO|WARN|ERROR] -DinfoMaxLevel=[TRACE|DEBUG|INFO|WARN|ERROR] -DinfoQueueSize=integer
-    6.info rolling appender config : -DinfoHistory=integer
+        1.appender switch config:
+        1.1 -DappenderSelction=[all|console|rolling]
+        1.2 默认配置：console
+        1.3 测试、线上环境推荐采用：rolling 模式
+        1.4 自测建议采用默认模式：console
+
+        2.com.caishi.capricorn logger config : -DcaishiLevel=[TRACE|DEBUG|INFO|WARN|ERROR]
+
+        3.root logger config : -DrootLevel=[TRACE|DEBUG|INFO|WARN|ERROR]
+
+        4.rolling配置 参见rollingAppender.xml 注释
     -->
 
     <variable scope="context" name="logLayout"
               value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{80} | %msg%n"/>
-
-    <variable scope="context" name="activeInfoFile" value="${server_log_home}/${server_name}-info.log"/>
-    <variable scope="context" name="rolloverInfoFile" value="${activeInfoFile}_%d{yyyy-MM-dd}.gz"/>
-
-    <variable scope="context" name="activErrorFile" value="${server_log_home}/${server_name}-error.log"/>
-    <variable scope="context" name="rolloverErrorFile" value="${activErrorFile}_%d{yyyy-MM-dd}.gz"/>
-
-    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
-        <append>true</append>
-        <Encoding>UTF-8</Encoding>
-        <target>System.out</target>
-        <encoder>
-            <pattern>${logLayout}</pattern>
-        </encoder>
-    </appender>
-
-    <!--time rolling info log-->
-    <appender name="time-rolling-info" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <Encoding>UTF-8</Encoding>
-        <File>${activeInfoFile}</File>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>${rolloverInfoFile}</FileNamePattern>
-            <maxHistory>${infoHistory:-60}</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>${logLayout}</pattern>
-        </encoder>
-    </appender>
-
-    <!--async append info log-->
-    <appender name="asynAppender-info" class="ch.qos.logback.classic.AsyncAppender">
-        <filter class="com.caishi.capricorn.logback.filter.LevelRangeFilter">
-            <minLevel>${infoMixLevel:-DEBUG}</minLevel>
-            <maxLevel>${infoMaxLevel:-INFO}</maxLevel>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
-        </filter>
-        <appender-ref ref="time-rolling-info"/>
-        <queueSize>${infoQueueSize:-100000}</queueSize>
-    </appender>
-
-    <!--time rolling error log-->
-    <appender name="time-rolling-error" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <Encoding>UTF-8</Encoding>
-        <File>${activErrorFile}</File>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>${rolloverErrorFile}</FileNamePattern>
-            <maxHistory>${errorHistory:-60}</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>${logLayout}</pattern>
-        </encoder>
-    </appender>
-
-    <!--async append error log-->
-    <appender name="asynAppender-error" class="ch.qos.logback.classic.AsyncAppender">
-        <appender-ref ref="time-rolling-error"/>
-        <queueSize>${errorQueueSize:-100000}</queueSize>
-        <filter class="com.caishi.capricorn.logback.filter.LevelRangeFilter">
-            <minLevel>${errorMixLevel:-WARN}</minLevel>
-            <maxLevel>${errorMaxLevel:-ERROR}</maxLevel>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
-        </filter>
-    </appender>
 
     <!-- in the absence of the class attribute, assume
    ch.qos.logback.core.hook.DelayingShutdownHook -->
     <shutdownHook/>
 
     <!-- loggger for caishi  -->
-    <logger name="com.caishi.capricorn" level="${caishiLevel:-DEBUG}" additivity="false">
-        <appender-ref ref="asynAppender-info"/>
-        <appender-ref ref="asynAppender-error"/>
+    <logger name="com.caishi.capricorn" level="${caishiLevel:-DEBUG}">
     </logger>
 
     <!-- logger for third lib code -->
     <root level="${rootLevel:-INFO}">
-        <appender-ref ref="stdout"/>
     </root>
+
+    <!-- config appender for root logger -->
+    <if condition='isDefined("appenderSelction")'>
+        <then>
+            <if condition='p("appenderSelction").equals("all")'> <!-- config all appender -->
+                <then>
+                    <include resource="consoleAppender.xml"/>
+                    <include resource="rollingAppender.xml"/>
+                </then>
+                <else>
+                    <if condition='p("appenderSelction").equals("console")'> <!-- config console appender -->
+                        <then>
+                            <include resource="consoleAppender.xml"/>
+                        </then>
+                        <else>
+                            <if condition='p("appenderSelction").equals("rolling")'>  <!-- config rolling appender -->
+                                <then>
+                                    <include resource="rollingAppender.xml"/>
+                                </then>
+                                <else>  <!-- 默认配置 -->
+                                    <include resource="consoleAppender.xml"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </then>
+        <else> <!-- default config -->
+            <include resource="consoleAppender.xml"/>
+        </else>
+    </if>
+
+
 </configuration>

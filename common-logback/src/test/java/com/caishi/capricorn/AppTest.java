@@ -1,38 +1,48 @@
 package com.caishi.capricorn;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+public class AppTest {
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+	@BeforeClass
+	public static void setUp() throws Exception {
+		System.setProperty("debug", "true");
+	}
+
+	@Test
+	public void testDefaultLog() throws Exception {
+		Logger LOGGER = LoggerFactory.getLogger(AppTest.class);
+		LOGGER.info("default logging");
+	}
+
+	@Test
+	public void testConsoleLog() throws Exception {
+
+		System.setProperty("appenderSelction", "console");
+		Logger LOGGER = LoggerFactory.getLogger(AppTest.class);
+		LOGGER.info("console logging");
+	}
+
+	@Test
+	public void testRolling() throws Exception {
+		System.setProperty("appenderSelction", "rolling");
+
+		Logger LOGGER = LoggerFactory.getLogger(AppTest.class);
+		LOGGER.info("rolling logging");
+	}
+
+	@Test
+	public void testAll() throws Exception {
+		System.setProperty("appenderSelction", "all");
+
+		Logger LOGGER = LoggerFactory.getLogger(AppTest.class);
+		LOGGER.info("all logging");
+	}
 }

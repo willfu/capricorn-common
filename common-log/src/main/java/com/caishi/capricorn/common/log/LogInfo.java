@@ -4,6 +4,24 @@ import java.util.Date;
 
 public class LogInfo {
 
+    public LogInfo(){
+
+    }
+
+    /**
+     * 构造函数
+     * @param userId 用户编号
+     * @param deviceId 设备编号
+     * @param deviceType 设备类型
+     * @param logType 日志类型
+     */
+    public LogInfo(String userId,String deviceId,String deviceType,String logType){
+        this.userId = userId;
+        this.deviceId=deviceId;
+        this.deviceType=deviceType;
+        this.logType=logType;
+    }
+
     /**
      * 日志类型
      */

@@ -40,4 +40,17 @@ public class NewsLogger {
     public void setParentId(int parentId) {
         this.parentId = parentId;
     }
+
+    /**
+     * 新闻分类字符串
+     */
+    private String categoryIds;
+
+    public String getCategoryIds() {
+        return categoryIds;
+    }
+
+    public void setCategoryIds(String categoryIds) {
+        this.categoryIds = categoryIds;
+    }
 }

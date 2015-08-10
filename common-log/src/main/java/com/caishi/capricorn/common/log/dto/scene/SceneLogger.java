@@ -1,8 +1,9 @@
-package com.caishi.capricorn.common.log.dto;
+package com.caishi.capricorn.common.log.dto.scene;
 
 import com.caishi.capricorn.common.scene.MetaData.ReferentType;
 
-public class Scene extends Basic {
+public class SceneLogger {
+
     /**
      * 场景ID
      */
@@ -29,18 +30,4 @@ public class Scene extends Basic {
         this.referentType = referentType;
     }
 
-    /**
-     * 数据校验
-     * @return 数据校验结果
-     */
-    public boolean makeValidation() {
-        boolean status = super.makeValidation();
-        if (status) {
-            status = sceneId > 0;
-            if (status) {
-                status = referentType != null;
-            }
-        }
-        return status;
-    }
 }

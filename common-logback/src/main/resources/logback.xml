@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="${logDebug:-false}">
+<configuration scan="${logReload:-false}" scanPeriod="${logReloadPeriod:- 60 seconds}" debug="${logDebug:-false}">
+
 
     <!--
     logconfig system properties config :
@@ -15,6 +16,11 @@
 
         4.rolling配置 参见rollingAppender.xml 注释
     -->
+
+    <!-- using to config logback -->
+    <include optional="true" resource="logback-config.xml"/>
+
+    <property resource="logback-config.properties"/>
 
     <variable scope="context" name="logLayout"
               value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{80} | %msg%n"/>
@@ -63,5 +69,11 @@
         </else>
     </if>
 
+    <!-- flume  业务日志配置 -->
+    <if condition='p("BusinessLog").equals("true")'>
+        <then>
+            <include optional="true" resource="BusinessLog.xml"/>
+        </then>
+    </if>
 
 </configuration>

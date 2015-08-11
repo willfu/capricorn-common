@@ -45,4 +45,11 @@ public class AppTest {
 		Logger LOGGER = LoggerFactory.getLogger(AppTest.class);
 		LOGGER.info("all logging");
 	}
+
+	@Test
+	public void testPropertiesConfig() throws Exception {
+		Logger LOGGER = LoggerFactory.getLogger(AppTest.class);
+		LOGGER.info("properties config logging");
+
+	}
 }

@@ -29,17 +29,4 @@ public class SceneLogger {
     public void setReferentType(ReferentType referentType) {
         this.referentType = referentType;
     }
-
-    /**
-     * 来源编号
-     */
-    private String referentId;
-
-    public String getReferentId() {
-        return referentId;
-    }
-
-    public void setReferentId(String referentId) {
-        this.referentId = referentId;
-    }
 }

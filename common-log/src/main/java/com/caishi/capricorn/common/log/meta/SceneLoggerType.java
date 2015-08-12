@@ -5,5 +5,10 @@ public enum SceneLoggerType {
     /**
      * 点击
      */
-    CLICK;
+    CLICK,
+
+    /**
+     * 穿越
+     */
+    CROSS;
 }

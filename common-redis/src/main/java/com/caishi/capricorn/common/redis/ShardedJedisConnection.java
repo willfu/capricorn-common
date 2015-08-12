@@ -1054,7 +1054,11 @@ public class ShardedJedisConnection implements RedisConnection {
 	 */
 	@Override
 	public Long pfCount(byte[]... keys) {
-		throw new UnsupportedOperationException();
+		try {
+			return shardedJedis.pfcount(keys[0]);
+		} catch (Exception ex) {
+			throw convertJedisAccessException(ex);
+		}
 	}
 
 	/**

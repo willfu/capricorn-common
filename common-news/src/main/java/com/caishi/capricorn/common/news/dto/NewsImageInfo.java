@@ -80,6 +80,8 @@ public class NewsImageInfo implements Cloneable {
         this.height = height;
     }
 
+
+
     /**
      * 克隆
      * @return 克隆结果

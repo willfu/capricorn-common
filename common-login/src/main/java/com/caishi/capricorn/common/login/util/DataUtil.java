@@ -104,11 +104,8 @@ public class DataUtil {
 					}
 				}
 			}
-			if(userAgentInfo!=null){
-				return userAgentInfo;	
-			}			
 		}
-		throw new CustomMessage("10015");
+		return userAgentInfo;
 	}
 
 	public final static String getConsName(int consId){

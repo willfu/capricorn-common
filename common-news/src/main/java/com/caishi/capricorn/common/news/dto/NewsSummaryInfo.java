@@ -205,4 +205,17 @@ public class NewsSummaryInfo {
     public void setDetailLink(String detailLink) {
         this.detailLink = detailLink;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        NewsSummaryInfo that = (NewsSummaryInfo) o;
+        return !(newsId != null ? !newsId.equals(that.newsId) : that.newsId != null);
+    }
+
+    @Override
+    public int hashCode() {
+        return newsId != null ? newsId.hashCode() : 0;
+    }
 }

@@ -38,11 +38,6 @@ public enum LayoutType {
     SCENE_BIG,
 
     /**
-     * 场景：并列显示
-     */
-    SCENE_DOUBLE,
-
-    /**
      * 场景：晨读
      */
     SCENE_CHENDU,

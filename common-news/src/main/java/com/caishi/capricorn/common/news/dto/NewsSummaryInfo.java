@@ -27,13 +27,13 @@ public class NewsSummaryInfo {
     /**
      * 父本ID
      */
-    private int parentId;
+    private String parentId;
 
-    public int getParentId() {
+    public String getParentId() {
         return parentId;
     }
 
-    public void setParentId(int parentId) {
+    public void setParentId(String parentId) {
         this.parentId = parentId;
     }
 

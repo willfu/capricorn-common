@@ -1,32 +1,19 @@
 package com.caishi.capricorn.common.log.dto.scene;
 
-import com.caishi.capricorn.common.scene.MetaData.ReferentType;
+import com.caishi.capricorn.common.scene.meta.SceneType;
 
 public class SceneLogger {
 
     /**
-     * 场景ID
+     * 场景类型
      */
-    private int sceneId;
+    private SceneType sceneType;
 
-    public int getSceneId() {
-        return sceneId;
+    public SceneType getSceneType() {
+        return sceneType;
     }
 
-    public void setSceneId(int sceneId) {
-        this.sceneId = sceneId;
-    }
-
-    /**
-     * 来源类型
-     */
-    private ReferentType referentType;
-
-    public ReferentType getReferentType() {
-        return referentType;
-    }
-
-    public void setReferentType(ReferentType referentType) {
-        this.referentType = referentType;
+    public void setSceneType(SceneType sceneType) {
+        this.sceneType = sceneType;
     }
 }

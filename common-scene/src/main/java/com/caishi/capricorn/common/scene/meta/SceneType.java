@@ -1,4 +1,4 @@
-package com.caishi.capricorn.common.scene.MetaData;
+package com.caishi.capricorn.common.scene.meta;
 
 public enum SceneType {
     /**

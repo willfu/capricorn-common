@@ -1,4 +1,4 @@
-package com.caishi.capricorn.common.log.meta;
+package com.caishi.capricorn.common.log.type;
 
 public enum SceneLoggerType {
 

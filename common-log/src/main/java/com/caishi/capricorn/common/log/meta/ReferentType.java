@@ -13,6 +13,11 @@ public enum  ReferentType {
     FEED,
 
     /**
+     * 频道
+     */
+    CHANNEL,
+
+    /**
      * 场景
      */
     SCENE,

@@ -27,13 +27,13 @@ public class NewsSummaryInfo {
     /**
      * 父本ID
      */
-    private int parentId;
+    private String parentId;
 
-    public int getParentId() {
+    public String getParentId() {
         return parentId;
     }
 
-    public void setParentId(int parentId) {
+    public void setParentId(String parentId) {
         this.parentId = parentId;
     }
 
@@ -204,5 +204,18 @@ public class NewsSummaryInfo {
 
     public void setDetailLink(String detailLink) {
         this.detailLink = detailLink;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        NewsSummaryInfo that = (NewsSummaryInfo) o;
+        return !(newsId != null ? !newsId.equals(that.newsId) : that.newsId != null);
+    }
+
+    @Override
+    public int hashCode() {
+        return newsId != null ? newsId.hashCode() : 0;
     }
 }

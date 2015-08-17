@@ -1,6 +1,6 @@
 package com.caishi.capricorn.common.log.dto.news;
 
-public class NewsShareLogger extends NewsLogger {
+public class NewsDetailShareLogger extends NewsLogger {
 
     /**
      * 第三方账户类型ID

@@ -1,7 +1,5 @@
 package com.caishi.capricorn.common.news.dto;
 
-import com.caishi.capricorn.common.social.meta.InteractType;
-
 import java.util.*;
 
 public class NewsDetailInfo {

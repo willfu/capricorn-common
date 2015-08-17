@@ -138,17 +138,21 @@ public class QueuedProducer {
         }
 
         public void run() {
-            Future<RecordMetadata> future = producer.send(message);
-            if (syncSend) {
-                try {
-                    RecordMetadata recordMetadata = future.get();
-                    logger.debug("Successfully sync sent message " + message +"  to kafka [partition:" + recordMetadata.partition() +
-                            ",offset:" + recordMetadata.offset() + "]");
-                } catch (Exception e) {
-                    logger.error("Exception to get metadata of sent message " + message + e.getMessage());
+            try {
+                Future<RecordMetadata> future = producer.send(message);
+                if (syncSend) {
+                    try {
+                        RecordMetadata recordMetadata = future.get();
+                        logger.debug("Successfully sync sent message " + message + "  to kafka [partition:" + recordMetadata.partition() +
+                                ",offset:" + recordMetadata.offset() + "]");
+                    } catch (Exception e) {
+                        logger.error("Exception to get metadata of sent message " + message + e.getMessage());
+                    }
+                } else {
+                    logger.debug("Async delivered " + message + " to kafka");
                 }
-            } else {
-                logger.debug("Async delivered " + message + " to kafka");
+            } catch (Throwable throwable) {
+                logger.error(throwable.getMessage(), throwable);
             }
         }
 

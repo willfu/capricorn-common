@@ -17,7 +17,7 @@ public abstract class AbstractTopology {
 
 	private static final Logger LOG = LoggerFactory.getLogger(AbstractTopology.class);
 
-	private static final int DEFAULT_RUNTIME_IN_SECONDS = 600;
+	private static final int DEFAULT_RUNTIME_IN_SECONDS = 6000;
 	protected TopologyBuilder builder;
 	protected Config topologyConfig;
 	private String topologyName;

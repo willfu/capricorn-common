@@ -5,7 +5,7 @@ import java.util.*;
 public class NewsDetailInfo {
 
     /**
-     * 新闻ID
+     * 编号
      */
     private String newsId;
 
@@ -18,7 +18,7 @@ public class NewsDetailInfo {
     }
 
     /**
-     * 新闻标题
+     * 标题
      */
     private String title;
 
@@ -31,7 +31,20 @@ public class NewsDetailInfo {
     }
 
     /**
-     * 详情内容
+     * 简述
+     */
+    private String summary;
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    /**
+     * 内容
      */
     private String content;
 
@@ -44,7 +57,7 @@ public class NewsDetailInfo {
     }
 
     /**
-     * 图片列表
+     * 图片
      */
     private List<NewsImageInfo> newsImageInfoList = new ArrayList<NewsImageInfo>();
 
@@ -57,7 +70,7 @@ public class NewsDetailInfo {
     }
 
     /**
-     * 分享连接
+     * 连接
      */
     private String shareUrl;
 
@@ -70,7 +83,7 @@ public class NewsDetailInfo {
     }
 
     /**
-     * 新闻来源
+     * 来源
      */
     private String source;
 
@@ -110,7 +123,7 @@ public class NewsDetailInfo {
 
 
     /**
-     * 新闻收藏状态
+     * 收藏状态
      */
     private int collectStatus;
 
@@ -136,7 +149,7 @@ public class NewsDetailInfo {
     }
 
     /**
-     * 分类信息ID集合
+     * 分类信息
      */
     private String categoryIds;
 

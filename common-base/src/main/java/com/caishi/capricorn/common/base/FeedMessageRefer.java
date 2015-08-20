@@ -14,14 +14,16 @@ public class FeedMessageRefer implements Serializable {
 	private String id;
 	private Integer comments;
 	private Integer pageLinkCount;
+	private Long ts;
 
 	public FeedMessageRefer() {
 	}
 
-	public FeedMessageRefer(String id, Integer comments, Integer pageLinkCount) {
+	public FeedMessageRefer(String id, Integer comments, Integer pageLinkCount, Long ts) {
 		this.id = id;
 		this.comments = comments;
 		this.pageLinkCount = pageLinkCount;
+		this.ts = ts;
 	}
 
 	public String getId() {
@@ -46,5 +48,13 @@ public class FeedMessageRefer implements Serializable {
 
 	public void setPageLinkCount(Integer pageLinkCount) {
 		this.pageLinkCount = pageLinkCount;
+	}
+
+	public Long getTs() {
+		return ts;
+	}
+
+	public void setTs(Long ts) {
+		this.ts = ts;
 	}
 }

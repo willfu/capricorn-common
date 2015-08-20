@@ -10,6 +10,7 @@ import java.io.Serializable;
  */
 public class FeedMessageRefer implements Serializable {
 
+	private static final long serialVersionUID = 1683400391195693810L;
 	private String id;
 	private Integer comments;
 	private Integer pageLinkCount;

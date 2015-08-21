@@ -22,29 +22,23 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static com.caishi.capricorn.common.kafka.constants.KafkaConfigKey.GROUP_ID;
+import static com.caishi.capricorn.common.kafka.constants.KafkaConfigKey.ZK_CONNECT;
+
 /**
  * Created by apple on 15/6/15.
  * 1.zkConnect: host1:port1,host2:port2...
  */
 public class ConsumerContainer {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ConsumerContainer.class);
-
 	public static final String DEFAULT_CONSUMER_CONFIG = "META-INF/com/caishi/capricorn/common/kafka/consumer/default-kafka-consumer-config.properties";
-
-	public static Properties DEFAULT_PROPERTIES;
-
-	public static final String ZK_CONNECT = "zookeeper.connect";
-	public static final String GROUP_ID = "group.id";
-	public static final String ZK_SESSION = "zookeeper.session.timeout.ms";
-	public static final String ZK_SYNC = "zookeeper.sync.time.ms";
-	public static final String COMMIT_TIME = "auto.commit.interval.ms";
-
+	private static final Logger LOGGER = LoggerFactory.getLogger(ConsumerContainer.class);
 	/**
 	 * 支持编码方式
 	 */
 	private static final Set<Class<? extends MsgProcessor>> DESERIALIZER_PROCESSOR = new HashSet<Class<? extends MsgProcessor>>();
 	private static final Map<Class<? extends MsgProcessor>, Deserializer> CLASS_DESERIALIZER_MAP = new HashMap<Class<? extends MsgProcessor>, Deserializer>();
+	public static Properties DEFAULT_PROPERTIES;
 
 	static {
 		DEFAULT_PROPERTIES = PropertiesUtil.loadProperties(DEFAULT_CONSUMER_CONFIG);
@@ -202,48 +196,17 @@ public class ConsumerContainer {
 		topicConsumers.putIfAbsent(msgProcessorInfo, connector);
 	}
 
-
-	/**
-	 * 消息处理器：
-	 * 1.解码消息
-	 * 2.处理消息
-	 */
-	private static class ConsumerWorker implements Runnable {
-		private String topic;
-		private KafkaStream<byte[], byte[]> msgStream;
-		private MsgProcessor msgProcessor;
-		private Deserializer deserializer;
-
-		public ConsumerWorker(String topic, KafkaStream<byte[], byte[]> msgStream, MsgProcessor msgProcessor, Deserializer deserializer) {
-			this.topic = topic;
-			this.msgStream = msgStream;
-			this.msgProcessor = msgProcessor;
-			this.deserializer = deserializer;
-		}
-
-		public void run() {
-			ConsumerIterator<byte[], byte[]> iterator = msgStream.iterator();
-			while (iterator.hasNext()) {
-				try {
-					byte[] bytes = iterator.next().message();
-					Object message = deserializer.deserialize(topic, bytes);
-//					LOGGER.info("receive : " + message.toString());
-					msgProcessor.process(message);
-				} catch (Throwable throwable) {
-					LOGGER.error(throwable.getMessage(), throwable);
-				}
-			}
-		}
-	}
-
 	private ConsumerConfig createConsumerConfig(String zkConnect, MsgProcessorInfo msgProcessorInfo) {
 		Properties props = new Properties();
 		props.put(ZK_CONNECT, msgProcessorInfo.getZkConnect());
 		props.put(GROUP_ID, msgProcessorInfo.getGroupId());
 		props = PropertiesUtil.mergeProperties(DEFAULT_PROPERTIES, props);
+
+		if (msgProcessorInfo.getProperties() != null) {
+			props = PropertiesUtil.mergeProperties(msgProcessorInfo.getProperties(), props);
+		}
 		return new ConsumerConfig(props);
 	}
-
 
 	public boolean isRunning() {
 		return running.get();
@@ -276,6 +239,39 @@ public class ConsumerContainer {
 			}
 		} catch (InterruptedException e) {
 			System.out.println("Interrupted during shutdown, exiting uncleanly");
+		}
+	}
+
+	/**
+	 * 消息处理器：
+	 * 1.解码消息
+	 * 2.处理消息
+	 */
+	private static class ConsumerWorker implements Runnable {
+		private String topic;
+		private KafkaStream<byte[], byte[]> msgStream;
+		private MsgProcessor msgProcessor;
+		private Deserializer deserializer;
+
+		public ConsumerWorker(String topic, KafkaStream<byte[], byte[]> msgStream, MsgProcessor msgProcessor, Deserializer deserializer) {
+			this.topic = topic;
+			this.msgStream = msgStream;
+			this.msgProcessor = msgProcessor;
+			this.deserializer = deserializer;
+		}
+
+		public void run() {
+			ConsumerIterator<byte[], byte[]> iterator = msgStream.iterator();
+			while (iterator.hasNext()) {
+				try {
+					byte[] bytes = iterator.next().message();
+					Object message = deserializer.deserialize(topic, bytes);
+//					LOGGER.info("receive : " + message.toString());
+					msgProcessor.process(message);
+				} catch (Throwable throwable) {
+					LOGGER.error(throwable.getMessage(), throwable);
+				}
+			}
 		}
 	}
 

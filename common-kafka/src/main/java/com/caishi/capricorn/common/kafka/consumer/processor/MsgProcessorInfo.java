@@ -5,6 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Properties;
 
 /**
  * Created by apple on 15/6/15.
@@ -15,10 +16,20 @@ public class MsgProcessorInfo {
 	public static final int DEFAULT_THREAD_NUM = 1;
 
 	private String zkConnect;
+
 	private String topic;
 	private String groupId;
+
 	private boolean isMulticast = false; // 是否多播模式：给个消费者单独消费每一条消息
 	private int threadNum;
+
+	/**
+	 * 扩展字段：
+	 * 1.com.caishi.capricorn.common.kafka.constants.KafkaConfigKey#ZK_SESSION  ： zookeeper.session.timeout.ms
+	 * 2.com.caishi.capricorn.common.kafka.constants.KafkaConfigKey#ZK_SYNC     ： zookeeper.sync.time.ms
+	 * 3.com.caishi.capricorn.common.kafka.constants.KafkaConfigKey#COMMIT_TIME ： auto.commit.interval.ms
+	 */
+	private Properties properties;
 
 	public MsgProcessorInfo() {
 	}
@@ -98,6 +109,14 @@ public class MsgProcessorInfo {
 
 	public void setIsMulticast(boolean isMulticast) {
 		this.isMulticast = isMulticast;
+	}
+
+	public Properties getProperties() {
+		return properties;
+	}
+
+	public void setProperties(Properties properties) {
+		this.properties = properties;
 	}
 
 	@Override

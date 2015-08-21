@@ -57,4 +57,14 @@ public class FeedMessageRefer implements Serializable {
 	public void setTs(Long ts) {
 		this.ts = ts;
 	}
+
+	@Override
+	public String toString() {
+		return "FeedMessageRefer{" +
+				"id='" + id + '\'' +
+				", comments=" + comments +
+				", pageLinkCount=" + pageLinkCount +
+				", ts=" + ts +
+				'}';
+	}
 }

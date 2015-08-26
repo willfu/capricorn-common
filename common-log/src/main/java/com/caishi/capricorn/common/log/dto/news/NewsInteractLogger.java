@@ -14,4 +14,17 @@ public class NewsInteractLogger extends NewsLogger {
     public void setInteractType(String interactType) {
         this.interactType = interactType;
     }
+
+    /**
+     * 交互次数
+     */
+    private int clickCount=1;
+
+    public int getClickCount() {
+        return clickCount;
+    }
+
+    public void setClickCount(int clickCount) {
+        this.clickCount = clickCount;
+    }
 }

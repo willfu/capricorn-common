@@ -18,6 +18,11 @@ public enum  ReferentType {
     CHANNEL,
 
     /**
+     * 收藏
+     */
+    COLLECT,
+
+    /**
      * 场景
      */
     SCENE,

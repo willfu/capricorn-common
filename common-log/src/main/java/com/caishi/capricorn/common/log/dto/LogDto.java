@@ -69,4 +69,17 @@ public class LogDto {
     public void setParam(Map<String, Object> param) {
         this.param = param;
     }
+
+    /**
+     * 位置信息
+     */
+    private Map<String,Double> position = new HashMap<String,Double>();
+
+    public Map<String, Double> getPosition() {
+        return position;
+    }
+
+    public void setPosition(Map<String, Double> position) {
+        this.position = position;
+    }
 }

@@ -18,13 +18,6 @@
     </properties>
 
     <dependencies>
-        <!--common-login-->
-        <dependency>
-            <groupId>com.caishi.capricorn</groupId>
-            <artifactId>common-login</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
         <!--common-social-->
         <dependency>
             <groupId>com.caishi.capricorn</groupId>

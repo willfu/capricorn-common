@@ -203,7 +203,7 @@ public class ConsumerContainer {
 		props = PropertiesUtil.mergeProperties(DEFAULT_PROPERTIES, props);
 
 		if (msgProcessorInfo.getProperties() != null) {
-			props = PropertiesUtil.mergeProperties(msgProcessorInfo.getProperties(), props);
+			props = PropertiesUtil.mergeProperties(props,msgProcessorInfo.getProperties());
 		}
 		return new ConsumerConfig(props);
 	}

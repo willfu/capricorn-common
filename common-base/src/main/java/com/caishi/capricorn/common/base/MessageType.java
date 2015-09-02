@@ -59,5 +59,10 @@ public enum  MessageType {
     /**
      * 影视
      */
-    MOVIE;
+    MOVIE,
+
+    /**
+     * 搞笑图片
+     */
+    FUNNY_GIF;
 }

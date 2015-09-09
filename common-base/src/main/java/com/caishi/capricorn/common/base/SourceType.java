@@ -4,12 +4,12 @@ public enum SourceType {
     /**
      * WEB 站点
      */
-    WEB(1),
+    WEB(0),
 
     /**
      * APP 应用
      */
-    APP(2);
+    APP(1);
 
     private int type;
 

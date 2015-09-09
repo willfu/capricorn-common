@@ -231,4 +231,17 @@ public class NewsSummaryInfo {
     public void setIsSrcDisplay(boolean isSrcDisplay) {
         this.isSrcDisplay = isSrcDisplay;
     }
+
+    /**
+     * 原网站链接地址
+     */
+    private String srcLink;
+
+    public String getSrcLink() {
+        return srcLink;
+    }
+
+    public void setSrcLink(String srcLink) {
+        this.srcLink = srcLink;
+    }
 }

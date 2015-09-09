@@ -8,6 +8,14 @@ package com.caishi.capricorn.common.base;
  */
 public class FeedConstants {
     /**
+     * key of source type in feed message.
+     *
+     * usage:
+     * SourceType sourceType = (SourceType) (feedMessage.getSourceMeta().get(FEED_SOURCE_META_SOURCE_TYPE));
+     **/
+    public static String FEED_SOURCE_META_SOURCE_TYPE = "sourceType";
+
+    /**
      * key of display template in feed message.
      *
      * usage:

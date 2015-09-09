@@ -43,9 +43,14 @@ public enum LayoutType {
     SCENE_CHENDU,
 
     /**
-     * 电影：但图
+     * 电影：单图
      */
-    MOVIE_SINGLE;
+    MOVIE_SINGLE,
+
+    /**
+     * 趣图：单图
+     */
+    FUNNY_PICTURE_SINGLE;
 
     /**
      * 版式类型校验

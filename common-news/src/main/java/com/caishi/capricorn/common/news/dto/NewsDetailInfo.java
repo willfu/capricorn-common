@@ -173,4 +173,17 @@ public class NewsDetailInfo {
     public void setSrcLink(String srcLink) {
         this.srcLink = srcLink;
     }
+
+    /**
+     * 原文类型
+     */
+    private String sourceType="APP";
+
+    public String getSourceType() {
+        return sourceType;
+    }
+
+    public void setSourceType(String sourceType) {
+        this.sourceType = sourceType;
+    }
 }

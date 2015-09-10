@@ -23,6 +23,15 @@ public class FeedConstants {
      **/
     public static String FEED_SOURCE_META_DISPLAY_TEMPLATE = "displayTemplate";
 
+
+    /**
+     * key of message status in feed message.
+     *
+     * usage:
+     * MessageStatus messageStatus = (MessageStatus) (feedMessage.getSourceMeta().get(FEED_SOURCE_META_MESSAGE_STATUS));
+     **/
+    public static String FEED_SOURCE_META_MESSAGE_STATUS = "messageStatus";
+
     /**
      * key of image source link in feed message.
      *

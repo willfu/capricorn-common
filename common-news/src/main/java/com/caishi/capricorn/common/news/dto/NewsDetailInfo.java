@@ -1,5 +1,7 @@
 package com.caishi.capricorn.common.news.dto;
 
+import com.caishi.capricorn.common.base.MessageType;
+
 import java.util.*;
 
 public class NewsDetailInfo {
@@ -15,6 +17,20 @@ public class NewsDetailInfo {
 
     public void setNewsId(String newsId) {
         this.newsId = newsId;
+    }
+
+
+    /**
+     * 消息类型
+     */
+    private MessageType messageType = MessageType.NEWS;
+
+    public MessageType getMessageType() {
+        return messageType;
+    }
+
+    public void setMessageType(MessageType messageType) {
+        this.messageType = messageType;
     }
 
     /**

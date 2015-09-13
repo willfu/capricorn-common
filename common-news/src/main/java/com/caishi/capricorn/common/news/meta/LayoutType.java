@@ -50,7 +50,12 @@ public enum LayoutType {
     /**
      * 趣图：单图
      */
-    FUNNY_PICTURE_SINGLE;
+    FUNNY_PICTURE_SINGLE,
+
+    /**
+     * 活动：单图
+     */
+    ACTIVITY_SINGLE;
 
     /**
      * 版式类型校验

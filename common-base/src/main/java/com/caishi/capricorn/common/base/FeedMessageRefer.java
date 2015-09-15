@@ -14,6 +14,7 @@ public class FeedMessageRefer implements Serializable {
 	private String id;
 	private Integer comments;
 	private Integer pageLinkCount;
+	private Integer sourcePriority;
 	private Long ts;
 
 	public FeedMessageRefer() {
@@ -23,6 +24,14 @@ public class FeedMessageRefer implements Serializable {
 		this.id = id;
 		this.comments = comments;
 		this.pageLinkCount = pageLinkCount;
+		this.ts = ts;
+	}
+
+	public FeedMessageRefer(String id, Integer comments, Integer pageLinkCount, Integer sourcePriority, Long ts) {
+		this.id = id;
+		this.comments = comments;
+		this.pageLinkCount = pageLinkCount;
+		this.sourcePriority = sourcePriority;
 		this.ts = ts;
 	}
 
@@ -50,6 +59,14 @@ public class FeedMessageRefer implements Serializable {
 		this.pageLinkCount = pageLinkCount;
 	}
 
+	public Integer getSourcePriority() {
+		return sourcePriority;
+	}
+
+	public void setSourcePriority(Integer sourcePriority) {
+		this.sourcePriority = sourcePriority;
+	}
+
 	public Long getTs() {
 		return ts;
 	}
@@ -64,6 +81,7 @@ public class FeedMessageRefer implements Serializable {
 				"id='" + id + '\'' +
 				", comments=" + comments +
 				", pageLinkCount=" + pageLinkCount +
+				", sourcePriority=" + sourcePriority +
 				", ts=" + ts +
 				'}';
 	}

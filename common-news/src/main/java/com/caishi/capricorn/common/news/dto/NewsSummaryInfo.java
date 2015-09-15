@@ -218,4 +218,30 @@ public class NewsSummaryInfo {
     public int hashCode() {
         return newsId != null ? newsId.hashCode() : 0;
     }
+
+    /**
+     * 是否原网站展示
+     */
+    private boolean isSrcDisplay = false;
+
+    public boolean isSrcDisplay() {
+        return isSrcDisplay;
+    }
+
+    public void setIsSrcDisplay(boolean isSrcDisplay) {
+        this.isSrcDisplay = isSrcDisplay;
+    }
+
+    /**
+     * 原网站链接地址
+     */
+    private String srcLink;
+
+    public String getSrcLink() {
+        return srcLink;
+    }
+
+    public void setSrcLink(String srcLink) {
+        this.srcLink = srcLink;
+    }
 }

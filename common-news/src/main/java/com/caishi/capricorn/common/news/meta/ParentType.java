@@ -3,9 +3,24 @@ package com.caishi.capricorn.common.news.meta;
 public enum  ParentType {
 
     /**
+     * 推送
+     */
+    PUSH,
+
+    /**
+     * 流体
+     */
+    FEED,
+
+    /**
      * 频道
      */
     CHANNEL,
+
+    /**
+     * 收藏
+     */
+    COLLECT,
 
     /**
      * 场景
@@ -13,9 +28,9 @@ public enum  ParentType {
     SCENE,
 
     /**
-     *
+     * 足迹
      */
-    COLLECT,
+    MARK,
 
     /**
      * H5

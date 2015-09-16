@@ -136,7 +136,7 @@ public class ShardedJedisConnection implements RedisConnection {
 	@Override
 	public Boolean pExpire(byte[] key, long millis) {
 		try {
-			return (shardedJedis.expire(key, (int) millis / 1000) == 1);
+			return (shardedJedis.expire(key, (int) (millis / 1000)) == 1);
 		} catch (Exception ex) {
 			throw convertJedisAccessException(ex);
 		}

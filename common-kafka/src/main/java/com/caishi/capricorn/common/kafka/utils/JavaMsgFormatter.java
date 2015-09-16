@@ -20,6 +20,7 @@ public class JavaMsgFormatter implements MessageFormatter {
 				ObjectInputStream oin = new ObjectInputStream(new ByteArrayInputStream(bytes1));
 				Object object = oin.readObject();
 				printStream.write(JSON.toJSONBytes(object));
+				printStream.write("\n".getBytes());
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (ClassNotFoundException e) {

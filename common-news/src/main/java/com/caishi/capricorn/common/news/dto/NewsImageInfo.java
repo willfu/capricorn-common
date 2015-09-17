@@ -57,26 +57,26 @@ public class NewsImageInfo implements Cloneable {
     /**
      * 宽度
      */
-    private double width;
+    private int width;
 
-    public double getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(double width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 
     /**
      * 高度
      */
-    private double height;
+    private int height;
 
-    public double getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 

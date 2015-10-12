@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
-public class ServiceResult<T> implements Serializable {
+public class ServiceResult<T extends Serializable> implements Serializable {
 
     /**
      *

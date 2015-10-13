@@ -71,6 +71,19 @@ public class MessageCommentInfo {
     }
 
     /**
+     * user id
+     */
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    /**
      * user nick name
      */
     private String nickName;
@@ -84,7 +97,7 @@ public class MessageCommentInfo {
     }
 
     /**
-     * 用户头像
+     * user portrait
      */
     private String portrait;
 
@@ -96,6 +109,44 @@ public class MessageCommentInfo {
         this.portrait = portrait;
     }
 
+    /**
+     * device id
+     */
+    private String deviceId;
+
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    /**
+     * device type
+     */
+    private String deviceType;
+
+    public String getDeviceType() {
+        return deviceType;
+    }
+
+    public void setDeviceType(String deviceType) {
+        this.deviceType = deviceType;
+    }
+
+    /**
+     * os type
+     */
+    private String osType;
+
+    public String getOsType() {
+        return osType;
+    }
+
+    public void setOsType(String osType) {
+        this.osType = osType;
+    }
 
     /**
      * create time

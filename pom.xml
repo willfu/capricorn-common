@@ -41,5 +41,6 @@
         <module>common-qiniu</module>
     <module>common-storm</module>
     <module>common-logback</module>
-  </modules>
+        <module>common-comment</module>
+    </modules>
 </project>

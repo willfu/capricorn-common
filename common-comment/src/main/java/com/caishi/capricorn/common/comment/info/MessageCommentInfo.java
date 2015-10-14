@@ -1,7 +1,13 @@
 package com.caishi.capricorn.common.comment.info;
 
+import com.caishi.capricorn.common.comment.Constants.AuditLevel;
+import com.caishi.capricorn.common.comment.Constants.CommentLevel;
+import com.caishi.capricorn.common.comment.Constants.CommentStatus;
+
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 public class MessageCommentInfo {
@@ -162,5 +168,70 @@ public class MessageCommentInfo {
 
     public void setCreateTime(long createTime) {
         this.createTime = createTime;
+    }
+
+    /**
+     * audit level
+     */
+    private AuditLevel auditLevel = AuditLevel.MONITOR;
+
+    public AuditLevel getAuditLevel() {
+        return auditLevel;
+    }
+
+    public void setAuditLevel(AuditLevel auditLevel) {
+        this.auditLevel = auditLevel;
+    }
+
+    /**
+     * comment status
+     */
+    private CommentStatus commentStatus = CommentStatus.ONLINE;
+
+    public CommentStatus getCommentStatus() {
+        return commentStatus;
+    }
+
+    public void setCommentStatus(CommentStatus commentStatus) {
+        this.commentStatus = commentStatus;
+    }
+
+    /**
+     * comment level
+     */
+    private CommentLevel commentLevel;
+
+    public CommentLevel getCommentLevel() {
+        return commentLevel;
+    }
+
+    public void setCommentLevel(CommentLevel commentLevel) {
+        this.commentLevel = commentLevel;
+    }
+
+    /**
+     * forbidden words filter result
+     */
+    private List<String> forbiddenWordList = new ArrayList<String>();
+
+    public List<String> getForbiddenWordList() {
+        return forbiddenWordList;
+    }
+
+    public void setForbiddenWordList(List<String> forbiddenWordList) {
+        this.forbiddenWordList = forbiddenWordList;
+    }
+
+    /**
+     * sensitive word filter result
+     */
+    private List<String> sensitiveWordList = new ArrayList<String>();
+
+    public List<String> getSensitiveWordList() {
+        return sensitiveWordList;
+    }
+
+    public void setSensitiveWordList(List<String> sensitiveWordList) {
+        this.sensitiveWordList = sensitiveWordList;
     }
 }

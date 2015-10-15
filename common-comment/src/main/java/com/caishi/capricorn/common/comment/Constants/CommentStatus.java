@@ -1,4 +1,4 @@
-package com.caishi.capricorn.common.comment.Constants;
+package com.caishi.capricorn.common.comment.constants;
 
 public enum CommentStatus {
 

@@ -1,9 +1,10 @@
 package com.caishi.capricorn.common.comment.info;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MessageCommentDynamicInfo {
+public class MessageCommentDynamicInfo implements Serializable {
 
     /**
      * mongoDb _id

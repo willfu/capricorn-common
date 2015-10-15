@@ -1,16 +1,17 @@
 package com.caishi.capricorn.common.comment.info;
 
-import com.caishi.capricorn.common.comment.Constants.AuditLevel;
-import com.caishi.capricorn.common.comment.Constants.CommentLevel;
-import com.caishi.capricorn.common.comment.Constants.CommentStatus;
+import com.caishi.capricorn.common.comment.constants.AuditLevel;
+import com.caishi.capricorn.common.comment.constants.CommentLevel;
+import com.caishi.capricorn.common.comment.constants.CommentStatus;
 
+import java.io.Serializable;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-public class MessageCommentInfo {
+public class MessageCommentInfo implements Serializable {
 
     /**
      * mongoDb _id

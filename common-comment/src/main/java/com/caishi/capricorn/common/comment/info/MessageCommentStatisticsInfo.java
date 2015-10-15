@@ -1,9 +1,10 @@
 package com.caishi.capricorn.common.comment.info;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MessageCommentStatisticsInfo {
+public class MessageCommentStatisticsInfo implements Serializable {
 
     /**
      * mongoDb _id
@@ -81,5 +82,31 @@ public class MessageCommentStatisticsInfo {
 
     public void setMessagePickedCommentInfoList(List<MessageCommentInfo> messagePickedCommentInfoList) {
         this.messagePickedCommentInfoList = messagePickedCommentInfoList;
+    }
+
+    /**
+     * hot comments count
+     */
+    private int hotCount = 0;
+
+    public int getHotCount() {
+        return hotCount;
+    }
+
+    public void setHotCount(int hotCount) {
+        this.hotCount = hotCount;
+    }
+
+    /**
+     * hot comments collection
+     */
+    private List<MessageCommentInfo> messageHotCommentInfoList = new ArrayList<MessageCommentInfo>();
+
+    public List<MessageCommentInfo> getMessageHotCommentInfoList() {
+        return messageHotCommentInfoList;
+    }
+
+    public void setMessageHotCommentInfoList(List<MessageCommentInfo> messageHotCommentInfoList) {
+        this.messageHotCommentInfoList = messageHotCommentInfoList;
     }
 }

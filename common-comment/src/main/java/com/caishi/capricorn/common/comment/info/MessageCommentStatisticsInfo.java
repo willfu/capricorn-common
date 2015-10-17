@@ -1,22 +1,35 @@
 package com.caishi.capricorn.common.comment.info;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MessageCommentStatisticsInfo implements Serializable {
 
     /**
      * mongoDb _id
      */
-    private String _id;
+    @JSONField(name = "_id")
+    private String messageId;
 
-    public String get_id() {
-        return _id;
+    public String getMessageId() {
+        return messageId;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
+    }
+
+    /**
+     * message type
+     */
+    private String messageType;
+
+    public String getMessageType() {
+        return messageType;
+    }
+
+    public void setMessageType(String messageType) {
+        this.messageType = messageType;
     }
 
     /**
@@ -46,19 +59,6 @@ public class MessageCommentStatisticsInfo implements Serializable {
     }
 
     /**
-     * top comments collection
-     */
-    private List<MessageCommentInfo> messageTopCommentInfoList = new ArrayList<MessageCommentInfo>();
-
-    public List<MessageCommentInfo> getMessageTopCommentInfoList() {
-        return messageTopCommentInfoList;
-    }
-
-    public void setMessageTopCommentInfoList(List<MessageCommentInfo> messageTopCommentInfoList) {
-        this.messageTopCommentInfoList = messageTopCommentInfoList;
-    }
-
-    /**
      * picked comments count
      */
     private int pickedCount = 0;
@@ -72,19 +72,6 @@ public class MessageCommentStatisticsInfo implements Serializable {
     }
 
     /**
-     * picked comments collection
-     */
-    private List<MessageCommentInfo> messagePickedCommentInfoList = new ArrayList<MessageCommentInfo>();
-
-    public List<MessageCommentInfo> getMessagePickedCommentInfoList() {
-        return messagePickedCommentInfoList;
-    }
-
-    public void setMessagePickedCommentInfoList(List<MessageCommentInfo> messagePickedCommentInfoList) {
-        this.messagePickedCommentInfoList = messagePickedCommentInfoList;
-    }
-
-    /**
      * hot comments count
      */
     private int hotCount = 0;
@@ -95,18 +82,5 @@ public class MessageCommentStatisticsInfo implements Serializable {
 
     public void setHotCount(int hotCount) {
         this.hotCount = hotCount;
-    }
-
-    /**
-     * hot comments collection
-     */
-    private List<MessageCommentInfo> messageHotCommentInfoList = new ArrayList<MessageCommentInfo>();
-
-    public List<MessageCommentInfo> getMessageHotCommentInfoList() {
-        return messageHotCommentInfoList;
-    }
-
-    public void setMessageHotCommentInfoList(List<MessageCommentInfo> messageHotCommentInfoList) {
-        this.messageHotCommentInfoList = messageHotCommentInfoList;
     }
 }

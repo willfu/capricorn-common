@@ -1,12 +1,9 @@
 package com.caishi.capricorn.common.comment.info;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import com.caishi.capricorn.common.comment.constants.AuditLevel;
 import com.caishi.capricorn.common.comment.constants.CommentLevel;
 import com.caishi.capricorn.common.comment.constants.CommentStatus;
-
 import java.io.Serializable;
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,17 +12,16 @@ import java.util.UUID;
 public class MessageCommentInfo implements Serializable {
 
     /**
-     * comment id
+     * comment id {mongoDb _id}
      */
-    @JSONField(name = "_id")
-    private String commentId = UUID.randomUUID().toString().replace("-", "");
+    private String id = UUID.randomUUID().toString().replace("-", "");
 
-    public String getCommentId() {
-        return commentId;
+    public String getId() {
+        return id;
     }
 
-    public void setCommentId(String commentId) {
-        this.commentId = commentId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     /**

@@ -1,22 +1,20 @@
 package com.caishi.capricorn.common.comment.info;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 
 public class MessageCommentStatisticsInfo implements Serializable {
 
     /**
-     * mongoDb _id
+     * message id {mongoDb _id}
      */
-    @JSONField(name = "_id")
-    private String messageId;
+    private String id;
 
-    public String getMessageId() {
-        return messageId;
+    public String getId() {
+        return id;
     }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     /**

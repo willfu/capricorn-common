@@ -222,14 +222,15 @@ public class NewsSummaryInfo {
     /**
      * 是否原网站展示
      */
-    private boolean isSrcDisplay = false;
+
+    private boolean srcDisplay = false;
 
     public boolean isSrcDisplay() {
-        return isSrcDisplay;
+        return srcDisplay;
     }
 
-    public void setIsSrcDisplay(boolean isSrcDisplay) {
-        this.isSrcDisplay = isSrcDisplay;
+    public void setSrcDisplay(boolean srcDisplay) {
+        this.srcDisplay = srcDisplay;
     }
 
     /**

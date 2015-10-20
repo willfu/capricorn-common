@@ -202,4 +202,17 @@ public class NewsDetailInfo {
     public void setSourceType(String sourceType) {
         this.sourceType = sourceType;
     }
+
+    /**
+     * 评论状态
+     */
+    private String commentLevel = "GENERAL";
+
+    public String getCommentLevel() {
+        return commentLevel;
+    }
+
+    public void setCommentLevel(String commentLevel) {
+        this.commentLevel = commentLevel;
+    }
 }

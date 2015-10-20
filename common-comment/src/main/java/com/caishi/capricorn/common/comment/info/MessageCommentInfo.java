@@ -1,6 +1,7 @@
 package com.caishi.capricorn.common.comment.info;
 
 import com.caishi.capricorn.common.comment.constants.AuditLevel;
+import com.caishi.capricorn.common.comment.constants.AuditStatus;
 import com.caishi.capricorn.common.comment.constants.CommentLevel;
 import com.caishi.capricorn.common.comment.constants.CommentStatus;
 import java.io.Serializable;
@@ -191,6 +192,32 @@ public class MessageCommentInfo implements Serializable {
 
     public void setCommentLevel(CommentLevel commentLevel) {
         this.commentLevel = commentLevel;
+    }
+
+    /**
+     * audit status
+     */
+    private AuditStatus auditStatus = AuditStatus.UNDONE;
+
+    public AuditStatus getAuditStatus() {
+        return auditStatus;
+    }
+
+    public void setAuditStatus(AuditStatus auditStatus) {
+        this.auditStatus = auditStatus;
+    }
+
+    /**
+     * reviewer
+     */
+    private String reviewer;
+
+    public String getReviewer() {
+        return reviewer;
+    }
+
+    public void setReviewer(String reviewer) {
+        this.reviewer = reviewer;
     }
 
     /**

@@ -245,4 +245,18 @@ public class NewsSummaryInfo {
     public void setSrcLink(String srcLink) {
         this.srcLink = srcLink;
     }
+
+
+    /**
+     * 评论状态
+     */
+    private String commentLevel = "GENERAL";
+
+    public String getCommentLevel() {
+        return commentLevel;
+    }
+
+    public void setCommentLevel(String commentLevel) {
+        this.commentLevel = commentLevel;
+    }
 }

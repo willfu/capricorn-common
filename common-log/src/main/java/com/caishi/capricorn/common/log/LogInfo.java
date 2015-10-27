@@ -31,6 +31,19 @@ public class LogInfo {
     }
 
     /**
+     * topic name
+     */
+    private String topic;
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    /**
      * 消息编号
      */
     private String messageId;

@@ -156,6 +156,19 @@ public class MessageCommentInfo implements Serializable {
     }
 
     /**
+     * modifyTime
+     */
+    private long modifyTime = new Date().getTime();
+
+    public long getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(long modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
+    /**
      * audit level
      */
     private AuditLevel auditLevel = AuditLevel.MONITOR;
@@ -244,5 +257,44 @@ public class MessageCommentInfo implements Serializable {
 
     public void setSensitiveWordList(List<String> sensitiveWordList) {
         this.sensitiveWordList = sensitiveWordList;
+    }
+
+    /**
+     * message comment info top status
+     */
+    private boolean topStatus = false;
+
+    public boolean isTopStatus() {
+        return topStatus;
+    }
+
+    public void setTopStatus(boolean topStatus) {
+        this.topStatus = topStatus;
+    }
+
+    /**
+     * message comment info picked status
+     */
+    private boolean pickedStatus = false;
+
+    public boolean isPickedStatus() {
+        return pickedStatus;
+    }
+
+    public void setPickedStatus(boolean pickedStatus) {
+        this.pickedStatus = pickedStatus;
+    }
+
+    /**
+     * message comment info hot status
+     */
+    private boolean hotStatus = false;
+
+    public boolean isHotStatus() {
+        return hotStatus;
+    }
+
+    public void setHotStatus(boolean hotStatus) {
+        this.hotStatus = hotStatus;
     }
 }

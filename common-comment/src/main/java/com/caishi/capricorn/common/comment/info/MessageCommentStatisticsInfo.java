@@ -1,6 +1,7 @@
 package com.caishi.capricorn.common.comment.info;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class MessageCommentStatisticsInfo implements Serializable {
 
@@ -80,5 +81,32 @@ public class MessageCommentStatisticsInfo implements Serializable {
 
     public void setHotCount(int hotCount) {
         this.hotCount = hotCount;
+    }
+
+
+    /**
+     * create time
+     */
+    private long createTime = new Date().getTime();
+
+    public long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(long createTime) {
+        this.createTime = createTime;
+    }
+
+    /**
+     * modifyTime
+     */
+    private long modifyTime = new Date().getTime();
+
+    public long getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(long modifyTime) {
+        this.modifyTime = modifyTime;
     }
 }

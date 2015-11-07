@@ -3,52 +3,72 @@ package com.caishi.capricorn.common.redis;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import redis.clients.jedis.JedisShardInfo;
 import redis.clients.jedis.ShardedJedisPool;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class ShardedJedisPoolFactory extends ShardedJedisPool {
 
+    /**
+     * ShardedJedisPoolFactory Constructors
+     *
+     * @param poolConfig GenericObjectPoolConfig instance
+     * @param shards     jedisShard Info collection
+     */
     public ShardedJedisPoolFactory(GenericObjectPoolConfig poolConfig, List<JedisShardInfo> shards) {
         super(poolConfig, shards);
     }
 
+    /**
+     * ShardedJedisPoolFactory Constructors
+     *
+     * @param poolConfig GenericObjectPoolConfig instance
+     * @param connection redis server connection string
+     */
     public ShardedJedisPoolFactory(GenericObjectPoolConfig poolConfig, String connection) {
-        super(poolConfig, getJedisShardInfoList(connection));
+        super(poolConfig, getJedisShardInfoCollection(connection));
 
     }
 
+    /**
+     * ShardedJedisPoolFactory Constructors
+     *
+     * @param poolConfig GenericObjectPoolConfig instance
+     * @param connection redis server connection string
+     * @param timeOut    request time out (mil seconds)
+     */
     public ShardedJedisPoolFactory(GenericObjectPoolConfig poolConfig, String connection, int timeOut) {
         super(poolConfig, getJedisShardInfoCollection(connection, timeOut));
     }
 
+    /**
+     * ShardedJedisPoolFactory Constructors
+     *
+     * @param poolConfig GenericObjectPoolConfig instance
+     * @param connection redis server connection string
+     * @param auth       user auth
+     */
     public ShardedJedisPoolFactory(GenericObjectPoolConfig poolConfig, String connection, String auth) {
         super(poolConfig, getJedisShardInfoCollection(connection, auth));
     }
 
+    /**
+     * ShardedJedisPoolFactory Constructors
+     *
+     * @param poolConfig GenericObjectPoolConfig instance
+     * @param connection redis server connection string
+     * @param timeOut    request time out (mil seconds)
+     * @param auth       user auth
+     */
     public ShardedJedisPoolFactory(GenericObjectPoolConfig poolConfig, String connection, int timeOut, String auth) {
         super(poolConfig, getJedisShardInfoCollection(connection, timeOut, auth));
     }
 
-    private final static List<JedisShardInfo> getJedisShardInfoList(String connection) {
-        List<JedisShardInfo> jedisShardInfoList = new ArrayList<JedisShardInfo>();
-        String[] connectionCollection = connection.split(",");
-        for (String connect : connectionCollection) {
-            String[] hostInfoCollection = connect.split(":");
-            if (hostInfoCollection.length == 4) {
-                String host = hostInfoCollection[0];
-                int port = Integer.parseInt(hostInfoCollection[1]);
-                String auth = hostInfoCollection[2];
-                int time = Integer.parseInt(hostInfoCollection[3]);
-                JedisShardInfo jedisShardInfo = new JedisShardInfo(host, port, time, host);
-                jedisShardInfo.setPassword(auth);
-                jedisShardInfoList.add(jedisShardInfo);
-            }
-        }
-        return jedisShardInfoList;
-    }
-
+    /**
+     * get jedisShard Info collection
+     *
+     * @param connection redis server connection String
+     * @return jedisShard Info collection
+     */
     private final static List<JedisShardInfo> getJedisShardInfoCollection(String connection) {
         List<JedisShardInfo> jedisShardInfoList = new ArrayList<JedisShardInfo>();
         String[] hostInfoCollection = connection.split(",");
@@ -58,29 +78,52 @@ public class ShardedJedisPoolFactory extends ShardedJedisPool {
                 String host = dataSource[0];
                 int port = Integer.parseInt(dataSource[1]);
                 JedisShardInfo jedisShardInfo = new JedisShardInfo(host, port);
+                jedisShardInfoList.add(jedisShardInfo);
             }
         }
         return jedisShardInfoList;
     }
 
+    /**
+     * get jedisShard Info collection
+     *
+     * @param connection redis server connection String
+     * @param timeOut    request time out (mil seconds)
+     * @return jedisShard Info collection
+     */
     private final static List<JedisShardInfo> getJedisShardInfoCollection(String connection, int timeOut) {
-        List<JedisShardInfo> jedisShardInfoList = getJedisShardInfoList(connection);
+        List<JedisShardInfo> jedisShardInfoList = getJedisShardInfoCollection(connection);
         for (JedisShardInfo jedisShardInfo : jedisShardInfoList) {
             jedisShardInfo.setTimeout(timeOut);
         }
         return jedisShardInfoList;
     }
 
+    /**
+     * get jedisShard Info collection
+     *
+     * @param connection redis server connection String
+     * @param auth       user auth
+     * @return jedisShard Info collection
+     */
     private final static List<JedisShardInfo> getJedisShardInfoCollection(String connection, String auth) {
-        List<JedisShardInfo> jedisShardInfoList = getJedisShardInfoList(connection);
+        List<JedisShardInfo> jedisShardInfoList = getJedisShardInfoCollection(connection);
         for (JedisShardInfo jedisShardInfo : jedisShardInfoList) {
             jedisShardInfo.setPassword(auth);
         }
         return jedisShardInfoList;
     }
 
+    /**
+     * get jedisShard Info collection
+     *
+     * @param connection redis server connection String
+     * @param timeOut    request time out (mil seconds)
+     * @param auth       user auth
+     * @return jedisShard Info collection
+     */
     private final static List<JedisShardInfo> getJedisShardInfoCollection(String connection, int timeOut, String auth) {
-        List<JedisShardInfo> jedisShardInfoList = getJedisShardInfoList(connection);
+        List<JedisShardInfo> jedisShardInfoList = getJedisShardInfoCollection(connection);
         for (JedisShardInfo jedisShardInfo : jedisShardInfoList) {
             jedisShardInfo.setPassword(auth);
             jedisShardInfo.setTimeout(timeOut);

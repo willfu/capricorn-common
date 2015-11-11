@@ -8,8 +8,6 @@ import com.caishi.capricorn.common.lock.locker.Locker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static java.lang.String.format;
-
 /**
  *
  * @author yeyanchao
@@ -71,6 +69,7 @@ public class DistributedLock {
         }
 
         log.warn("not fetch lock for id={} retryCount={} delayTime(ms)={}",id, retryCount, delayTime);
+        return null;
 //        throw new NotFetchLockException(format("not fetch lock for id=%s retryCount=%s delayTime(ms)=%s",//
 //          id, retryCount, delayTime)//
 //        );

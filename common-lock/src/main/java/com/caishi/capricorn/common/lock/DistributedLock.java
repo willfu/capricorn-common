@@ -69,9 +69,11 @@ public class DistributedLock {
             }
             Thread.sleep(delayTime);
         }
-        throw new NotFetchLockException(format("not fetch lock for id=%s retryCount=%s delayTime(ms)=%s",//
-          id, retryCount, delayTime)//
-        );
+
+        log.warn("not fetch lock for id={} retryCount={} delayTime(ms)={}",id, retryCount, delayTime);
+//        throw new NotFetchLockException(format("not fetch lock for id=%s retryCount=%s delayTime(ms)=%s",//
+//          id, retryCount, delayTime)//
+//        );
     }
 
     public long getLock(int expiredTime, final String key) {

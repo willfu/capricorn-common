@@ -148,6 +148,19 @@ public class LogInfo {
     }
 
     /**
+     * 操作系统
+     */
+    private String osType;
+
+    public String getOsType() {
+        return osType;
+    }
+
+    public void setOsType(String osType) {
+        this.osType = osType;
+    }
+
+    /**
      * 软件版本
      */
     private String app;

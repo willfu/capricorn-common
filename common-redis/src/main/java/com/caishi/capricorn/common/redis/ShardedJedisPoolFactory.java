@@ -1,12 +1,15 @@
 package com.caishi.capricorn.common.redis;
 
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
+import org.springframework.util.Base64Utils;
 import redis.clients.jedis.JedisShardInfo;
 import redis.clients.jedis.ShardedJedisPool;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShardedJedisPoolFactory extends ShardedJedisPool {
+
+    private final static String noAuth = "none";
 
     /**
      * ShardedJedisPoolFactory Constructors
@@ -77,7 +80,8 @@ public class ShardedJedisPoolFactory extends ShardedJedisPool {
             if (dataSource.length == 2) {
                 String host = dataSource[0];
                 int port = Integer.parseInt(dataSource[1]);
-                JedisShardInfo jedisShardInfo = new JedisShardInfo(host, port);
+                String name = new String(Base64Utils.encode(host.getBytes()));
+                JedisShardInfo jedisShardInfo = new JedisShardInfo(host, port, name);
                 jedisShardInfoList.add(jedisShardInfo);
             }
         }
@@ -94,7 +98,7 @@ public class ShardedJedisPoolFactory extends ShardedJedisPool {
     private final static List<JedisShardInfo> getJedisShardInfoCollection(String connection, int timeOut) {
         List<JedisShardInfo> jedisShardInfoList = getJedisShardInfoCollection(connection);
         for (JedisShardInfo jedisShardInfo : jedisShardInfoList) {
-            jedisShardInfo.setTimeout(timeOut);
+            jedisShardInfo.setConnectionTimeout(timeOut);
         }
         return jedisShardInfoList;
     }
@@ -109,7 +113,9 @@ public class ShardedJedisPoolFactory extends ShardedJedisPool {
     private final static List<JedisShardInfo> getJedisShardInfoCollection(String connection, String auth) {
         List<JedisShardInfo> jedisShardInfoList = getJedisShardInfoCollection(connection);
         for (JedisShardInfo jedisShardInfo : jedisShardInfoList) {
-            jedisShardInfo.setPassword(auth);
+            if (auth != null && !auth.isEmpty() && !auth.equalsIgnoreCase(noAuth)) {
+                jedisShardInfo.setPassword(auth);
+            }
         }
         return jedisShardInfoList;
     }
@@ -125,8 +131,10 @@ public class ShardedJedisPoolFactory extends ShardedJedisPool {
     private final static List<JedisShardInfo> getJedisShardInfoCollection(String connection, int timeOut, String auth) {
         List<JedisShardInfo> jedisShardInfoList = getJedisShardInfoCollection(connection);
         for (JedisShardInfo jedisShardInfo : jedisShardInfoList) {
-            jedisShardInfo.setPassword(auth);
-            jedisShardInfo.setTimeout(timeOut);
+            if (auth != null && !auth.isEmpty() && !auth.equalsIgnoreCase(noAuth)) {
+                jedisShardInfo.setPassword(auth);
+            }
+            jedisShardInfo.setConnectionTimeout(timeOut);
         }
         return jedisShardInfoList;
     }

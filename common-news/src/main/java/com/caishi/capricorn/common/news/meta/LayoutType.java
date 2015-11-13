@@ -55,7 +55,17 @@ public enum LayoutType {
     /**
      * 活动：单图
      */
-    ACTIVITY_SINGLE(1011, "ACTIVITY_SINGLE");
+    ACTIVITY_SINGLE(1011, "ACTIVITY_SINGLE"),
+
+    /**
+     * 投票大图(有图片)
+     */
+    VOTE_BIG_IMAGE(1021, "VOTE_BIG_IMAGE"),
+
+    /**
+     * 投票大图(仅文字)
+     */
+    VOTE_BIG_TEXT(1022, "VOTE_BIG_TEXT");
 
     LayoutType(int id, String name) {
         setId(id);
@@ -90,6 +100,7 @@ public enum LayoutType {
 
     /**
      * 根据编号获取布局类型枚举信息对象
+     *
      * @param id 编号
      * @return 布局类型枚举信息对象
      */
@@ -106,6 +117,7 @@ public enum LayoutType {
 
     /**
      * 根据名称获取布局类型枚举信息对象
+     *
      * @param name 名称
      * @return 布局类型枚举信息对象
      */
@@ -124,6 +136,7 @@ public enum LayoutType {
 
     /**
      * 根据编号校验布局类型枚举对象的合法性
+     *
      * @param id 编号
      * @return true:(合法), false:(非法)
      */
@@ -133,6 +146,7 @@ public enum LayoutType {
 
     /**
      * 根据名称校验布局类型枚举对象的合法性
+     *
      * @param name 名称
      * @return true:(合法), false:(非法)
      */

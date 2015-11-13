@@ -24,6 +24,18 @@ public class RedisKey {
      */
     public final static String MESSAGE_KEY = "message:{0}:_{1}";
 
+    public final static String MESSAGE_PAGEVIEW_KEY = "message:{0}:_{1}:page_view";
+
+    public final static String MESSAGE_PAGEVIEW_TREND_KEY = "message:{0}:_{1}:page_view_trend";
+
+    public final static String MESSAGE_PAGEVIEW_TOPNS_KEY = "message:page_view_top_{0}";
+
+    public final static String MESSAGE_USERVIEW_KEY = "message:{0}:_{1}:user_view";
+
+    public final static String MESSAGE_USERVIEW_TREND_KEY = "message:{0}:_{1}:user_view_trend";
+
+    public final static String MESSAGE_USERVIEW_TOPNS_KEY = "message:user_view_top_{0}";
+
     public final static String MESSAGE_SUMMARY = "summary";
 
     public final static String MESSAGE_DETAIL = "detail";
@@ -31,6 +43,8 @@ public class RedisKey {
     public final static String MESSAGE_LAYOUT = "layout";
 
     public final static String MESSAGE_PAGEVIEW = "page_view";
+
+    public final static String MESSAGE_USERVIEW = "user_view";
 
     public final static String MESSAGE_PAGEVIEW_BASIC = "page_view_basic";
 
@@ -85,6 +99,10 @@ public class RedisKey {
 
     public final static String CHANNEL_DETAIL = "detail";
 
+    public final static String CHANNEL_MESSAGE_PAGEVIEW_TOPNS_KEY = "channel:_{0}:message:page_view_{1}";
+
+    public final static String CHANNEL_MESSAGE_USERVIEW_TOPNS_KEY = "channel:_{0}:message:user_view_{1}";
+
     /**
      * scene
      */
@@ -95,6 +113,18 @@ public class RedisKey {
     public final static String SCENE_DETAIL = "detail";
 
     public final static String SCENE_SCHEDULER = "scene:scheduler:_{0}";
+
+    public final static String SCENE_PAGEVIEW_KEY = "scene:_{0}:page_view";
+
+    public final static String SCENE_PAGEVIEW_TREND_KEY = "scene:_{0}:page_view_trend";
+
+    public final static String SCENE_MESSAGE_PAGEVIEW_TOPNS_KEY = "scene:_{0}:message:page_view_{1}";
+
+    public final static String SCENE_USERVIEW_KEY = "scene:_{0}:user_view";
+
+    public final static String SCENE_USERVIEW_TREND_KEY = "scene:_{0}:user_view_trend";
+
+    public final static String SCENE_MESSAGE_USERVIEW_TOPNS_KEY = "scene:_{0}:message:user_view_{1}";
 
 
     /**
@@ -185,4 +215,30 @@ public class RedisKey {
     public final static String MOBILE_VALIDATION_CODE = "mobile:validation:code:_{0}";
 
     public final static String MOBILE_SECURITY = "mobile:security:_{0}";
+
+    /**
+     * category
+     */
+    public final static String CATEGORY_PAGEVIEW_KEY = "category:_{0}:page_view";
+
+    public final static String CATEGORY_PAGEVIEW_TREND_KEY = "category:_{0}:page_view_trend";
+
+    public final static String CATEGORY_PAGEVIEW_TOPNS_KEY = "category:page_view_top_{0}";
+
+    public final static String CATEGORY_USERVIEW_KEY = "category:_{0}:user_view";
+
+    public final static String CATEGORY_USERVIEW_TREND_KEY = "category:_{0}:user_view_trend";
+
+    public final static String CATEGORY_USERVIEW_TOPNS_KEY = "category:user_view_top_{0}";
+
+    public final static String CATEGOTY_MESSAGE_PAGEVIEW_TOPNS_KEY = "category:_{0}:message:page_view_top_{1}";
+
+    public final static String CATEGORY_MESSAGE_USERVIEW_TOPNS_KEY = "category:_{0}:message:user_view_top_{1}";
+
+    /**
+     * vote
+     */
+    public final static String VOTE_KEY = "vote:_{0}";
+
+    public final static String VOTE_DETAIL = "DETAIL";
 }

@@ -240,5 +240,5 @@ public class RedisKey {
      */
     public final static String VOTE_KEY = "vote:_{0}";
 
-    public final static String VOTE_DETAIL = "DETAIL";
+    public final static String VOTE_STATISTIC_KEY = "option:_{0}";
 }

@@ -1,7 +1,6 @@
 package com.caishi.capricorn.common.redis;
 
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
-import org.springframework.util.Base64Utils;
 import redis.clients.jedis.JedisShardInfo;
 import redis.clients.jedis.ShardedJedisPool;
 import java.util.ArrayList;
@@ -80,8 +79,7 @@ public class ShardedJedisPoolFactory extends ShardedJedisPool {
             if (dataSource.length == 2) {
                 String host = dataSource[0];
                 int port = Integer.parseInt(dataSource[1]);
-                String name = new String(Base64Utils.encode(host.getBytes()));
-                JedisShardInfo jedisShardInfo = new JedisShardInfo(host, port, name);
+                JedisShardInfo jedisShardInfo = new JedisShardInfo(host, port, host.replace(".",""));
                 jedisShardInfoList.add(jedisShardInfo);
             }
         }

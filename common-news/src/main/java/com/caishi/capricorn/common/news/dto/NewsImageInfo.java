@@ -29,6 +29,19 @@ public class NewsImageInfo implements Cloneable {
     }
 
     /**
+     * 是否为GIF图片
+     */
+    private int gifStatus = 0;
+
+    public int getGifStatus() {
+        return gifStatus;
+    }
+
+    public void setGifStatus(int gifStatus) {
+        this.gifStatus = gifStatus;
+    }
+
+    /**
      * 预览地址
      */
     private String url;
@@ -89,5 +102,13 @@ public class NewsImageInfo implements Cloneable {
     public NewsImageInfo clone() throws CloneNotSupportedException {
         NewsImageInfo newsImageInfo = (NewsImageInfo)(super.clone());
         return newsImageInfo;
+    }
+
+    /**
+     * 是否为GIF图片
+     * @return 是否为GIF图片
+     */
+    public  boolean isGifFormat() {
+        return getGifStatus() == 1;
     }
 }

@@ -86,6 +86,19 @@ public class NewsDetailInfo {
     }
 
     /**
+     * webp图片集合
+     */
+    private List<NewsImageInfo> webpImageInfoList = new ArrayList<>();
+
+    public List<NewsImageInfo> getWebpImageInfoList() {
+        return webpImageInfoList;
+    }
+
+    public void setWebpImageInfoList(List<NewsImageInfo> webpImageInfoList) {
+        this.webpImageInfoList = webpImageInfoList;
+    }
+
+    /**
      * 连接
      */
     private String shareUrl;

@@ -42,5 +42,6 @@
     <module>common-storm</module>
     <module>common-logback</module>
         <module>common-comment</module>
+        <module>common-quartz</module>
     </modules>
 </project>

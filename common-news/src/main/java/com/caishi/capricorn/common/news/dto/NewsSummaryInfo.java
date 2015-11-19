@@ -77,6 +77,19 @@ public class NewsSummaryInfo {
     }
 
     /**
+     * webp图片集合
+     */
+    private List<NewsImageInfo> webpImageInfoList = new ArrayList<>();
+
+    public List<NewsImageInfo> getWebpImageInfoList() {
+        return webpImageInfoList;
+    }
+
+    public void setWebpImageInfoList(List<NewsImageInfo> webpImageInfoList) {
+        this.webpImageInfoList = webpImageInfoList;
+    }
+
+    /**
      * 类型编号
      */
     private MessageType newsType;
@@ -170,7 +183,7 @@ public class NewsSummaryInfo {
     /**
      * 附加参数
      */
-    public Map<String,Object> paraMap = new HashMap<String,Object>();
+    public Map<String, Object> paraMap = new HashMap<String, Object>();
 
     public Map<String, Object> getParaMap() {
         return paraMap;

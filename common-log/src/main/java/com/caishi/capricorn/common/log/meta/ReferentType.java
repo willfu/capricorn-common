@@ -35,8 +35,38 @@ public enum  ReferentType {
     /**
      * HTML5
      */
-    HTML5(7, "HTML5");
+    HTML5(7, "HTML5"),
 
+    /**
+     * SCENE COLLECTION
+     */
+    SCENE_COLLECTION(8,"SCENE_COLLECTION"),
+
+    /**
+     * PERSON CENTER
+     */
+    PERSON_CENTER(9,"PERSON_CENTER"),
+
+    /**
+     * FEED CROSS
+     */
+    FEED_CROSS(10,""),
+
+    /**
+     * SCENE CROSS
+     */
+    SCENE_CROSS(11,"SCENE_CROSS"),
+
+    /**
+     * ACTIVITY COLLECTION
+     */
+    ACTIVITY_COLLECTION(12,"ACTIVITY_COLLECTION");
+
+    /**
+     * referent type
+     * @param id referent type id
+     * @param name referent type name
+     */
     ReferentType(int id, String name) {
         setId(id);
         setName(name);

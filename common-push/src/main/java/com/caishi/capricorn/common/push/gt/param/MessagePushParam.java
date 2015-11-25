@@ -1,61 +1,23 @@
 package com.caishi.capricorn.common.push.gt.param;
 
-public class MessagePushParam extends PushParam {
+
+public class MessagePushParam {
 
     /**
-     * message id
+     * news id
      */
-    private String id;
+    private String newsId;
 
-    public String getId() {
-        return id;
+    public String getNewsId() {
+        return newsId;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    /**
-     * message type
-     */
-    private String type;
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setNewsId(String newsId) {
+        this.newsId = newsId;
     }
 
     /**
-     * message title
-     */
-    private String title;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    /**
-     * message summary
-     */
-    private String content;
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    /**
-     * parent type (PUSH)
+     * parent type
      */
     private String parentType;
 
@@ -65,6 +27,19 @@ public class MessagePushParam extends PushParam {
 
     public void setParentType(String parentType) {
         this.parentType = parentType;
+    }
+
+    /**
+     * news type
+     */
+    private String newsType;
+
+    public String getNewsType() {
+        return newsType;
+    }
+
+    public void setNewsType(String newsType) {
+        this.newsType = newsType;
     }
 
     /**
@@ -81,7 +56,7 @@ public class MessagePushParam extends PushParam {
     }
 
     /**
-     * message categoryIds
+     * category id
      */
     private String categoryIds;
 
@@ -94,7 +69,7 @@ public class MessagePushParam extends PushParam {
     }
 
     /**
-     * display style (src or native)
+     * display status
      */
     private Boolean srcDisplay;
 

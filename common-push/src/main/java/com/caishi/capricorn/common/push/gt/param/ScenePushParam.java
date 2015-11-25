@@ -1,7 +1,6 @@
 package com.caishi.capricorn.common.push.gt.param;
 
-public class ScenePushParam extends MessagePushParam {
-
+public class ScenePushParam {
     /**
      * scene id
      */

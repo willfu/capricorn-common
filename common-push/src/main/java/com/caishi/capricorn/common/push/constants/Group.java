@@ -13,7 +13,7 @@ public enum Group {
     ONLINE(2, "LiudaOnline", "线上所有用户");
 
     /**
-     * Constructors
+     * constructors
      *
      * @param id          push group id
      * @param name        push group name

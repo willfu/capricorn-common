@@ -1,33 +1,90 @@
 package com.caishi.capricorn.common.push.gt.param;
 
-import java.util.List;
+import com.caishi.capricorn.common.push.constants.Group;
+import com.caishi.capricorn.common.push.constants.PlatForm;
+import com.caishi.capricorn.common.push.constants.PushStatus;
+import com.caishi.capricorn.common.push.constants.PushType;
+
+import java.util.*;
 
 public class PushParam {
 
     /**
-     * terminal os type collection(IOS,ANDROID)
+     * push id
      */
-    private List<String> plat;
+    private String pushId = UUID.randomUUID().toString().replace("-", "").toUpperCase();
 
-    public List<String> getPlat() {
-        return plat;
+    public String getPushId() {
+        return pushId;
     }
 
-    public void setPlat(List<String> plat) {
-        this.plat = plat;
+    private void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
     /**
-     * terminal group name collection (,)
+     * push type
      */
-    private List<String> tags;
+    private PushType pushType;
 
-    public List<String> getTags() {
-        return tags;
+    public PushType getPushType() {
+        return pushType;
     }
 
-    public void setTags(List<String> tags) {
-        this.tags = tags;
+    public void setPushType(PushType pushType) {
+        this.pushType = pushType;
+    }
+
+    /**
+     * receiver group
+     */
+    private Set<Group> groupSet = new HashSet<>();
+
+    public Set<Group> getGroupSet() {
+        return groupSet;
+    }
+
+    public void setGroupSet(Set<Group> groupSet) {
+        this.groupSet = groupSet;
+    }
+
+    /**
+     * terminal os type collection(IOS,ANDROID)
+     */
+    private Set<PlatForm> platFormSet = new HashSet<>();
+
+    public Set<PlatForm> getPlatFormSet() {
+        return platFormSet;
+    }
+
+    public void setPlatFormSet(Set<PlatForm> platFormSet) {
+        this.platFormSet = platFormSet;
+    }
+
+    /**
+     * title
+     */
+    private String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    /**
+     * summary
+     */
+    private String content;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     /**
@@ -41,5 +98,58 @@ public class PushParam {
 
     public void setInterval(int interval) {
         this.interval = interval;
+    }
+
+    /**
+     * create time
+     */
+    private Long createTime = new Date().getTime();
+
+    public Long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Long createTime) {
+        this.createTime = createTime;
+    }
+
+    /**
+     * push status
+     */
+    private PushStatus status = PushStatus.READY;
+
+    public PushStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(PushStatus status) {
+        this.status = status;
+    }
+
+
+    /**
+     * default sound
+     */
+    private String sound = "default1";
+
+    public String getSound() {
+        return sound;
+    }
+
+    public void setSound(String sound) {
+        this.sound = sound;
+    }
+
+    /**
+     * push data source
+     */
+    private Object dataSource;
+
+    public Object getDataSource() {
+        return dataSource;
+    }
+
+    public void setDataSource(Object dataSource) {
+        this.dataSource = dataSource;
     }
 }

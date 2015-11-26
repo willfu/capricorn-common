@@ -1,9 +1,6 @@
 package com.caishi.capricorn.common.push.gt.param;
 
-import com.caishi.capricorn.common.push.constants.Group;
-import com.caishi.capricorn.common.push.constants.PlatForm;
-import com.caishi.capricorn.common.push.constants.PushStatus;
-import com.caishi.capricorn.common.push.constants.PushType;
+import com.caishi.capricorn.common.push.constants.*;
 
 import java.io.Serializable;
 import java.util.*;
@@ -131,7 +128,7 @@ public class PushParam implements Serializable {
     /**
      * default sound
      */
-    private String sound = "default1";
+    private String sound = PushSoundType.SOUND.getFileName();
 
     public String getSound() {
         return sound;

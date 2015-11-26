@@ -1,7 +1,9 @@
 package com.caishi.capricorn.common.push.gt.param;
 
 
-public class MessagePushParam {
+import java.io.Serializable;
+
+public class MessagePushParam implements Serializable {
 
     /**
      * news id

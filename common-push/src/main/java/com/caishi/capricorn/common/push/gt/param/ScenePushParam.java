@@ -1,6 +1,8 @@
 package com.caishi.capricorn.common.push.gt.param;
 
-public class ScenePushParam {
+import java.io.Serializable;
+
+public class ScenePushParam implements Serializable {
     /**
      * scene id
      */

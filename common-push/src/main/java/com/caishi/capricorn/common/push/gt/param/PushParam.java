@@ -5,9 +5,10 @@ import com.caishi.capricorn.common.push.constants.PlatForm;
 import com.caishi.capricorn.common.push.constants.PushStatus;
 import com.caishi.capricorn.common.push.constants.PushType;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class PushParam {
+public class PushParam implements Serializable {
 
     /**
      * push id

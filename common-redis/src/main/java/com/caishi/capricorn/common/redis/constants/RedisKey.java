@@ -118,17 +118,17 @@ public class RedisKey {
 
     public final static String SCENE_SCHEDULER = "scene:scheduler:_{0}";
 
-    public final static String SCENE_PAGEVIEW_KEY = "scene:_{0}:page_view";
+    public final static String SCENE_PAGEVIEW_KEY = "scene:_{0}:page_view:{1}";
 
-    public final static String SCENE_PAGEVIEW_TREND_KEY = "scene:_{0}:page_view_trend";
+    public final static String SCENE_PAGEVIEW_TREND_KEY = "scene:_{0}:page_view_trend:{1}";
 
     public final static String SCENE_MESSAGE_PAGEVIEW_TOPNS_KEY = "scene:_{0}:message:page_view_{1}";
 
     public final static String SCENE_MESSAGE_PAGEVIEW_TOTAL_KEY = "scene:_{1}:message:page_view_total_{1}";
 
-    public final static String SCENE_USERVIEW_KEY = "scene:_{0}:user_view";
+    public final static String SCENE_USERVIEW_KEY = "scene:_{0}:user_view:{1}";
 
-    public final static String SCENE_USERVIEW_TREND_KEY = "scene:_{0}:user_view_trend";
+    public final static String SCENE_USERVIEW_TREND_KEY = "scene:_{0}:user_view_trend:{1}";
 
     public final static String SCENE_MESSAGE_USERVIEW_TOPNS_KEY = "scene:_{0}:message:user_view_{1}";
 
@@ -227,15 +227,15 @@ public class RedisKey {
     /**
      * category
      */
-    public final static String CATEGORY_PAGEVIEW_KEY = "category:_{0}:page_view";
+    public final static String CATEGORY_PAGEVIEW_KEY = "category:_{0}:page_view:{1}";
 
-    public final static String CATEGORY_PAGEVIEW_TREND_KEY = "category:_{0}:page_view_trend";
+    public final static String CATEGORY_PAGEVIEW_TREND_KEY = "category:_{0}:page_view_trend:{1}";
 
     public final static String CATEGORY_PAGEVIEW_TOPNS_KEY = "category:page_view_top_{0}";
 
-    public final static String CATEGORY_USERVIEW_KEY = "category:_{0}:user_view";
+    public final static String CATEGORY_USERVIEW_KEY = "category:_{0}:user_view:{1}";
 
-    public final static String CATEGORY_USERVIEW_TREND_KEY = "category:_{0}:user_view_trend";
+    public final static String CATEGORY_USERVIEW_TREND_KEY = "category:_{0}:user_view_trend:{1}";
 
     public final static String CATEGORY_USERVIEW_TOPNS_KEY = "category:user_view_top_{0}";
 

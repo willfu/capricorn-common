@@ -1,8 +1,9 @@
 package com.caishi.capricorn.common.message.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class MessageBaseDto {
+public class MessageBaseDTO implements Serializable {
 
     /**
      * message id

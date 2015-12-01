@@ -1,9 +1,10 @@
 package com.caishi.capricorn.common.message.dto;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MessageSummaryDto extends MessageBaseDto {
+public class NewsSummaryDTO extends MessageBaseDTO implements Serializable {
 
     /**
      * message data source

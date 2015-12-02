@@ -72,4 +72,28 @@ public class FeedConstants {
      **/
     public static String FEED_EXTRA_MOVIE_RELEASE_DATE = "movie-releasedate";
 
+    /**
+     * comments
+     *
+     * usage:
+     * Map<String, List<Object>> comments = (Map<String, List<Object>>) feedMessage.getExtra().get(FEED_EXTRA_COMMENTS);
+     **/
+    public static String FEED_EXTRA_COMMENTS = "comments";
+
+    /**
+     * comment links
+     *
+     * usage:
+     * List<String> commentLinks = (List<String>) ((Map<String, List<Object>>) feedMessage.getExtra().get(FEED_EXTRA_COMMENTS)).get(FEED_EXTRA_COMMENTS_LINKS));
+     **/
+    public static String FEED_EXTRA_COMMENTS_LINKS = "comments-links";
+
+    /**
+     * comment items
+     *
+     * usage:
+     * List<Map> commentLinks = (List<String>) ((Map<String, List<Map>>) feedMessage.getExtra().get(FEED_EXTRA_COMMENTS)).get(FEED_EXTRA_COMMENTS_ITEMS));
+     **/
+    public static String FEED_EXTRA_COMMENTS_ITEMS = "comments-items";
+
 }

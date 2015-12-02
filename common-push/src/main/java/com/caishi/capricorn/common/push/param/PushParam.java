@@ -35,19 +35,6 @@ public class PushParam implements Serializable {
     }
 
     /**
-     * receiver group
-     */
-    private Set<Group> groupSet = new HashSet<>();
-
-    public Set<Group> getGroupSet() {
-        return groupSet;
-    }
-
-    public void setGroupSet(Set<Group> groupSet) {
-        this.groupSet = groupSet;
-    }
-
-    /**
      * terminal os type collection(IOS,ANDROID)
      */
     private Set<PlatForm> platFormSet = new HashSet<>();

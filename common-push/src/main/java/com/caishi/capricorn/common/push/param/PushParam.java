@@ -1,6 +1,7 @@
-package com.caishi.capricorn.common.push.gt.param;
+package com.caishi.capricorn.common.push.param;
 
 import com.caishi.capricorn.common.push.constants.*;
+import com.caishi.capricorn.common.push.protocol.BasicProtocol;
 
 import java.io.Serializable;
 import java.util.*;
@@ -139,15 +140,15 @@ public class PushParam implements Serializable {
     }
 
     /**
-     * push data source
+     * push protocol
      */
-    private Object dataSource;
+    private BasicProtocol protocol;
 
-    public Object getDataSource() {
-        return dataSource;
+    public BasicProtocol getProtocol() {
+        return protocol;
     }
 
-    public void setDataSource(Object dataSource) {
-        this.dataSource = dataSource;
+    public void setProtocol(BasicProtocol protocol) {
+        this.protocol = protocol;
     }
 }

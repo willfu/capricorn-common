@@ -5,7 +5,7 @@ public enum PushType {
     /**
      * news
      */
-    MEWS(1, "newsDetail", "新闻推送"),
+    NEWS(1, "newsDetail", "新闻推送"),
 
     /**
      * scene

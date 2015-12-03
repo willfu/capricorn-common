@@ -35,7 +35,20 @@ public class PushParam implements Serializable {
     }
 
     /**
-     * terminal os type collection(IOS,ANDROID)
+     * push group info collection
+     */
+    private Set<PushReceiverGroup> pushReceiverGroupSet = new HashSet<>();
+
+    public Set<PushReceiverGroup> getPushReceiverGroupSet() {
+        return pushReceiverGroupSet;
+    }
+
+    public void setPushReceiverGroupSet(Set<PushReceiverGroup> pushReceiverGroupSet) {
+        this.pushReceiverGroupSet = pushReceiverGroupSet;
+    }
+
+    /**
+     * push platform info collection
      */
     private Set<PlatForm> platFormSet = new HashSet<>();
 
@@ -71,59 +84,6 @@ public class PushParam implements Serializable {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    /**
-     * trigger time (seconds)
-     */
-    private int interval;
-
-    public int getInterval() {
-        return interval;
-    }
-
-    public void setInterval(int interval) {
-        this.interval = interval;
-    }
-
-    /**
-     * create time
-     */
-    private Long createTime = new Date().getTime();
-
-    public Long getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Long createTime) {
-        this.createTime = createTime;
-    }
-
-    /**
-     * push status
-     */
-    private PushStatus status = PushStatus.READY;
-
-    public PushStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(PushStatus status) {
-        this.status = status;
-    }
-
-
-    /**
-     * default sound
-     */
-    private String sound = PushSoundType.SOUND.getFileName();
-
-    public String getSound() {
-        return sound;
-    }
-
-    public void setSound(String sound) {
-        this.sound = sound;
     }
 
     /**

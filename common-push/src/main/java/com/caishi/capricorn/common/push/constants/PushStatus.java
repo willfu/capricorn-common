@@ -3,34 +3,40 @@ package com.caishi.capricorn.common.push.constants;
 public enum PushStatus {
 
     /**
-     * data ready
+     * WAITING
      */
-    READY(1, "READY", "数据准备完毕"),
+    WAITING(1, "WAITING", "等待被发送"),
 
     /**
-     * wait to be send
+     * RUNNING
      */
-    WAIT(2, "WAIT", "等待被发送"),
+    RUNNING(2, "RUNNING", "正在被发送"),
 
     /**
-     * sending
+     * SUCCESS
      */
-    RUN(3, "RUN", "正在被发送"),
+    SUCCESS(3, "SUCCESS", "发送成功"),
 
     /**
-     * successful
+     * FAILED
      */
-    SUCCESS(4, "SUCCESS", "发送成功"),
+    FAILED(4, "FAILED", "发送失败"),
 
     /**
-     * failed
+     * ERROR
      */
-    FAILED(5, "FAILED", "发送失败"),
+    ERROR(5, "ERROR", "遇到错误"),
 
     /**
-     * error
+     * PARTIAL
      */
-    ERROR(6, "ERROR", "遇到错误");
+    PARTIAL(6, "PARTIAL", "部分成功"),
+
+    /**
+     * CANCLE
+     */
+    REVOKE(7, "REVOKE", "撤销任务");
+
 
     /**
      * constructors

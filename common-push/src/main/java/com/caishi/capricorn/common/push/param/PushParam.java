@@ -11,13 +11,13 @@ public class PushParam implements Serializable {
     /**
      * push id
      */
-    private String pushId = UUID.randomUUID().toString().replace("-", "").toUpperCase();
+    private String pushId;
 
     public String getPushId() {
         return pushId;
     }
 
-    private void setPushId(String pushId) {
+    public void setPushId(String pushId) {
         this.pushId = pushId;
     }
 

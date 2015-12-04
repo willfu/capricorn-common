@@ -33,9 +33,14 @@ public enum PushStatus {
     PARTIAL(6, "PARTIAL", "部分成功"),
 
     /**
-     * CANCLE
+     * REVOKE
      */
-    REVOKE(7, "REVOKE", "撤销任务");
+    REVOKE(7, "REVOKE", "撤销任务"),
+
+    /**
+     * TIMEOUT
+     */
+    TIMEOUT(8,"TIMEOUT","任务过期");
 
 
     /**

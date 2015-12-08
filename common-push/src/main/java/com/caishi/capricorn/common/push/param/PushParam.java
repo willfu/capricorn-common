@@ -122,7 +122,7 @@ public class PushParam implements Serializable {
                 if (pushType == null) {
                     throw new Exception("push type can not be null");
                 } else {
-                    if (!(pushType.getType().equals(protocol))) {
+                    if (!(pushType.getType().equals(protocol.getClass()))) {
                         throw new Exception("push type can not make adapter with protocol");
                     }
                 }

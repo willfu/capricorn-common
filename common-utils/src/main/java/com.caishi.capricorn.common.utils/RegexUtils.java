@@ -2,7 +2,7 @@ package com.caishi.capricorn.common.utils;
 
 import java.util.regex.Pattern;
 
-public class RegexUtil {
+public class RegexUtils {
 
     public final static boolean checkNumber(String data) {
         data = data.trim();

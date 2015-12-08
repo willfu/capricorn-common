@@ -2,7 +2,7 @@ package com.caishi.capricorn.common.utils;
 
 import java.util.Random;
 
-public class DataUtil {
+public class DataUtils {
 
     /**
      * 生成指定长度的随机字符串

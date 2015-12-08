@@ -1,16 +1,21 @@
 package com.caishi.capricorn.common.push.constants;
 
+import com.caishi.capricorn.common.push.protocol.MessageProtocol;
+import com.caishi.capricorn.common.push.protocol.SceneProtocol;
+
+import java.lang.reflect.Type;
+
 public enum PushType {
 
     /**
      * news
      */
-    NEWS(1, "newsDetail", "新闻推送"),
+    NEWS(1, "newsDetail", MessageProtocol.class, "新闻推送"),
 
     /**
      * scene
      */
-    SCENE(2, "scene", "场景推送");
+    SCENE(2, "scene", SceneProtocol.class, "场景推送");
 
     /**
      * constructors
@@ -19,9 +24,10 @@ public enum PushType {
      * @param name        push type name
      * @param description push type description
      */
-    PushType(int id, String name, String description) {
+    PushType(int id, String name, Type type, String description) {
         setId(id);
         setName(name);
+        setType(type);
         setDescription(description);
     }
 
@@ -49,6 +55,16 @@ public enum PushType {
 
     private void setName(String name) {
         this.name = name;
+    }
+
+    private Type type;
+
+    public Type getType() {
+        return type;
+    }
+
+    private void setType(Type type) {
+        this.type = type;
     }
 
     /**

@@ -98,4 +98,39 @@ public class PushParam implements Serializable {
     public void setProtocol(BasicProtocol protocol) {
         this.protocol = protocol;
     }
+
+    /**
+     * make validation
+     *
+     * @return
+     */
+    public Map<Boolean, String> validation() {
+        Map<Boolean, String> result = new HashMap<>();
+        try {
+            if (title == null || title.isEmpty() || title.length() >= 16) {
+                throw new Exception("title can not be null and length must less than 16");
+            }
+            if (content == null || content.isEmpty() || content.length() >= 128) {
+                throw new Exception("content can not be null and length must less than 128");
+            }
+            if (platFormSet == null || platFormSet.size() == 0) {
+                throw new Exception("plateForm collection can not be null and size must be more than one");
+            }
+            if (protocol == null) {
+                throw new Exception("protocol can not be null");
+            } else {
+                if (pushType == null) {
+                    throw new Exception("push type can not be null");
+                } else {
+                    if (!(pushType.getType().equals(protocol))) {
+                        throw new Exception("push type can not make adapter with protocol");
+                    }
+                }
+            }
+            result.put(true, "ok");
+        } catch (Exception ex) {
+            result.put(false, ex.getMessage());
+        }
+        return result;
+    }
 }

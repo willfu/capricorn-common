@@ -1,4 +1,4 @@
-package com.caishi.capricorn.common.scene.utils;
+package com.caishi.capricorn.common.utils;
 
 public class SceneUtils {
 

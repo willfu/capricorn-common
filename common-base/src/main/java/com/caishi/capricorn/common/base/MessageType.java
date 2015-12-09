@@ -67,6 +67,11 @@ public enum  MessageType {
      */
     FUNNY_GIF(13, "FUNNY_GIF");
 
+    /**
+     * constructors
+     * @param id message id
+     * @param name message name
+     */
     MessageType(int id, String name) {
         setId(id);
         setName(name);

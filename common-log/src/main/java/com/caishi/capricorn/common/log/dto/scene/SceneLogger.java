@@ -1,6 +1,6 @@
 package com.caishi.capricorn.common.log.dto.scene;
 
-import com.caishi.capricorn.common.scene.meta.SceneType;
+import com.caishi.capricorn.common.base.SceneType;
 
 public class SceneLogger {
 

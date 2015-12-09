@@ -2,6 +2,8 @@ package com.caishi.capricorn.common.event;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by humphrey.han@9icaishi.net on 15/12/9.
@@ -23,6 +25,50 @@ public class CapricornEvent<T extends AbstractEvent> implements Serializable {
      * time the event is queued (send to queue in async mode)
      */
     private long queuingTime;
+
+    /**
+     * event data
+     */
+    private List<T> events;
+
+    public CapricornEvent() {
+        this.createTime = new Date();
+    }
+
+    public CapricornEvent(T event) {
+        this();
+        this.events = new LinkedList<T>();
+        this.events.add(event);
+    }
+
+    public CapricornEvent(List<T> events) {
+        this();
+        this.events = events;
+    }
+
+    public T getEvent() {
+        if (null != events && events.size() > 0) {
+            return events.get(0);
+        }
+
+        return null;
+    }
+
+    public List<T> getEvents() {
+        return events;
+    }
+
+    public void setEvent(T event) {
+        if (null == this.events) {
+            this.events = new LinkedList<>();
+        }
+
+        this.events.add(event);
+    }
+
+    public void setEvent(List<T> events) {
+        this.events = events;
+    }
 
     public Date getCreateTime() {
         return createTime;
@@ -54,9 +100,5 @@ public class CapricornEvent<T extends AbstractEvent> implements Serializable {
 
     public void setQueuingTime(long queuingTime) {
         this.queuingTime = queuingTime;
-    }
-
-    public CapricornEvent() {
-        this.createTime = new Date();
     }
 }

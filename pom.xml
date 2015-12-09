@@ -45,7 +45,6 @@
         <module>common-quartz</module>
         <module>common-meta</module>
         <module>common-push</module>
-        <module>common-message</module>
         <module>common-event</module>
     </modules>
 </project>

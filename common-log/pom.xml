@@ -11,24 +11,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
-        <!--common-news-->
         <dependency>
             <groupId>com.caishi.capricorn</groupId>
             <artifactId>common-news</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        <!--common-social-->
-        <dependency>
-            <groupId>com.caishi.capricorn</groupId>
-            <artifactId>common-social</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.caishi.capricorn</groupId>
-            <artifactId>common-scene</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <!--junit-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

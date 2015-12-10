@@ -9,6 +9,8 @@ import java.util.List;
  * Created by humphrey.han@9icaishi.net on 15/12/9.
  */
 public class CapricornEvent<T extends AbstractEvent> implements Serializable {
+    private static final long serialVersionUID = 4919062422286104624L;
+
     /**
      * time at which the event was created
      */
@@ -100,5 +102,12 @@ public class CapricornEvent<T extends AbstractEvent> implements Serializable {
 
     public void setQueuingTime(long queuingTime) {
         this.queuingTime = queuingTime;
+    }
+
+    @Override
+    public String toString() {
+        return "CapricornEvent { createTime:" + createTime +
+                ", queuingTime:" + queuingTime +
+                ", Data:" + events;
     }
 }

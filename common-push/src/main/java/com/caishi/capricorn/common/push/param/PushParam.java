@@ -107,6 +107,10 @@ public class PushParam implements Serializable {
     public Map<Boolean, String> validation() {
         Map<Boolean, String> result = new HashMap<>();
         try {
+            if (pushId == null || pushId.isEmpty()) {
+                throw new Exception("push id can not be null or empty");
+            }
+
             if (title == null || title.isEmpty() || title.length() >= 16) {
                 throw new Exception("title can not be null and length must less than 16");
             }

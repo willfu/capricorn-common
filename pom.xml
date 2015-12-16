@@ -23,7 +23,6 @@
 
     <build/>
     <modules>
-        <module>common-login</module>
         <module>common-kafka</module>
         <module>common-utils</module>
         <module>common-base</module>
@@ -33,14 +32,12 @@
         <module>common-remote</module>
         <module>common-redis</module>
         <module>common-filter</module>
-        <module>common-notify</module>
         <module>common-news</module>
         <module>common-cache</module>
         <module>common-social</module>
         <module>common-qiniu</module>
         <module>common-storm</module>
         <module>common-logback</module>
-        <module>common-quartz</module>
         <module>common-meta</module>
         <module>common-push</module>
         <module>common-event</module>

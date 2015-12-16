@@ -33,7 +33,6 @@
         <module>common-filter</module>
         <module>common-news</module>
         <module>common-cache</module>
-        <module>common-social</module>
         <module>common-qiniu</module>
         <module>common-storm</module>
         <module>common-logback</module>

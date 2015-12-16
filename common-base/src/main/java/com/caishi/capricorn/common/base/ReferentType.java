@@ -1,6 +1,6 @@
-package com.caishi.capricorn.common.log.meta;
+package com.caishi.capricorn.common.base;
 
-public enum  ReferentType {
+public enum ReferentType {
 
     /**
      * 推送

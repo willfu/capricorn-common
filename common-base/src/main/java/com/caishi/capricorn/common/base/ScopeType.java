@@ -4,12 +4,12 @@ public enum ScopeType {
     /**
      * LIU_DA
      */
-    LIU_DA(1, "LIU_DA", "溜达咨询"),
+    LIU_DA(1, "LIU_DA", "Liuda", "溜达咨询"),
 
     /**
      * WU_LI
      */
-    WU_LI(2, "WU_LI", "唔哩咨询");
+    WU_LI(2, "WU_LI", "Wuli", "唔哩咨询");
 
     /**
      * constructors
@@ -18,9 +18,10 @@ public enum ScopeType {
      * @param name        scope type name
      * @param description scope type description
      */
-    ScopeType(int id, String name, String description) {
+    ScopeType(int id, String name, String identified, String description) {
         setId(id);
         setName(name);
+        setIdentified(identified);
         setDescription(description);
     }
 
@@ -48,6 +49,19 @@ public enum ScopeType {
 
     private void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * identified
+     */
+    private String identified;
+
+    public String getIdentified() {
+        return identified;
+    }
+
+    public void setIdentified(String identified) {
+        this.identified = identified;
     }
 
     /**

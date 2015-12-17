@@ -23,7 +23,9 @@ public class BeanPropertyholderConfigurer extends PropertyPlaceholderConfigurer 
     public static final String ONLINE = "ONLINE";
     public static final String TEST = "TEST";
     public static final String DEV = "DEV";
-    public static final Set<String> support_modes = Sets.newHashSet(ONLINE, TEST, DEV);
+    public static final String STAGE = "STAGE";
+
+    public static final Set<String> support_modes = Sets.newHashSet(ONLINE, TEST, DEV, STAGE);
     public static final String SEPARATOR = "_";
     public static final String PRODUCTION_MODE = "production.mode";
     private static final Logger logger = LoggerFactory.getLogger(BeanPropertyholderConfigurer.class);
@@ -110,7 +112,7 @@ public class BeanPropertyholderConfigurer extends PropertyPlaceholderConfigurer 
         String mode = System.getProperty(PRODUCTION_MODE);
 
         if (StringUtils.isNotBlank(mode) && support_modes.contains(mode)) {
-            logger.debug("loading production config for ");
+            logger.debug("loading production config for {} env", mode);
             return mode;
         }
 
@@ -136,16 +138,7 @@ public class BeanPropertyholderConfigurer extends PropertyPlaceholderConfigurer 
 
 
     private String generatePath(String pathPattern, String mode) {
-        if (StringUtils.equals(mode, ONLINE)) {
-            return String.format(pathPattern, StringUtils.lowerCase(mode));
-        }
-        if (StringUtils.equals(mode, TEST)) {
-            return String.format(pathPattern, StringUtils.lowerCase(mode));
-        }
-        if (StringUtils.equals(mode, DEV)) {
-            return String.format(pathPattern, StringUtils.lowerCase(mode));
-        }
-        return String.format(pathPattern, StringUtils.lowerCase(DEV));
+        return String.format(pathPattern, StringUtils.lowerCase(mode));
     }
 
     public String getProperty(String key) {

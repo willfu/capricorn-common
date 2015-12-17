@@ -1,5 +1,6 @@
 package com.caishi.capricorn.common.push.param;
 
+import com.caishi.capricorn.common.base.ScopeType;
 import com.caishi.capricorn.common.push.constants.*;
 import com.caishi.capricorn.common.push.protocol.BasicProtocol;
 
@@ -32,6 +33,19 @@ public class PushParam implements Serializable {
 
     public void setPushType(PushType pushType) {
         this.pushType = pushType;
+    }
+
+    /**
+     * scope type
+     */
+    private ScopeType scopeType = ScopeType.LIU_DA;
+
+    public ScopeType getScopeType() {
+        return scopeType;
+    }
+
+    public void setScopeType(ScopeType scopeType) {
+        this.scopeType = scopeType;
     }
 
     /**
@@ -109,6 +123,14 @@ public class PushParam implements Serializable {
         try {
             if (pushId == null || pushId.isEmpty()) {
                 throw new Exception("push id can not be null or empty");
+            }
+
+            if (pushType == null) {
+                throw new Exception("push type can not be null");
+            }
+
+            if (scopeType == null) {
+                throw new Exception("scope type can not be null");
             }
 
             if (title == null || title.isEmpty() || title.length() >= 16) {

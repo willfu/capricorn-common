@@ -4,12 +4,12 @@ public enum ScopeType {
     /**
      * LIU_DA
      */
-    LIU_DA(1, "LIU_DA", "溜达"),
+    LIU_DA(1, "LIU_DA", "溜达咨询"),
 
     /**
      * WU_LI
      */
-    WU_LI(2, "WU_LI", "唔理");
+    WU_LI(2, "WU_LI", "唔哩咨询");
 
     /**
      * constructors

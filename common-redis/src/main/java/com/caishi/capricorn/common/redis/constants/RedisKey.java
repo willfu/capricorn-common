@@ -124,7 +124,7 @@ public class RedisKey {
 
     public final static String SCENE_MESSAGE_PAGEVIEW_TOPNS_KEY = "scene:_{0}:message:page_view_{1}";
 
-    public final static String SCENE_MESSAGE_PAGEVIEW_TOTAL_KEY = "scene:_{1}:message:page_view_total_{1}";
+    public final static String SCENE_MESSAGE_PAGEVIEW_TOTAL_KEY = "scene:_{0}:message:page_view_total_{1}";
 
     public final static String SCENE_USERVIEW_KEY = "scene:_{0}:user_view:{1}";
 
@@ -132,7 +132,7 @@ public class RedisKey {
 
     public final static String SCENE_MESSAGE_USERVIEW_TOPNS_KEY = "scene:_{0}:message:user_view_{1}";
 
-    public final static String SCENE_MESSAGE_USERVIEW_TOTAL_KEY = "scene:_{1}:message:user_view_total_{1}";
+    public final static String SCENE_MESSAGE_USERVIEW_TOTAL_KEY = "scene:_{0}:message:user_view_total_{1}";
 
 
     /**

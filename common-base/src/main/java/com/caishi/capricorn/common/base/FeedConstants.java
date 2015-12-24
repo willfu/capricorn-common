@@ -65,10 +65,18 @@ public class FeedConstants {
     public static String FEED_EXTRA_MOVIE_ACTOR = "movie-actor";
 
     /**
-     * movie release date
+     * crawl id debug info
      *
      * usage:
-     * String movieReleaseDate = (String) (feedMessage.getExtra().get(FEED_EXTRA_MOVIE_RELEASE_DATE));
+     * String crawlId = (String) (feedMessage.getExtra().get(FEED_EXTRA_DEBUG_INFO).get(FEED_EXTRA_DEBUG_INFO_CRAWLID));
+     * **/
+    public static String  FEED_EXTRA_DEBUG_INFO_CRAWLID = "CRAWL_ID";
+
+    /**
+     * crawl id
+     *
+     * usage:
+     * String crawlId = (String) (feedMessage.getExtra().get(FEED_EXTRA_MOVIE_RELEASE_DATE));
      **/
     public static String FEED_EXTRA_MOVIE_RELEASE_DATE = "movie-releasedate";
 

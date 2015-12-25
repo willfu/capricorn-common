@@ -1,6 +1,7 @@
 package com.caishi.capricorn.common.redis.constants;
 
 public class RedisKey {
+
     /**
      * static
      */
@@ -220,9 +221,9 @@ public class RedisKey {
     /**
      * mobile
      */
-    public final static String MOBILE_VALIDATION_CODE = "mobile:validation:code:_{0}";
+    public final static String MOBILE_VALIDATION_CODE = "{0}:mobile:validation:code:_{1}";
 
-    public final static String MOBILE_SECURITY = "mobile:security:_{0}";
+    public final static String MOBILE_SECURITY = "{0}:mobile:security:_{1}";
 
     /**
      * category

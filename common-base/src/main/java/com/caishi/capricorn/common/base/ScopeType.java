@@ -110,12 +110,29 @@ public enum ScopeType {
     }
 
     /**
+     * get scope type info by scope type identified
+     *
+     * @param identified identified
+     * @return scope type info
+     */
+    public final static ScopeType getScopeTypeByIdentified(String identified) {
+        if (identified != null && !(identified = identified.replace(" ", "")).isEmpty()) {
+            for (ScopeType scopeType : ScopeType.values()) {
+                if (scopeType.getIdentified().equalsIgnoreCase(identified)) {
+                    return scopeType;
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
      * validation by scope type id
      *
      * @param id scope type id
      * @return validation status
      */
-    public final static boolean validation(int id) {
+    public final static boolean validationById(int id) {
         return getScopeTypeById(id) != null;
     }
 
@@ -125,7 +142,17 @@ public enum ScopeType {
      * @param name scope type name
      * @return validation status
      */
-    public final static boolean validation(String name) {
+    public final static boolean validationByName(String name) {
         return getScopeTypeByName(name) != null;
+    }
+
+    /**
+     * validation by scope type identified
+     *
+     * @param identified identified
+     * @return validation status
+     */
+    public final static boolean validationByIdentified(String identified) {
+        return getScopeTypeByIdentified(identified) != null;
     }
 }

@@ -31,11 +31,15 @@ public class RedisKey {
 
     public final static String MESSAGE_PAGEVIEW_TOPNS_KEY = "message:page_view_top_{0}";
 
+    public final static String MESSAGE_PAGEVIEW_TOPNS_SCOPE_TYPE_KEY = "message:page_view_top_{0}_{1}";
+
     public final static String MESSAGE_USERVIEW_KEY = "message:{0}:_{1}:user_view";
 
     public final static String MESSAGE_USERVIEW_TREND_KEY = "message:{0}:_{1}:user_view_trend";
 
     public final static String MESSAGE_USERVIEW_TOPNS_KEY = "message:user_view_top_{0}";
+
+    public final static String MESSAGE_USERVIEW_TOPNS_SCOPE_TYPE_KEY = "message:user_view_top_{0}_{1}";
 
     public final static String MESSAGE_SUMMARY = "summary";
 

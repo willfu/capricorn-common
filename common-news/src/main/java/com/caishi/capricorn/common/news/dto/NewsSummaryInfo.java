@@ -272,4 +272,30 @@ public class NewsSummaryInfo {
     public void setCommentLevel(String commentLevel) {
         this.commentLevel = commentLevel;
     }
+
+    /**
+     * origin
+     */
+    private String origin;
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    /**
+     * origin link
+     */
+    private String originLink;
+
+    public String getOriginLink() {
+        return originLink;
+    }
+
+    public void setOriginLink(String originLink) {
+        this.originLink = originLink;
+    }
 }

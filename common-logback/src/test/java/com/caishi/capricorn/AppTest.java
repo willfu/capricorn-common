@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Unit test for simple App.
  */
@@ -35,6 +37,7 @@ public class AppTest {
 		System.setProperty("appenderSelction", "rolling");
 
 		Logger LOGGER = LoggerFactory.getLogger(AppTest.class);
+
 		LOGGER.info("rolling logging");
 	}
 
@@ -49,7 +52,11 @@ public class AppTest {
 	@Test
 	public void testPropertiesConfig() throws Exception {
 		Logger LOGGER = LoggerFactory.getLogger(AppTest.class);
-		LOGGER.info("properties config logging");
+
+		for (int i = 0; i < 100000; i++) {
+			LOGGER.info("properties config logging");
+			TimeUnit.SECONDS.sleep(1);
+		}
 
 	}
 }

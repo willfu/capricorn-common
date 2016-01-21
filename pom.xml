@@ -39,5 +39,6 @@
         <module>common-meta</module>
         <module>common-push</module>
         <module>common-event</module>
+        <module>common-search</module>
     </modules>
 </project>

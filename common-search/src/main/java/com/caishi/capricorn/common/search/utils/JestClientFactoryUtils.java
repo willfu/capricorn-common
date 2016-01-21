@@ -18,8 +18,7 @@ public class JestClientFactoryUtils {
                 JestClientFactory temp = jestClientFactory;
                 if (temp == null) {
                     temp = new JestClientFactory();
-                    HttpClientConfig httpClientConfig = new HttpClientConfig.Builder(urlCollection).multiThreaded(true).build();
-                    temp.setHttpClientConfig(httpClientConfig);
+                    temp.setHttpClientConfig(new HttpClientConfig.Builder(urlCollection).multiThreaded(true).build());
                     if (temp != null) {
                         jestClientFactory = temp;
                     }

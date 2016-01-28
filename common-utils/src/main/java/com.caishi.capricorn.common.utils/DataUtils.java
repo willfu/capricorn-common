@@ -44,7 +44,7 @@ public class DataUtils {
      */
     public final static String getUUIDString(boolean splitEnable) {
         String result = UUID.randomUUID().toString().toUpperCase();
-        if (splitEnable) {
+        if (!splitEnable) {
             result = result.replace("-", "");
         }
         return result;

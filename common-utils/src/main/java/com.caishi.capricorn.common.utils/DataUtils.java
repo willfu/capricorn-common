@@ -1,6 +1,7 @@
 package com.caishi.capricorn.common.utils;
 
 import java.util.Random;
+import java.util.UUID;
 
 public class DataUtils {
 
@@ -34,5 +35,18 @@ public class DataUtils {
             sb.append(buffer.charAt(random.nextInt(range)));
         }
         return sb.toString().trim();
+    }
+
+    /**
+     * get uuid string
+     * @param splitEnable split enable
+     * @return uuid string
+     */
+    public final static String getUUIDString(boolean splitEnable) {
+        String result = UUID.randomUUID().toString().toUpperCase();
+        if (splitEnable) {
+            result = result.replace("-", "");
+        }
+        return result;
     }
 }

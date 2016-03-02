@@ -1,5 +1,6 @@
 package com.caishi.capricorn.common.spring.environment;
 
+import com.caishi.capricorn.common.utils.PropertiesUtil;
 import com.google.common.collect.Sets;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -12,6 +13,8 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.core.io.support.ResourcePatternResolver;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 
@@ -97,6 +100,33 @@ public class BeanPropertyholderConfigurer extends PropertyPlaceholderConfigurer 
             super.setLocations(resourceList.toArray(new Resource[]{}));
 
             Properties result = this.mergeProperties();
+
+            // loaded files
+            ArrayList<String> loadedConfigs = new ArrayList<>();
+            for (Resource resource : resourceList) {
+                String resourceURLPath = resource.getURL().getFile();
+                loadedConfigs.add(resourceURLPath.substring(resourceURLPath.lastIndexOf("/") + 1));
+            }
+
+            // suppress hardcoded properties defined in classpath (jars) by working directory config files
+            try {
+                File configFolder = new File(System.getProperty("user.dir") + "/config");
+                if (loadedConfigs.size() > 0 && configFolder.exists() && configFolder.listFiles().length > 0) {
+                    for (String configFile : configFolder.list()) {
+                        if (loadedConfigs.contains(configFile)) {
+                            logger.debug("process customized config file '" + configFile + "'");
+
+                            Properties customizedProperties = new Properties();
+                            customizedProperties.load(new FileInputStream(configFolder.getAbsolutePath() + "/" + configFile));
+                            result = PropertiesUtil.mergeProperties(result, customizedProperties);
+                        }
+                    }
+                }
+            } catch (Exception exp) {
+                logger.warn("exception to load and process customized properties under config dir, would using defaults", exp);
+            }
+
+
             if (logger.isDebugEnabled()) {
                 logger.debug("production model is " + mode);
             }

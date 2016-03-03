@@ -19,6 +19,7 @@ public class MsgProcessorInfo {
 
 	private String topic;
 	private String groupId;
+	private boolean enabled = true;
 
 	private boolean isMulticast = false; // 是否多播模式：给个消费者单独消费每一条消息
 	private int threadNum;
@@ -117,6 +118,14 @@ public class MsgProcessorInfo {
 
 	public void setProperties(Properties properties) {
 		this.properties = properties;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	@Override

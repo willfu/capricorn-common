@@ -162,7 +162,10 @@ public class ConsumerContainer {
 		});
 
 		for (Map.Entry<MsgProcessorInfo, MsgProcessor> entry : msgProcessorMap.entrySet()) {
-			startConsumer(entry.getKey(), entry.getValue());
+			MsgProcessorInfo msgProcessorInfo = entry.getKey();
+			if (msgProcessorInfo.isEnabled()) {
+				startConsumer(entry.getKey(), entry.getValue());
+			}
 		}
 	}
 

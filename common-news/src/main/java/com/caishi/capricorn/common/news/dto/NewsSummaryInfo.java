@@ -298,4 +298,30 @@ public class NewsSummaryInfo {
     public void setOriginLink(String originLink) {
         this.originLink = originLink;
     }
+
+    /**
+     * 是否是原创文章（通过CMS原创）true是, false不是
+     */
+    private boolean isOriginal;
+
+    public boolean isOriginal() {
+        return isOriginal;
+    }
+
+    public void setOriginal(boolean original) {
+        isOriginal = original;
+    }
+
+    /**
+     * 评论总数
+     */
+    private long commentCotalCount;
+
+    public long getCommentCotalCount() {
+        return commentCotalCount;
+    }
+
+    public void setCommentCotalCount(long commentCotalCount) {
+        this.commentCotalCount = commentCotalCount;
+    }
 }

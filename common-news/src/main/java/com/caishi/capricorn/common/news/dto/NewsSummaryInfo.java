@@ -302,14 +302,14 @@ public class NewsSummaryInfo {
     /**
      * 是否是原创文章（通过CMS原创）true是, false不是
      */
-    private boolean isOriginal;
+    private boolean originality;
 
-    public boolean isOriginal() {
-        return isOriginal;
+    public boolean isOriginality() {
+        return originality;
     }
 
-    public void setOriginal(boolean original) {
-        isOriginal = original;
+    public void setOriginality(boolean originality) {
+        this.originality = originality;
     }
 
     /**

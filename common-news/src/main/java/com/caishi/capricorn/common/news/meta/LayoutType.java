@@ -65,7 +65,14 @@ public enum LayoutType {
     /**
      * 投票大图(仅文字)
      */
-    VOTE_BIG_TEXT(1022, "VOTE_BIG_TEXT");
+    VOTE_BIG_TEXT(1022, "VOTE_BIG_TEXT"),
+
+    /**
+     * 视频
+     */
+    VIDEO(1023, "VIDEO");
+
+
 
     LayoutType(int id, String name) {
         setId(id);

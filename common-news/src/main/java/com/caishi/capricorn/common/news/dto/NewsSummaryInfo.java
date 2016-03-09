@@ -315,13 +315,13 @@ public class NewsSummaryInfo {
     /**
      * 评论总数
      */
-    private long commentCotalCount;
+    private long commentTotalCount;
 
-    public long getCommentCotalCount() {
-        return commentCotalCount;
+    public long getCommentTotalCount() {
+        return commentTotalCount;
     }
 
-    public void setCommentCotalCount(long commentCotalCount) {
-        this.commentCotalCount = commentCotalCount;
+    public void setCommentTotalCount(long commentTotalCount) {
+        this.commentTotalCount = commentTotalCount;
     }
 }

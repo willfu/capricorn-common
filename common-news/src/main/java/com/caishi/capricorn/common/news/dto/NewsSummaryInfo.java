@@ -337,4 +337,30 @@ public class NewsSummaryInfo {
     public void setAtlasStatus(int atlasStatus) {
         this.atlasStatus = atlasStatus;
     }
+
+    /**
+     * 收藏状态
+     */
+    private String collectStatus;
+
+    public String getShareLink() {
+        return shareLink;
+    }
+
+    public void setShareLink(String shareLink) {
+        this.shareLink = shareLink;
+    }
+
+    /**
+     * 分享url
+     */
+    private String shareLink;
+
+    public String getCollectStatus() {
+        return collectStatus;
+    }
+
+    public void setCollectStatus(String collectStatus) {
+        this.collectStatus = collectStatus;
+    }
 }

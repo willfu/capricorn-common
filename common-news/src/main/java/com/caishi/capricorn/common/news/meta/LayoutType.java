@@ -70,12 +70,7 @@ public enum LayoutType {
     /**
      * 视频
      */
-    VIDEO(1023, "VIDEO"),
-
-    /**
-     * 图集
-     */
-    ATLAS(1024,"ATLAS");
+    VIDEO(1023, "VIDEO");
 
 
 

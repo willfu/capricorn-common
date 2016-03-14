@@ -324,4 +324,17 @@ public class NewsSummaryInfo {
     public void setCommentTotalCount(long commentTotalCount) {
         this.commentTotalCount = commentTotalCount;
     }
+
+    /**
+     * atlas status
+     */
+    private int atlasStatus = 0;
+
+    public int getAtlasStatus() {
+        return atlasStatus;
+    }
+
+    public void setAtlasStatus(int atlasStatus) {
+        this.atlasStatus = atlasStatus;
+    }
 }

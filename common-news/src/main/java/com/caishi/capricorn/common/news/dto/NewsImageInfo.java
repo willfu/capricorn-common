@@ -98,8 +98,12 @@ public class NewsImageInfo implements Cloneable {
      */
     private int coverEnable = 0;
 
-    public void setGif(boolean gif) {
-        isGif = gif;
+    public int getCoverEnable() {
+        return coverEnable;
+    }
+
+    public void setCoverEnable(int coverEnable) {
+        this.coverEnable = coverEnable;
     }
 
     /**

@@ -8,16 +8,16 @@ import java.util.List;
 public class CommonPager<T> {
 
     /** total count */
-    private Integer totalCount = 0;
+    private long totalCount = 0;
 
     /** data */
     private List<T> data = null;
 
-    public Integer getTotalCount() {
+    public long getTotalCount() {
         return totalCount;
     }
 
-    public void setTotalCount(Integer totalCount) {
+    public void setTotalCount(long totalCount) {
         this.totalCount = totalCount;
     }
 

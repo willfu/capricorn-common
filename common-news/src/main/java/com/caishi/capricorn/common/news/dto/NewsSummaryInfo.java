@@ -352,16 +352,15 @@ public class NewsSummaryInfo {
     }
 
     /**
-     * share link
+     * share Url
      */
-    private String shareLink;
+    private String shareUrl;
 
-    public String getShareLink() {
-        return shareLink;
+    public String getShareUrl() {
+        return shareUrl;
     }
 
-    public void setShareLink(String shareLink) {
-        this.shareLink = shareLink;
+    public void setShareUrl(String shareUrl) {
+        this.shareUrl = shareUrl;
     }
-
 }

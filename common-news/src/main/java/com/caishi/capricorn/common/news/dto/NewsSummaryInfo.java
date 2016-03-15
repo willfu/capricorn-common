@@ -339,9 +339,22 @@ public class NewsSummaryInfo {
     }
 
     /**
-     * 收藏状态
+     * collect status
      */
-    private String collectStatus;
+    private int collectStatus;
+
+    public int getCollectStatus() {
+        return collectStatus;
+    }
+
+    public void setCollectStatus(int collectStatus) {
+        this.collectStatus = collectStatus;
+    }
+
+    /**
+     * share link
+     */
+    private String shareLink;
 
     public String getShareLink() {
         return shareLink;
@@ -351,16 +364,4 @@ public class NewsSummaryInfo {
         this.shareLink = shareLink;
     }
 
-    /**
-     * 分享url
-     */
-    private String shareLink;
-
-    public String getCollectStatus() {
-        return collectStatus;
-    }
-
-    public void setCollectStatus(String collectStatus) {
-        this.collectStatus = collectStatus;
-    }
 }

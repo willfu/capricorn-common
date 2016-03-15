@@ -93,22 +93,31 @@ public class NewsImageInfo implements Cloneable {
         this.height = height;
     }
 
+    /**
+     * cover enable
+     */
+    private int coverEnable = 0;
 
+    public void setGif(boolean gif) {
+        isGif = gif;
+    }
 
     /**
      * 克隆
+     *
      * @return 克隆结果
      */
     public NewsImageInfo clone() throws CloneNotSupportedException {
-        NewsImageInfo newsImageInfo = (NewsImageInfo)(super.clone());
+        NewsImageInfo newsImageInfo = (NewsImageInfo) (super.clone());
         return newsImageInfo;
     }
 
     /**
      * 是否为GIF图片
+     *
      * @return 是否为GIF图片
      */
-    public  boolean isGifFormat() {
+    public boolean isGifFormat() {
         return getGifStatus() == 1;
     }
 }

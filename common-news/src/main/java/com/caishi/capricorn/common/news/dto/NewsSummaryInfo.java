@@ -324,4 +324,43 @@ public class NewsSummaryInfo {
     public void setCommentTotalCount(long commentTotalCount) {
         this.commentTotalCount = commentTotalCount;
     }
+
+    /**
+     * atlas status
+     */
+    private int atlasStatus = 0;
+
+    public int getAtlasStatus() {
+        return atlasStatus;
+    }
+
+    public void setAtlasStatus(int atlasStatus) {
+        this.atlasStatus = atlasStatus;
+    }
+
+    /**
+     * collect status
+     */
+    private int collectStatus;
+
+    public int getCollectStatus() {
+        return collectStatus;
+    }
+
+    public void setCollectStatus(int collectStatus) {
+        this.collectStatus = collectStatus;
+    }
+
+    /**
+     * share Url
+     */
+    private String shareUrl;
+
+    public String getShareUrl() {
+        return shareUrl;
+    }
+
+    public void setShareUrl(String shareUrl) {
+        this.shareUrl = shareUrl;
+    }
 }

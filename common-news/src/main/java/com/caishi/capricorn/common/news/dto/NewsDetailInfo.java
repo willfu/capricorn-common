@@ -102,13 +102,13 @@ public class NewsDetailInfo {
      * 视频
      */
 
-    private List<VideoInfo> videoInfoList = new ArrayList<>();
+    private List<VideoDetailInfo> videoInfoList = new ArrayList<>();
 
-    public List<VideoInfo> getVideoInfoList() {
+    public List<VideoDetailInfo> getVideoInfoList() {
         return videoInfoList;
     }
 
-    public void setVideoInfoList(List<VideoInfo> videoInfoList) {
+    public void setVideoInfoList(List<VideoDetailInfo> videoInfoList) {
         this.videoInfoList = videoInfoList;
     }
 

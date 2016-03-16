@@ -2,7 +2,7 @@ package com.caishi.capricorn.common.news.dto;
 
 import java.util.Date;
 
-public class VideoInfo {
+public class VideoDetailInfo {
 
     /**
      * video id

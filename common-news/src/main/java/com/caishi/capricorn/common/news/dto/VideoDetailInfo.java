@@ -1,8 +1,9 @@
 package com.caishi.capricorn.common.news.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class VideoDetailInfo {
+public class VideoDetailInfo implements Serializable{
 
     /**
      * video id

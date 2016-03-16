@@ -76,6 +76,8 @@ public class FeedMessage implements Serializable {
 
 	private List<Integer> scenes;
 
+	private String feedTag;
+
 	public String getId() {
 		return id;
 	}
@@ -178,6 +180,14 @@ public class FeedMessage implements Serializable {
 
 	public List<Integer> getScenes() {
 		return this.scenes;
+	}
+
+	public String getFeedTag() {
+		return feedTag;
+	}
+
+	public void setFeedTag(String feedTag) {
+		this.feedTag = feedTag;
 	}
 
 	@Override

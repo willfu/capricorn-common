@@ -99,6 +99,20 @@ public class NewsDetailInfo {
     }
 
     /**
+     * 视频
+     */
+
+    private List<VideoDetailInfo> videoInfoList = new ArrayList<>();
+
+    public List<VideoDetailInfo> getVideoInfoList() {
+        return videoInfoList;
+    }
+
+    public void setVideoInfoList(List<VideoDetailInfo> videoInfoList) {
+        this.videoInfoList = videoInfoList;
+    }
+
+    /**
      * 连接
      */
     private String shareUrl;

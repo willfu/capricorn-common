@@ -363,4 +363,17 @@ public class NewsSummaryInfo {
     public void setShareUrl(String shareUrl) {
         this.shareUrl = shareUrl;
     }
+
+    /**
+     * tag
+     */
+    private String tag;
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
 }

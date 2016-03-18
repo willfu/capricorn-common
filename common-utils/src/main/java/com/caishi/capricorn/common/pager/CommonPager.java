@@ -1,11 +1,12 @@
 package com.caishi.capricorn.common.pager;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by syzz on 2016/3/15.
  */
-public class CommonPager<T> {
+public class CommonPager<T> implements Serializable {
 
     /** total count */
     private long totalCount = 0;

@@ -11,7 +11,7 @@ public class CommonPager<T> implements Serializable {
     /** 第几页 */
     private Integer pageIndex = 0;
 
-    /** 第几页 */
+    /** 每页数量 */
     private Integer pageSize = 20;
 
     /** total count */

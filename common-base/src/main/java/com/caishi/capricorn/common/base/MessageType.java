@@ -65,7 +65,12 @@ public enum  MessageType {
     /**
      * 搞笑图片
      */
-    FUNNY_GIF(13, "FUNNY_GIF");
+    FUNNY_GIF(13, "FUNNY_GIF"),
+
+    /**
+     * 全图片类型新闻:去重模块会使用到
+     */
+    IMAGE(14, "IMAGE");
 
     /**
      * constructors

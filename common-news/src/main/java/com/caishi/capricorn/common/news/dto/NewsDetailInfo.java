@@ -139,7 +139,7 @@ public class NewsDetailInfo {
     }
 
     /**
-     *  发布时间
+     * 发布时间
      */
     private long publishTime;
 
@@ -181,7 +181,7 @@ public class NewsDetailInfo {
     /**
      * 调试信息
      */
-    private Map<String,Object> debugInfo = new HashMap<String,Object>();
+    private Map<String, Object> debugInfo = new HashMap<String, Object>();
 
     public Map<String, Object> getDebugInfo() {
         return debugInfo;
@@ -220,7 +220,7 @@ public class NewsDetailInfo {
     /**
      * 原文类型
      */
-    private String sourceType="APP";
+    private String sourceType = "APP";
 
     public String getSourceType() {
         return sourceType;
@@ -241,5 +241,18 @@ public class NewsDetailInfo {
 
     public void setCommentLevel(String commentLevel) {
         this.commentLevel = commentLevel;
+    }
+
+    /**
+     * news relevance info collection
+     */
+    private Collection<NewsRelevanceInfo> newsRelevanceInfoCollection = new ArrayList<>();
+
+    public Collection<NewsRelevanceInfo> getNewsRelevanceInfoCollection() {
+        return newsRelevanceInfoCollection;
+    }
+
+    public void setNewsRelevanceInfoCollection(Collection<NewsRelevanceInfo> newsRelevanceInfoCollection) {
+        this.newsRelevanceInfoCollection = newsRelevanceInfoCollection;
     }
 }

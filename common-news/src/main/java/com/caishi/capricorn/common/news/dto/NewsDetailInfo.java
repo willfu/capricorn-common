@@ -246,13 +246,13 @@ public class NewsDetailInfo {
     /**
      * news relevance info collection
      */
-    private Collection<NewsRelevanceInfo> newsRelevanceInfoCollection = new ArrayList<>();
+    private List<NewsRelevanceInfo> newsRelevanceInfoCollection = new ArrayList<>();
 
-    public Collection<NewsRelevanceInfo> getNewsRelevanceInfoCollection() {
+    public List<NewsRelevanceInfo> getNewsRelevanceInfoCollection() {
         return newsRelevanceInfoCollection;
     }
 
-    public void setNewsRelevanceInfoCollection(Collection<NewsRelevanceInfo> newsRelevanceInfoCollection) {
+    public void setNewsRelevanceInfoCollection(List<NewsRelevanceInfo> newsRelevanceInfoCollection) {
         this.newsRelevanceInfoCollection = newsRelevanceInfoCollection;
     }
 }

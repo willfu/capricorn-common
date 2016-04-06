@@ -47,7 +47,7 @@ public class NewsRelevanceInfo {
     /**
      * score
      */
-    private double score;
+    private double score = 0;
 
     public double getScore() {
         return score;

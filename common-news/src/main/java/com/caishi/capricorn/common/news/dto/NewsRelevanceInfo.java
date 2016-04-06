@@ -43,4 +43,17 @@ public class NewsRelevanceInfo {
     public void setMessageSourceType(String messageSourceType) {
         this.messageSourceType = messageSourceType;
     }
+
+    /**
+     * score
+     */
+    private double score;
+
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
+    }
 }

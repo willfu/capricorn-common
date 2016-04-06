@@ -242,17 +242,4 @@ public class NewsDetailInfo {
     public void setCommentLevel(String commentLevel) {
         this.commentLevel = commentLevel;
     }
-
-    /**
-     * news relevance info collection
-     */
-    private List<NewsRelevanceInfo> newsRelevanceInfoCollection = new ArrayList<>();
-
-    public List<NewsRelevanceInfo> getNewsRelevanceInfoCollection() {
-        return newsRelevanceInfoCollection;
-    }
-
-    public void setNewsRelevanceInfoCollection(List<NewsRelevanceInfo> newsRelevanceInfoCollection) {
-        this.newsRelevanceInfoCollection = newsRelevanceInfoCollection;
-    }
 }

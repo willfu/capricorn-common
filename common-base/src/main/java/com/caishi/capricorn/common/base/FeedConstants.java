@@ -73,6 +73,14 @@ public class FeedConstants {
     public static String  FEED_EXTRA_DEBUG_INFO_CRAWLID = "CRAWL_ID";
 
     /**
+     * feed crawler env debug info
+     *
+     * usage:
+     * String crawlerEnv = (String) (feedMessage.getExtra().get(FEED_EXTRA_DEBUG_INFO).get(FEED_EXTRA_DEBUG_INFO_CRAWLER_ENV));
+     * **/
+    public static String  FEED_EXTRA_DEBUG_INFO_CRAWLER_ENV = "CRAWLER_ENV";
+
+    /**
      * crawl id
      *
      * usage:

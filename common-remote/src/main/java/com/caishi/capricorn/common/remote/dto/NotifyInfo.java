@@ -1,4 +1,4 @@
-package com.caishi.capricorn.common.base;
+package com.caishi.capricorn.common.remote.dto;
 
 public class NotifyInfo extends Exception {
 

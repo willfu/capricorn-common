@@ -1,6 +1,7 @@
 package com.caishi.capricorn.common.base;
 
 public enum ScopeType {
+
     /**
      * LIU_DA
      */
@@ -9,7 +10,12 @@ public enum ScopeType {
     /**
      * WU_LI
      */
-    WU_LI(2, "WU_LI", "Wuli", "唔哩资讯");
+    WU_LI(2, "WU_LI", "Wuli", "唔哩资讯"),
+
+    /**
+     * WU_LI
+     */
+    SDK(3, "SDK", "Sdk", "Sdk");
 
     /**
      * constructors

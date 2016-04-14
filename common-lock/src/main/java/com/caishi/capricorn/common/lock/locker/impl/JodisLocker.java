@@ -36,6 +36,8 @@ public class JodisLocker extends AbstractRedisLocker<Jedis> {
 		} catch (Exception exp) {
 			exp.printStackTrace();
 		}
+
+		return null;
 	}
 
 	@Override

@@ -2,9 +2,10 @@ package com.caishi.capricorn.common.news.dto;
 
 import com.caishi.capricorn.common.base.MessageType;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class NewsDetailInfo {
+public class NewsDetailInfo implements Serializable {
 
     /**
      * 编号

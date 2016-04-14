@@ -2,10 +2,11 @@ package com.caishi.capricorn.common.news.dto;
 
 import com.caishi.capricorn.common.news.meta.LayoutType;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LayoutInfo {
+public class LayoutInfo implements Serializable {
 
     /**
      * 版式类型

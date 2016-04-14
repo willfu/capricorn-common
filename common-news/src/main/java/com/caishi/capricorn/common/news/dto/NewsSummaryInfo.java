@@ -4,12 +4,13 @@ import com.caishi.capricorn.common.base.MessageType;
 import com.caishi.capricorn.common.news.meta.LayoutType;
 import com.caishi.capricorn.common.news.meta.ParentType;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class NewsSummaryInfo {
+public class NewsSummaryInfo implements Serializable {
 
     /**
      * 父本

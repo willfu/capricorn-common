@@ -1,6 +1,8 @@
 package com.caishi.capricorn.common.news.dto;
 
-public class NewsImageInfo implements Cloneable {
+import java.io.Serializable;
+
+public class NewsImageInfo implements Cloneable,Serializable {
 
     /**
      * 图片索引关键字

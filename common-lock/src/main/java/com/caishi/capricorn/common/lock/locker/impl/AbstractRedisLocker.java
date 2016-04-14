@@ -9,7 +9,7 @@ import redis.clients.jedis.JedisCommands;
  */
 public abstract class AbstractRedisLocker<T extends JedisCommands> implements Locker {
 
-	private long timeout;
+	protected long timeout;
 
 	protected abstract  T getRedis();
 

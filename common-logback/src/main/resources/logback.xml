@@ -30,7 +30,7 @@
     <shutdownHook/>
 
     <!-- loggger for caishi  -->
-    <logger name="com.caishi.capricorn" level="${caishiLevel:-DEBUG}">
+    <logger name="com.caishi" level="${caishiLevel:-DEBUG}">
     </logger>
 
     <!-- logger for third lib code -->
